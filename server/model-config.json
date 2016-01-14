@@ -88,5 +88,9 @@
   "billing": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "appointment": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
