@@ -25,7 +25,28 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "examType": {
+      "type": "belongsTo",
+      "model": "examType",
+      "foreignKey": ""
+    },
+    "examMethode": {
+      "type": "belongsTo",
+      "model": "examMethode",
+      "foreignKey": ""
+    },
+    "patient": {
+      "type": "belongsTo",
+      "model": "patient",
+      "foreignKey": ""
+    },
+    "shift": {
+      "type": "belongsTo",
+      "model": "shift",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

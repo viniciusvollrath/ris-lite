@@ -19,7 +19,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "equipment": {
+      "type": "hasMany",
+      "model": "equipment",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

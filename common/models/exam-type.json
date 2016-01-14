@@ -16,7 +16,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "equipment": {
+      "type": "belongsTo",
+      "model": "equipment",
+      "foreignKey": ""
+    },
+    "exams": {
+      "type": "hasMany",
+      "model": "exam",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

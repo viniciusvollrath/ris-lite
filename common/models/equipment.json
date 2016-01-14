@@ -20,7 +20,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "equipmentType": {
+      "type": "belongsTo",
+      "model": "equipmentType",
+      "foreignKey": ""
+    },
+    "examTypes": {
+      "type": "hasMany",
+      "model": "examType",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

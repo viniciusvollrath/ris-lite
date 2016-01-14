@@ -27,7 +27,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "exams": {
+      "type": "hasMany",
+      "model": "exam",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

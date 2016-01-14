@@ -20,7 +20,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "examType": {
+      "type": "belongsTo",
+      "model": "examType",
+      "foreignKey": ""
+    },
+    "examMethode": {
+      "type": "belongsTo",
+      "model": "examMethode",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

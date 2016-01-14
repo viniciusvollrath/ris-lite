@@ -12,7 +12,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "staffs": {
+      "type": "hasOne",
+      "model": "staff",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
