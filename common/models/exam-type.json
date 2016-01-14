@@ -26,6 +26,11 @@
       "type": "hasMany",
       "model": "exam",
       "foreignKey": ""
+    },
+    "appointments": {
+      "type": "hasMany",
+      "model": "appointment",
+      "foreignKey": ""
     }
   },
   "acls": [],
