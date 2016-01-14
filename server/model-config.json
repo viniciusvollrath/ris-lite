@@ -52,5 +52,9 @@
   "examType": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "examMethode": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
