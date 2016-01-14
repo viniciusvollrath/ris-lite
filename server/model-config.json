@@ -76,5 +76,9 @@
   "exam": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "price": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
