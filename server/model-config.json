@@ -80,5 +80,9 @@
   "price": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "inventory": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
