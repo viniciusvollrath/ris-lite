@@ -56,5 +56,9 @@
   "examMethode": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "shift": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
