@@ -45,6 +45,11 @@
       "type": "belongsTo",
       "model": "shift",
       "foreignKey": ""
+    },
+    "doctor": {
+      "type": "belongsTo",
+      "model": "doctor",
+      "foreignKey": ""
     }
   },
   "acls": [],
