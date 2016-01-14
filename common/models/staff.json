@@ -1,5 +1,5 @@
 {
-  "name": "doctor",
+  "name": "staff",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -18,15 +18,15 @@
       "type": "string",
       "required": true
     },
-    "address": {
+    "position": {
       "type": "string",
       "required": true
     },
-    "sold": {
-      "type": "number",
+    "status": {
+      "type": "string",
       "required": true
     },
-    "status": {
+    "address": {
       "type": "string",
       "required": true
     }

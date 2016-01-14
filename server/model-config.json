@@ -68,5 +68,9 @@
   "doctor": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "staff": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
