@@ -44,5 +44,9 @@
   "equipment": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "equipmentType": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
