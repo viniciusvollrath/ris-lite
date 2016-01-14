@@ -1,15 +1,15 @@
 {
-    "db": {
-        "name": "db",
-        "connector": "memory"
-    },
-    "mongoDB": {
-        "database": "radioDB",
-        "name": "mongoDB",
-        "connector": "mongodb"
-    },
-    "email": {
-        "name": "email",
-        "connector": "mail"
-    }
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongoDB": {
+    "database": "radioDB",
+    "name": "mongoDB",
+    "connector": "mongodb"
+  },
+  "email": {
+    "name": "email",
+    "connector": "mail"
+  }
 }

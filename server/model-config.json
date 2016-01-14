@@ -1,40 +1,44 @@
 {
-    "_meta": {
-        "sources": [
-            "loopback/common/models",
-            "loopback/server/models",
-            "../common/models",
-            "./models"
-        ],
-        "mixins": [
-            "loopback/common/mixins",
-            "loopback/server/mixins",
-            "../common/mixins",
-            "./mixins"
-        ]
-    },
-    "User": {
-        "dataSource": "mongoDB",
-        "public": false
-    },
-    "AccessToken": {
-        "dataSource": "mongoDB",
-        "public": false
-    },
-    "ACL": {
-        "dataSource": "mongoDB",
-        "public": false
-    },
-    "RoleMapping": {
-        "dataSource": "mongoDB",
-        "public": false
-    },
-    "Role": {
-        "dataSource": "mongoDB",
-        "public": false
-    },
-    "user": {
-        "dataSource": "mongoDB",
-        "public": true
-    }
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "user": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "business": {
+    "dataSource": "mongoDB",
+    "public": true
+  }
 }
