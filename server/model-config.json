@@ -72,5 +72,9 @@
   "staff": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "exam": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
