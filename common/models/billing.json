@@ -24,7 +24,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "exam": {
+      "type": "belongsTo",
+      "model": "exam",
+      "foreignKey": ""
+    },
+    "doctor": {
+      "type": "belongsTo",
+      "model": "doctor",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
