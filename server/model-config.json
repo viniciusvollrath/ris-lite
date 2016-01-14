@@ -60,5 +60,9 @@
   "shift": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "patient": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
