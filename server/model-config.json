@@ -64,5 +64,9 @@
   "patient": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "doctor": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
