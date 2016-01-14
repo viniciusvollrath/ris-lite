@@ -1,0 +1,30 @@
+{
+  "name": "billing",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "totalPrice": {
+      "type": "number",
+      "required": true
+    },
+    "payedPrice": {
+      "type": "number",
+      "required": true
+    },
+    "remainingPrice": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
