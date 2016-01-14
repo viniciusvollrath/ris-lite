@@ -40,5 +40,9 @@
   "business": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "equipment": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
