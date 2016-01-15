@@ -4,7 +4,7 @@
  * Description:
  * 
  */
-angular.module('app.login').controller('LoginController', LoginController);
+angular.module('app.auth').controller('LoginController', LoginController);
 
 function LoginController() {
     console.log("test");

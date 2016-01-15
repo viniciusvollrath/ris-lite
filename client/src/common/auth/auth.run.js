@@ -2,7 +2,7 @@
     "use strict";
 
     angular
-        .module('app.login')
+        .module('app.auth')
         .run(runBlock);
 
     runBlock.$inject = [];

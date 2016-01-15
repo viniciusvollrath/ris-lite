@@ -5,6 +5,6 @@
         'ngMaterial',
         'ui.router',
         'app.layout',
-        'app.login'
+        'app.auth'
     ]);
 })();

@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module('app.login', [
+    angular.module('app.auth', [
         'ngMaterial',
         'ui.router'
     ]);

@@ -7,7 +7,7 @@
      * 
      */
     angular
-        .module('app.login')
+        .module('app.auth')
         .config(configure);
 
     configure.$inject = [];
