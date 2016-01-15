@@ -14,14 +14,6 @@ main {
     flex: 1 0 auto;
 }
 
-.icon-block {
-    padding: 0 15px;
-}
-
-.icon-block .material-icons {
-    font-size: inherit;
-}
-
 .title-rd {
     font-weight: light !important;
     font-size: 50pt;
@@ -30,25 +22,6 @@ main {
     font-family: 'Nixie One', cursive;
 }
 
-.sub-title-zw {
-    font-weight: light !important;
-    font-size: 30pt;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-family: 'Nixie One', cursive;
-}
-
-.advantages-element {
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13pt;
-}
-
-.material-icons {
-    margin-bottom: 0px !important;
-}
-
-.brand-logo {
-    font-family: 'Nixie One', cursive;
-    font-weight: bold !important;
+.login-form {
+    background-color: #fff;
 }
