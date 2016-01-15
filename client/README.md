@@ -1,3 +1,3 @@
 ## Client
 
-This is the place for your application front-end files.
+The Web Client for our application. built with Angularjs, using Angular Material or Materialize.css

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Radiag</title>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.layouts.min.css">
+</head>
+
+<body ng-app="app" ng-cloak>
+    this is the index page
+    <div ui-view></div>
+    <!-- dependecies -->
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <!-- end of dependencies -->
+    <script src="src/app.module.js"></script>
+    <script src="src/app.config.js"></script>
+    <script src="src/app.run.js"></script>
+    <script src="src/common/auth/login.module.js"></script>
+    <script src="src/layout/layout.module.js"></script>
+    <script src="src/layout/layout.config.js"></script>
+</body>
+
+</html>
