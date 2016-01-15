@@ -1,30 +1,36 @@
 {
-    "name": "examMethode",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "examMethode",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "description": {
-            "type": "string",
-            "required": true
-        },
-        "reportModel": {
-            "type": "string",
-            "required": true
-        },
-        "conclusionModel": {
-            "type": "string",
-            "required": true
-        }
+    "description": {
+      "type": "string",
+      "required": true
     },
-    "validations": [],
-    "relations": {},
-    "acls": [],
-    "methods": {}
+    "reportModel": {
+      "type": "string",
+      "required": true
+    },
+    "conclusionModel": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "examType": {
+      "type": "belongsTo",
+      "model": "examType",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
 }
