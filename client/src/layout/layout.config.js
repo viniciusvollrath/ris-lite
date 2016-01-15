@@ -19,23 +19,14 @@
             .state('login', {
                 url: '/login',
                 views: {
-
-                    // the main template will be placed here (relatively named)
                     '': {
                         templateUrl: 'src/layout/templates/login.layout.html'
                     },
-
-                    // the child views will be defined here (absolutely named)
-                    'header@login': {
-                        template: 'header'
-                    },
-
-
-
-                    // for column two, we'll define a separate controller 
-                    'footer@login': {
-                        template: 'footer'
-                    },
+                    'form@login': {
+                        templateUrl: 'src/common/auth/login.view.html',
+                        controller: 'LoginController',
+                        controllerAs: 'vm'
+                    }
                 }
             });
     }

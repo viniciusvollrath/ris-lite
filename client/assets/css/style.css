@@ -10,15 +10,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Nixie+One);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-image: url('/assets/img/bg2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 main {
     flex: 1 0 auto;
 }
@@ -31,7 +22,7 @@ main {
     font-size: inherit;
 }
 
-.title-zw {
+.title-rd {
     font-weight: light !important;
     font-size: 50pt;
     margin-top: 0px;
