@@ -45,11 +45,11 @@
                 window.localStorage.removeItem(LOCAL_TOKEN_KEY);
             }
 
-            var login = function(name, pw) {
+            var login = function(credentials) {
                 return $q(function(resolve, reject) {
-                    if ((name == 'admin' && pw == '1') || (name == 'user' && pw == '1')) {
+                    if ((credentials.userName == 'admin' && credentials.password == '1') || (credentials.userName == 'user' && credentials.password == '1')) {
                         // Make a request and receive your auth token from your server
-                        storeUserCredentials(name + '.yourServerToken');
+                        storeUserCredentials(credentials.userName + '.yourServerToken');
                         resolve('Login success.');
                     } else {
                         reject('Login Failed.');

@@ -24,8 +24,7 @@
                     },
                     'form@login': {
                         templateUrl: 'src/common/auth/login.view.html',
-                        controller: 'LoginController',
-                        controllerAs: 'login',
+                        controller: 'LoginController'
 
                     }
                 }

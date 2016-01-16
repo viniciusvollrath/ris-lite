@@ -6,23 +6,27 @@
  */
 angular.module('app.auth').controller('LoginController', LoginController);
 
-function LoginController($rootScope, AUTH_EVENTS, AuthService) {
+function LoginController($scope, $rootScope, AUTH_EVENTS, AuthService) {
     /* jshint validthis: true */
-    var vm = this;
-    vm.credentials = {
+
+    $scope.credentials = {
         username: '',
         password: ''
     };
-    vm.login = login;
+    $scope.login = login;
 
     function login(credentials) {
-        AuthService.login(credentials).then(function(user) {
+        console.log("login function");
+        AuthService.login(credentials).then(function(authenticated) {
             $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-            $scope.setCurrentUser(user);
-        }, function() {
+            $scope.setCurrentUsername($scope.credentials.userName);
+        }, function(err) {
             $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
         });
 
     };
+
+
+
 
 }
