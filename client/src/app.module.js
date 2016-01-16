@@ -4,7 +4,7 @@
     angular.module('app', [
         'ngMaterial',
         'ui.router',
-        'app.layout',
-        'app.auth'
+        'app.auth',
+        'app.dash'
     ]);
 })();

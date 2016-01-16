@@ -1,0 +1,11 @@
+# commancer par le type d examin et afficher le prix immediatement apres selection du type d examin
+# si le client accepte le prix et decide de passer l examin saisire les info malade 
+# ajouter la case medcin traitant dans le formulaire (non obligatoire) avec autocomplete
+# ajouter une alerte pour signaler les examin qui nessecite une preparation particulaire (a jeune, examin a faire avece produit de contraste ...etc)
+# status financier de l examin : paye non paye 
+#  un malade peut demander plusure examin 
+## lors de la selection d examin l utilisateur peut selectioner plsuure examin et le prix total sera afficher si le madale decide de passer l enssemble des examin lors de la validation du formulaire tout les examin seron cree separement (daaahhhh)
+# possibilite d imprimer un ticket pour le malade lors de l attente (ticket de caisse)
+# ajouter le derget d urgence d examin 3 degre (normal, legerement fatigue , urgent malade tres fatigue )
+# slectioner le manipulateur qui a effectuer l examin lors de la validation de le execution de le xamin
+# un examin a trois status (en attente, realise, remis)
