@@ -11,16 +11,21 @@
         .config(configure)
         .factory('AuthInterceptor', AuthInterceptor);
 
-    configure.$inject = ['$httpProvider'];
+    configure.$inject = ['$httpProvider', '$urlRouterProvider'];
 
-    function configure($httpProvider) {
-
+    function configure($httpProvider, $urlRouterProvider) {
+        //injecting the auth interceptor for http request responses
         $httpProvider.interceptors.push([
             '$injector',
             function($injector) {
                 return $injector.get('AuthInterceptor');
             }
         ]);
+        //setting the default url to redirect to in case of an unmatched url
+        $urlRouterProvider.otherwise(function($injector, $location) {
+            var $state = $injector.get("$state");
+            $state.go("welcome");
+        });
     };
 
     function AuthInterceptor($rootScope, $q, AUTH_EVENTS) {
@@ -34,6 +39,8 @@
             }
         };
     }
+
+
 
 
 })();

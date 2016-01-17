@@ -2,9 +2,10 @@
     "use strict";
 
     angular.module('app', [
-        'ngMaterial',
         'ui.router',
+        'restangular',
         'app.auth',
+        'app.welcome',
         'app.dash'
     ]);
 })();

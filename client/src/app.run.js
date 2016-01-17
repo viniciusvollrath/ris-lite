@@ -38,12 +38,16 @@
 
             if (!AuthService.isAuthenticated()) {
                 console.log("NOT AUTHENTICATED");
-                if (next.name !== 'login') {
-                    event.preventDefault();
-                    $state.go('login');
-                    console.log("GO TO LOGIN");
-
+                if (next.name == 'welcome') {
+                    console.log("GO TO WELCOME");
+                } else {
+                    if (next.name !== 'login') {
+                        event.preventDefault();
+                        $state.go('login');
+                        console.log("GO TO LOGIN");
+                    }
                 }
+
             }
         });
 
