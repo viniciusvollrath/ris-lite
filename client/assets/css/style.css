@@ -63,3 +63,22 @@ main {
 .widget-clock.blue-light .second-counterweight {
     stroke-width: 1.5;
 }
+
+
+/*/loader*/
+
+#loading-bar .bar {
+    background: #dd0b0b;
+}
+
+#loading-bar-spinner .spinner-icon {
+    border-top-color: #dd0b0b;
+    border-left-color: #dd0b0b;
+}
+
+#loading-bar .peg {
+    -moz-box-shadow: #2c3e50 1px 0 6px 1px;
+    -ms-box-shadow: #2c3e50 1px 0 6px 1px;
+    -webkit-box-shadow: #2c3e50 1px 0 6px 1px;
+    box-shadow: #2c3e50 1px 0 6px 1px;
+}

@@ -4,7 +4,7 @@
     angular.module('app.auth')
         .service('AuthService', AuthService);
 
-    function AuthService($state, USER_ROLES, DevRestangular, $http, $rootScope, AUTH_EVENTS) {
+    function AuthService(USER_ROLES, AUTH_EVENTS, DevRestangular, $state, $http, $rootScope, cfpLoadingBar) {
         var LOCAL_TOKEN_KEY = 'yourTokenKey';
         var username = '';
         var isAuthenticated = false;
@@ -43,6 +43,7 @@
 
         var login = function(credentials) {
             console.log("login service");
+            cfpLoadingBar.start();
             console.log(credentials);
             var login = DevRestangular.all("users");
             return login.customPOST({
@@ -53,8 +54,17 @@
                 role = user.role[0];
                 console.log(user);
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+                cfpLoadingBar.set(0.3);
+                cfpLoadingBar.inc();
+                cfpLoadingBar.set(0.6);
 
+                cfpLoadingBar.set(0.7);
+
+
+                cfpLoadingBar.complete()
                 $state.go('dashboard');
+
+
             }, function error(err) {
                 console.log(err);
                 $rootScope.$broadcast(AUTH_EVENTS.loginFailed);

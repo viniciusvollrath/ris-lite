@@ -11,9 +11,9 @@
         .config(configure)
         .factory('AuthInterceptor', AuthInterceptor);
 
-    configure.$inject = ['$httpProvider', '$urlRouterProvider'];
+    configure.$inject = ['$httpProvider', '$urlRouterProvider', 'cfpLoadingBarProvider'];
 
-    function configure($httpProvider, $urlRouterProvider) {
+    function configure($httpProvider, $urlRouterProvider, cfpLoadingBarProvider) {
         //injecting the auth interceptor for http request responses
         $httpProvider.interceptors.push([
             '$injector',
@@ -26,6 +26,11 @@
             var $state = $injector.get("$state");
             $state.go("welcome");
         });
+
+        //configuring the loader
+        cfpLoadingBarProvider.includeSpinner = false;
+        cfpLoadingBarProvider.includeBar = true;
+        cfpLoadingBarProvider.latencyThreshold = 000;
     };
 
     function AuthInterceptor($rootScope, $q, AUTH_EVENTS) {

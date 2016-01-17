@@ -6,7 +6,7 @@
  */
 angular.module('app.auth').controller('LoginController', LoginController);
 
-function LoginController($scope, $rootScope, $state, AUTH_EVENTS, AuthService) {
+function LoginController($scope, AuthService) {
     /* jshint validthis: true */
 
     $scope.credentials = {
@@ -16,7 +16,6 @@ function LoginController($scope, $rootScope, $state, AUTH_EVENTS, AuthService) {
     $scope.login = login;
 
     function login(credentials) {
-        console.log("login function");
         AuthService.login(credentials);
 
     };
