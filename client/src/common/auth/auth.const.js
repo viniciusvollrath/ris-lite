@@ -15,8 +15,9 @@
     .constant('USER_ROLES', {
         all: '*',
         admin: 'admin',
-        editor: 'editor',
-        guest: 'guest'
+        doctor: 'doctor',
+        assistant: 'assistant',
+        technicien: 'technicien'
     });
 
 
