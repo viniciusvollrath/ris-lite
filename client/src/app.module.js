@@ -10,6 +10,7 @@
         'app.layout',
         'app.auth',
         'app.welcome',
+        'app.admin',
         'app.dash'
     ]);
 })();

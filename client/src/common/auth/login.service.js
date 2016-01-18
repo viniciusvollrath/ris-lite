@@ -8,7 +8,7 @@
         var LOCAL_TOKEN_KEY = 'yourTokenKey';
         var username = '';
         var isAuthenticated = false;
-        var role = '';
+        //var role = '';
         var authToken;
 
         function loadUserCredentials() {
@@ -80,7 +80,7 @@
 
         var isAuthorized = function(authorizedRoles) {
             console.log(authorizedRoles);
-            role = window.localStorage.getItem('ROLE');
+            var role = window.localStorage.getItem('ROLE');
 
             if (!angular.isArray(authorizedRoles)) {
                 authorizedRoles = [authorizedRoles];

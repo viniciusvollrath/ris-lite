@@ -1,15 +1,20 @@
-<nav class="blue" class="dashboard-layout-nav">
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo logo-padding">RaDiag*</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a ui-sref="dashboard">Acceuil</a></li>
-            <li><a ui-sref="dashboard">Examins</a></li>
-            <li><a ui-sref="dashboard" ng-if="isAuthorized(userRoles.doctor) || isAuthorized(userRoles.admin)">Vacation</a></li>
-            <li><a ui-sref="dashboard" ng-if="isAuthorized(userRoles.admin)">Administration</a></li>
-            <li>Welcome, {{layout.username}}</li>
-            <li><a ng-click="layout.logout()">Logout</a></li>
-        </ul>
-    </div>
-</nav>
-<div ui-view="left-side"></div>
-<div ui-view="main" class="grey lighten-5 dashboard-layout-main"></div>
+<header>
+    <div ui-view="left-side" ng-if="layout.hasSideNav()"></div>
+    <nav class="blue" class="dashboard-layout-nav">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo logo-padding">RaDiag*</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a ui-sref="dashboard.main">Acceuil</a></li>
+                <li><a ui-sref="dashboard">Examins</a></li>
+                <li><a ui-sref="dashboard" ng-if="isAuthorized([userRoles.doctor,userRoles.admin])">Ma Vacation</a></li>
+                <li><a ui-sref="dashboard.admin" ng-if="isAuthorized(userRoles.admin)">Administration</a></li>
+                <li><a href="">Welcome, {{layout.username}}</a></li>
+                <li><a ng-click="layout.logout()" class="red light-3"><i class="material-icons right">lock_outline</i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div ui-view="main" ng-class="layout.hasSideNav() ? 'grey lighten-5 dashboard-layout-main' : 'grey lighten-5 dashboard-layout-main-no-nav'"></div>
+</main>
