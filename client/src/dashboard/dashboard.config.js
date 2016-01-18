@@ -16,13 +16,18 @@
         console.info("the auth dashboard is runing");
 
         $stateProvider
-            .state('dashboard', {
+            .state('dashboard.main', {
                 url: '/dashboard',
                 views: {
-                    '': {
-                        templateUrl: 'src/layout/templates/dashboard.layout.html',
+                    'main@dashboard': {
+                        templateUrl: 'src/dashboard/dashboard.main.view.html',
                         controller: 'DashController'
                     }
+                    // .
+                    // 'left-side@dashboard': {
+                    //     templateUrl: 'src/dashboard/dashboard.side.view.html',
+                    //     controller: 'DashController'
+                    // }
                 },
                 data: {
                     authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]

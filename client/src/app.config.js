@@ -30,7 +30,7 @@
         //configuring the loader
         cfpLoadingBarProvider.includeSpinner = false;
         cfpLoadingBarProvider.includeBar = true;
-        cfpLoadingBarProvider.latencyThreshold = 000;
+        cfpLoadingBarProvider.latencyThreshold = 100;
     };
 
     function AuthInterceptor($rootScope, $q, AUTH_EVENTS) {

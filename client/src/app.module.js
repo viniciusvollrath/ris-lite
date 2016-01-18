@@ -7,6 +7,7 @@
         'angular-loading-bar',
         'ngAnimate',
         'cfp.loadingBar',
+        'app.layout',
         'app.auth',
         'app.welcome',
         'app.dash'

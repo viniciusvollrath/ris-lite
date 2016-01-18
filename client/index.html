@@ -10,11 +10,13 @@
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
     <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="src/dashboard/dashboard.css">
+    <link rel="stylesheet" href="src/layout/layout.css">
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
-<body ng-app="app" class="blue darken-1" ng-cloak ng-controller="AppController as app">
-    this is the index page
+<body ng-app="app" class="green
+ darken-1" ng-cloak ng-controller="AppController as app">
     <div ui-view class="page {{ pageClass }}"></div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
@@ -39,6 +41,9 @@
     <script src="src/app.run.js"></script>
     <script src="src/app.controller.js"></script>
     <script src="src/services/api.config.service.js"></script>
+    <script src="src/layout/layout.module.js"></script>
+    <script src="src/layout/layout.config.js"></script>
+    <script src="src/layout/layout.controller.js"></script>
     <script src="src/common/auth/auth.module.js"></script>
     <script src="src/common/auth/auth.config.js"></script>
     <script src="src/common/auth/auth.const.js"></script>

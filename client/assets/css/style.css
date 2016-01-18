@@ -10,6 +10,11 @@
 
 @import url(https://fonts.googleapis.com/css?family=Nixie+One);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+html {
+    height: 100vh;
+    background-color: #000;
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -68,12 +73,13 @@ main {
 /*/loader*/
 
 #loading-bar .bar {
-    background: #dd0b0b;
+    background: #23f707;
+    height: 5px !important;
 }
 
 #loading-bar-spinner .spinner-icon {
-    border-top-color: #dd0b0b;
-    border-left-color: #dd0b0b;
+    border-top-color: #23f707;
+    border-left-color: #23f707;
 }
 
 #loading-bar .peg {

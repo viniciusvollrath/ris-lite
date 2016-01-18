@@ -1,6 +1,7 @@
 (function() {
     "use strict";
     angular.module('app.layout', [
-        'ui.router'
+        'ui.router',
+        'app.auth'
     ]);
 })();
