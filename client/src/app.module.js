@@ -7,6 +7,7 @@
         'angular-loading-bar',
         'ngAnimate',
         'cfp.loadingBar',
+        'ncy-angular-breadcrumb',
         'app.layout',
         'app.auth',
         'app.welcome',

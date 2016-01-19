@@ -11,9 +11,9 @@
         .config(configure)
         .factory('AuthInterceptor', AuthInterceptor);
 
-    configure.$inject = ['$httpProvider', '$urlRouterProvider', 'cfpLoadingBarProvider'];
+    configure.$inject = ['$httpProvider', '$urlRouterProvider', 'cfpLoadingBarProvider', '$breadcrumbProvider'];
 
-    function configure($httpProvider, $urlRouterProvider, cfpLoadingBarProvider) {
+    function configure($httpProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider) {
         //injecting the auth interceptor for http request responses
         $httpProvider.interceptors.push([
             '$injector',
@@ -31,6 +31,11 @@
         cfpLoadingBarProvider.includeSpinner = false;
         cfpLoadingBarProvider.includeBar = true;
         cfpLoadingBarProvider.latencyThreshold = 100;
+
+        // breadcrumb configuration custom layout
+        $breadcrumbProvider.setOptions({
+            template: '<div>RaDiag<span ng-repeat="step in steps"> > <a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></span></div>'
+        });
     };
 
     function AuthInterceptor($rootScope, $q, AUTH_EVENTS) {

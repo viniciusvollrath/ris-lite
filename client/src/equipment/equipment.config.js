@@ -27,6 +27,24 @@
                 data: {
                     authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
                 },
+                ncyBreadcrumb: {
+                    label: 'Equipment'
+                }
+            })
+            .state('dashboard.admin.equipment-type', {
+                url: '/equipment-type',
+                views: {
+                    'main@dashboard': {
+                        templateUrl: 'src/equipment/views/equipment.type.view.html',
+                        controller: 'EquipmentTypeController'
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+                ncyBreadcrumb: {
+                    label: 'Equipment-type'
+                }
             });
     }
 
