@@ -2,10 +2,10 @@
     "use strict";
 
     angular.module('app')
-        .factory('DevRestangular', DevRestangular)
+        .factory('Rest', Rest)
         .factory('ProdRestangular', ProdRestangular);
 
-    function DevRestangular(Restangular) {
+    function Rest(Restangular) {
         return Restangular.withConfig(function(RestangularConfigurer) {
             RestangularConfigurer.setBaseUrl('http://0.0.0.0:3000/api');
         });

@@ -2,3 +2,26 @@
     <div class="row">
         <div ncy-breadcrumb class="col s12 "></div>
     </div>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate" autofocus ng-model="et.name">
+                    <label for="first_name">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="number" class="validate" ng-model="et.number">
+                    <label for="last_name">Number</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" ng-model="et.observation"></textarea>
+                    <label for="textarea1">Observation</label>
+                </div>
+            </div>
+            <div class="right-align">
+                <a class="waves-effect waves-light btn align-right red" ng-click="et.addNewEquipmentType()">Add</a>
+            </div>
+        </form>
+    </div>

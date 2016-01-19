@@ -33,7 +33,7 @@
                     authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
                 },
                 ncyBreadcrumb: {
-                    label: 'Home page'
+                    label: 'Home'
                 }
             });
     }

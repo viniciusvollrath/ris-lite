@@ -1,1 +1,24 @@
-<div ncy-breadcrumb></div>
+<div class="container">
+    <div class="row">
+        <div ncy-breadcrumb class="col s6 "></div>
+        <div class="col s6 right-align dashboard-main-action-bar">
+            <a ui-sref="dashboard.admin.equipment.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="col s12 center-align  grey lighten-3">
+            <table class="centered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="eq in equipment.equipments">
+                    <td> {{eq.name}}</td>
+                    <td>{{eq.id}}</td>
+                </tr>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

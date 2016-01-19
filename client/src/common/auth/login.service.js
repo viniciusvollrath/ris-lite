@@ -4,7 +4,7 @@
     angular.module('app.auth')
         .service('AuthService', AuthService);
 
-    function AuthService(USER_ROLES, AUTH_EVENTS, DevRestangular, $state, $http, $rootScope, cfpLoadingBar) {
+    function AuthService(USER_ROLES, AUTH_EVENTS, Rest, $state, $http, $rootScope, cfpLoadingBar) {
         var LOCAL_TOKEN_KEY = 'yourTokenKey';
         var username = '';
         var isAuthenticated = false;
@@ -21,7 +21,7 @@
         function storeUserCredentials(token, role) {
             window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
             window.localStorage.setItem('ROLE', role);
-            DevRestangular.setDefaultHeaders({
+            Rest.setDefaultHeaders({
                 "X-Access-Token": token,
             });
             useCredentials(token);
@@ -50,7 +50,7 @@
             console.log("login service");
             cfpLoadingBar.start();
             console.log(credentials);
-            var login = DevRestangular.all("users");
+            var login = Rest.all("users");
             return login.customPOST({
                 "username": credentials.username,
                 "password": credentials.password

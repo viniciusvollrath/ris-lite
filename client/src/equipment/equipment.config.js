@@ -21,7 +21,9 @@
                 views: {
                     'main@dashboard': {
                         templateUrl: 'src/equipment/views/equipment.main.view.html',
-                        controller: 'EquipmentMainController'
+                        controller: 'EquipmentMainController',
+                        controllerAs: 'equipment'
+
                     }
                 },
                 data: {
@@ -29,6 +31,22 @@
                 },
                 ncyBreadcrumb: {
                     label: 'Equipment'
+                }
+            })
+            .state('dashboard.admin.equipment.new', {
+                url: '/new',
+                views: {
+                    'main@dashboard': {
+                        templateUrl: 'src/equipment/views/equipment.new.view.html',
+                        controller: 'EquipmentNewController',
+                        controllerAs: 'eq'
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+                ncyBreadcrumb: {
+                    label: 'New'
                 }
             })
             .state('dashboard.admin.equipment-type', {
@@ -52,7 +70,8 @@
                 views: {
                     'main@dashboard': {
                         templateUrl: 'src/equipment/views/equipment.type.new.view.html',
-                        controller: 'EquipmentTypeNewController'
+                        controller: 'EquipmentTypeNewController',
+                        controllerAs: 'et'
                     }
                 },
                 data: {
