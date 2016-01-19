@@ -18,6 +18,11 @@ main {
     flex: 1 0 auto;
 }
 
+.container {
+    width: 90% !important;
+    /*padding-right: 20% !important;*/
+}
+
 .title-rd {
     font-weight: light !important;
     font-size: 50pt;
@@ -93,4 +98,12 @@ main {
 
 .breadcrumb {
     color: #000;
+}
+
+
+/*general form styling*/
+
+.form-row-div {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

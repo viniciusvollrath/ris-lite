@@ -1,37 +1,32 @@
 {
-  "name": "equipment",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "name": "equipment",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "brand": {
-      "type": "string",
-      "required": true
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "brand": {
+            "type": "string",
+            "required": true
+        },
+        "year": {
+            "type": "number",
+            "required": true
+        }
     },
-    "year": {
-      "type": "number",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {
-    "equipmentType": {
-      "type": "belongsTo",
-      "model": "equipmentType",
-      "foreignKey": ""
+    "validations": [],
+    "relations": {
+        "equipmentType": {
+            "type": "belongsTo",
+            "model": "equipmentType",
+            "foreignKey": ""
+        }
     },
-    "examTypes": {
-      "type": "hasMany",
-      "model": "examType",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }

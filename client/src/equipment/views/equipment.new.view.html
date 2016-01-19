@@ -7,22 +7,22 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input id="first_name" type="text" class="validate" autofocus ng-model="eq.name" required>
-                    <label for="first_name">Name</label>
+                    <label for="first_name">Name*</label>
                 </div>
                 <div class="input-field col s6">
-                    <select ng-model="eq.type" ng-options="type as type.name for type in eq.equipmentTypes track by type.id" browser-default required>
+                    <select ng-model="eq.type" ng-options="type.id as type.name for type in eq.equipmentTypes track by type.id" browser-default required>
                     </select>
-                    <label for="last_name">Type</label>
+                    <label for="last_name">Type*</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input id="first_name" type="text" class="validate" autofocus ng-model="eq.brand" required>
-                    <label for="first_name">Brand</label>
+                    <label for="first_name">Brand*</label>
                 </div>
                 <div class="input-field col s6">
                     <input id="last_name" type="number" class="validate" ng-model="eq.year" required>
-                    <label for="last_name">Year</label>
+                    <label for="last_name">Year*</label>
                 </div>
             </div>
             <div class="right-align">

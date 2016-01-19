@@ -1,40 +1,43 @@
 {
-    "name": "user",
-    "base": "User",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "user",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rank": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "rank": {
-            "type": "string",
-            "required": true
-        },
-        "role": {
-            "type": [
-                "string"
-            ],
-            "required": true
-        }
+    "role": {
+      "type": [
+        "string"
+      ],
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "staffs": {
+      "type": "hasOne",
+      "model": "staff",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "ADMIN",
+      "permission": "ALLOW"
     },
-    "validations": [],
-    "relations": {
-        "staffs": {
-            "type": "hasOne",
-            "model": "staff",
-            "foreignKey": ""
-        }
-    },
-    "acls": [{
-        "accessType": "READ",
-        "principalType": "ROLE",
-        "principalId": "ADMIN",
-        "permission": "ALLOW"
-    }, {
-        "accessType": "*",
-        "principalType": "ROLE",
-        "principalId": "ADMIN",
-        "permission": "ALLOW"
-    }],
-    "methods": {}
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "ADMIN",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

@@ -1,43 +1,43 @@
 {
-  "name": "examType",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "name": "examType",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "description": {
-      "type": "string",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {
-    "equipment": {
-      "type": "belongsTo",
-      "model": "equipment",
-      "foreignKey": ""
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "string",
+            "required": true
+        }
     },
-    "exams": {
-      "type": "hasMany",
-      "model": "exam",
-      "foreignKey": ""
+    "validations": [],
+    "relations": {
+        "exams": {
+            "type": "hasMany",
+            "model": "exam",
+            "foreignKey": ""
+        },
+        "appointments": {
+            "type": "hasMany",
+            "model": "appointment",
+            "foreignKey": ""
+        },
+        "examMethodes": {
+            "type": "hasMany",
+            "model": "examMethode",
+            "foreignKey": ""
+        },
+        "equipmentType": {
+            "type": "belongsTo",
+            "model": "equipmentType",
+            "foreignKey": ""
+        }
     },
-    "appointments": {
-      "type": "hasMany",
-      "model": "appointment",
-      "foreignKey": ""
-    },
-    "examMethodes": {
-      "type": "hasMany",
-      "model": "examMethode",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }

@@ -13,6 +13,8 @@
         'app.welcome',
         'app.admin',
         'app.dash',
-        'app.equipment'
+        'app.equipment',
+        'app.exam-type'
+
     ]);
 })();

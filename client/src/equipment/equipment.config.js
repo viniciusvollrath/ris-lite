@@ -53,7 +53,7 @@
                 url: '/equipment-type',
                 views: {
                     'main@dashboard': {
-                        templateUrl: 'src/equipment/views/equipment.type.view.html',
+                        templateUrl: 'src/equipment/views/equipment.type.main.view.html',
                         controller: 'EquipmentTypeController',
                         controllerAs: 'EquipmentType'
                     }

@@ -12,3 +12,5 @@
 
 
 ## ajouter l option se souvenir de moi avec le local storage sinon utiliser seulement le session storage
+
+## ajouter un status a chaqu equipmenet pour active deactive l equipement selon son etat
