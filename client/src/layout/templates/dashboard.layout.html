@@ -1,11 +1,11 @@
 <header>
-    <div ui-view="left-side" ng-if="layout.hasSideNav()"></div>
-    <nav class="blue" class="dashboard-layout-nav">
+    <nav class="blue dashboard-layout-nav">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo logo-padding">RaDiag*</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a ui-sref="dashboard.main">Acceuil</a></li>
                 <li><a ui-sref="dashboard">Examins</a></li>
+                <li><a ui-sref="dashboard">Clients</a></li>
                 <li><a ui-sref="dashboard" ng-if="isAuthorized([userRoles.doctor,userRoles.admin])">Ma Vacation</a></li>
                 <li><a ui-sref="dashboard.admin" ng-if="isAuthorized(userRoles.admin)">Administration</a></li>
                 <li><a href="">Welcome, {{layout.username}}</a></li>
@@ -14,6 +14,7 @@
             </ul>
         </div>
     </nav>
+    <div ui-view="left-side" ng-if="layout.hasSideNav()" class="level0"></div>
 </header>
 <main>
     <div ui-view="main" ng-class="layout.hasSideNav() ? 'grey lighten-5 dashboard-layout-main' : 'grey lighten-5 dashboard-layout-main-no-nav'"></div>

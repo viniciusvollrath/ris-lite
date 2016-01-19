@@ -11,6 +11,7 @@
         'app.auth',
         'app.welcome',
         'app.admin',
-        'app.dash'
+        'app.dash',
+        'app.equipment'
     ]);
 })();

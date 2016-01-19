@@ -1,16 +1,25 @@
 .dashboard-layout-nav {
     min-height: 10vh;
+    z-index: 1 !important;
+    position: absolute;
+}
+
+.level0 {
+    z-index: 0 !important;
+    position: absolute;
 }
 
 .dashboard-layout-main {
-    min-height: 90vh;
     padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20vw;
+    padding-left: 240px;
 }
 
 .dashboard-layout-main-no-nav {
     min-height: 90vh;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+main {
+    padding-top: 64px;
 }

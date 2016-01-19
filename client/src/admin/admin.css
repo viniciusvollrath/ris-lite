@@ -1,0 +1,9 @@
+    .admin-side-nav {
+        /*margin-top: 64px !important;*/
+        max-height: 100vh;
+        z-index: 0;
+        top: 64px;
+        padding-bottom: 0px !important;
+    }
+    
+    .first-element-side-nav {}

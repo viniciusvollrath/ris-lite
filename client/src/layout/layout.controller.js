@@ -18,7 +18,14 @@ function LayoutController($state, AuthService) {
     }
 
     function hasSideNav() {
-        console.log($state.$current.name);
-        return $state.$current.name == 'dashboard.admin'
+        var height = $(window).height() - 64;
+        $(".admin-side-nav").height(height);
+        $(".dashboard-layout-main").css('min-height', height);
+        $(".dashboard-layout-main-no-nav").css('min-height', height);
+        var next = $state.$current.name;
+        var nextTbl = next.split(".");
+
+        return nextTbl[0] == 'dashboard' && nextTbl[1] == 'admin';
+
     }
 }
