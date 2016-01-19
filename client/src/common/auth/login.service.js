@@ -21,6 +21,9 @@
         function storeUserCredentials(token, role) {
             window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
             window.localStorage.setItem('ROLE', role);
+            DevRestangular.setDefaultHeaders({
+                "X-Access-Token": token,
+            });
             useCredentials(token);
         }
 

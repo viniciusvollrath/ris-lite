@@ -36,7 +36,8 @@
                 views: {
                     'main@dashboard': {
                         templateUrl: 'src/equipment/views/equipment.type.view.html',
-                        controller: 'EquipmentTypeController'
+                        controller: 'EquipmentTypeController',
+                        controllerAs: 'EquipmentType'
                     }
                 },
                 data: {
@@ -44,6 +45,21 @@
                 },
                 ncyBreadcrumb: {
                     label: 'Equipment-type'
+                }
+            })
+            .state('dashboard.admin.equipment-type.new', {
+                url: '/new',
+                views: {
+                    'main@dashboard': {
+                        templateUrl: 'src/equipment/views/equipment.type.new.view.html',
+                        controller: 'EquipmentTypeNewController'
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+                ncyBreadcrumb: {
+                    label: 'New'
                 }
             });
     }
