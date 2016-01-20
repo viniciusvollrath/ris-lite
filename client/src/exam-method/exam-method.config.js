@@ -7,22 +7,22 @@
      * 
      */
     angular
-        .module('app.exam-type')
+        .module('app.exam-method')
         .config(configure);
 
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
     function configure($stateProvider, USER_ROLES) {
-        console.info("the equipment config is runing");
+        console.info("the exam method config is runing");
 
         $stateProvider
-            .state('dashboard.admin.exam-type', {
-                url: '/exam-type',
+            .state('dashboard.admin.exam-method', {
+                url: '/exam-method',
                 views: {
                     'main@dashboard': {
-                        templateUrl: 'src/exam-type/views/exam-type.main.view.html',
-                        controller: 'ExamTypeMainController',
-                        controllerAs: 'ext'
+                        templateUrl: 'src/exam-method/views/exam-method.main.view.html',
+                        controller: 'ExamMethodMainController',
+                        controllerAs: 'exm'
 
                     }
                 },
@@ -30,16 +30,16 @@
                     authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
                 },
                 ncyBreadcrumb: {
-                    label: 'Exam Type'
+                    label: 'Exam Method'
                 }
             })
-            .state('dashboard.admin.exam-type.new', {
+            .state('dashboard.admin.exam-method.new', {
                 url: '/new',
                 views: {
                     'main@dashboard': {
-                        templateUrl: 'src/exam-type/views/exam-type.new.view.html',
-                        controller: 'ExamTypeNewController',
-                        controllerAs: 'ext'
+                        templateUrl: 'src/exam-method/views/exam-method.new.view.html',
+                        controller: 'ExamMethodNewController',
+                        controllerAs: 'exm'
                     }
                 },
                 data: {

@@ -14,7 +14,9 @@
         'app.admin',
         'app.dash',
         'app.equipment',
-        'app.exam-type'
+        'app.exam-type',
+        'app.exam-method'
+
 
     ]);
 })();

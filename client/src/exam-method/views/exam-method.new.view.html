@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row  grey lighten-3">
+        <div ncy-breadcrumb class="col s12 "></div>
+    </div>
+    <div class="row grey lighten-2 form-row-div">
+        <form class="col s12" ng-submit="exm.addNewExamMethod()">
+            <div class="row">
+                <div class="input-field col s4">
+                    <select ng-model="exm.examTypeId" autofocus ng-options="type.id as type.name for type in exm.examTypes track by type.id" required>
+                    </select>
+                    <label for="last_name">Exam Type</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="first_name" type="text" class="validate" ng-model="exm.name" required>
+                    <label for="first_name">Exam Method (Technique)</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="price" type="number" class="validate" ng-model="exm.price" required>
+                    <label for="price">Price</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" ng-model="exm.remarque"></textarea required>
+                    <label for="textarea1">Remarque</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" ng-model="exm.reportModel"></textarea required>
+                    <label for="textarea1">Report Model</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" ng-model="exm.conclusionModel"></textarea required>
+                    <label for="textarea1">Conclusion Model</label>
+                </div>
+            </div>
+            <div class="right-align">
+                <button type="submit" class="waves-effect waves-light btn align-right red">Add</button>
+            </div>
+        </form>
+    </div>

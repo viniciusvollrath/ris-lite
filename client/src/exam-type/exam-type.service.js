@@ -8,7 +8,7 @@
         var examType = Rest.all("examTypes");
 
         return {
-            examTypeList: Rest.all("equipmentTypes").getList(),
+            examTypeList: Rest.all("examTypes").getList(),
             addNewExamType: function(et) {
                     return examType.post(et).then(function(response) {
                         examType.getList().push(response);
