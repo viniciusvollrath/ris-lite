@@ -21,11 +21,11 @@
                 views: {
                     'main@dashboard': {
                         templateUrl: 'src/admin/admin.main.view.html',
-                        controller: 'DashController'
+                        controller: ''
                     },
                     'left-side@dashboard': {
                         templateUrl: 'src/admin/admin.side.view.html',
-                        controller: 'DashController'
+                        controller: ''
                     }
                 },
                 data: {

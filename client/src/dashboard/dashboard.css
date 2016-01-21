@@ -9,3 +9,7 @@
 .dashboard-main-table {
     min-height: 70vh;
 }
+
+.ui-select-toggle {
+    background-color: #ffffff !important;
+}

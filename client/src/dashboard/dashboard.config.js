@@ -20,20 +20,33 @@
                 url: '/dashboard',
                 views: {
                     'main@dashboard': {
-                        templateUrl: 'src/dashboard/dashboard.main.view.html',
-                        controller: 'AdminController'
+                        templateUrl: 'src/dashboard/views/dashboard.main.view.html',
+                        controller: 'DashboardMainController'
                     }
-                    // .
-                    // 'left-side@dashboard': {
-                    //     templateUrl: 'src/dashboard/dashboard.side.view.html',
-                    //     controller: 'DashController'
-                    // }
+
                 },
                 data: {
                     authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
                 },
                 ncyBreadcrumb: {
                     label: 'Home'
+                }
+            })
+            .state('dashboard.quotation', {
+                url: '/quotation',
+                views: {
+                    'main@dashboard': {
+                        templateUrl: 'src/dashboard/views/dashboard.quotation.new.view.html',
+                        controller: 'DashboardQuotationNewController',
+                        controllerAs: 'qt'
+                    }
+
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+                ncyBreadcrumb: {
+                    label: 'New Quotation'
                 }
             });
     }

@@ -8,6 +8,8 @@
         'ngAnimate',
         'cfp.loadingBar',
         'ncy-angular-breadcrumb',
+        'ui.select',
+        'ngSanitize',
         'app.layout',
         'app.auth',
         'app.welcome',
