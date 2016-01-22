@@ -47,7 +47,7 @@
         }
 
         var login = function(credentials) {
-            console.log("login service");
+            // console.log("login service");
             cfpLoadingBar.start();
             console.log(credentials);
             var login = Rest.all("users");
@@ -82,7 +82,7 @@
         };
 
         var isAuthorized = function(authorizedRoles) {
-            console.log(authorizedRoles);
+            // console.log(authorizedRoles);
             var role = window.localStorage.getItem('ROLE');
 
             if (!angular.isArray(authorizedRoles)) {

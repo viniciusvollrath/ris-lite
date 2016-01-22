@@ -34,7 +34,7 @@
             <div>
                 <form name="userForm" ng-submit="et.addNewEquipmentType()">
                     <div layout-gt-sm="row" ng-repeat="exam in qt.selectedExams">
-                        <md-autocomplete flex="35" required md-input-name="autocompleteField" md-input-minlength="2" md-input-maxlength="18" md-no-cache="qt.noCache" md-selected-item="qt.selectedExamType" md-search-text="qt.searchExamType" md-items="item in qt.querySearch(qt.searchExamType)" md-item-text="item.name" md-floating-label="Exam Type" md-selected-item-change="">
+                        <md-autocomplete flex="35" required md-input-name="autocompleteField" md-input-minlength="2" md-input-maxlength="18" md-no-cache="qt.noCache" md-selected-item="exam.selectedExamType" md-search-text="exam.searchExamType" md-items="item in qt.querySearch(exam.searchExamType)" md-item-text="item.name" md-floating-label="Exam Type" md-selected-item-change="qt.getExamMethods(exam.selectedExamType.id,$index)">
                             <md-item-template>
                                 <span md-highlight-text="qt.searchExamType">{{item.name}}</span>
                             </md-item-template>
@@ -45,26 +45,27 @@
                             </div>
                         </md-autocomplete>
                         <md-input-container flex="35" class="md-block">
-                            <md-select placeholder="Exam Method" ng-model="qt.selectedExamMethod" md-on-open="qt.getExamMethods(qt.selectedExamType.id)()" style="min-width: 200px;">
-                                <md-option ng-value="method" ng-repeat="method in qt.examMethods">{{method.name}}</md-option>
+                            <md-select ng-model="exam.selectedExamMethod" md-on-open="" style="min-width: 200px;" ng-change="qt.setPrice()">
+                                <md-option ng-value="method" ng-repeat="method in exam.examMethods">{{method.name}}</md-option>
                             </md-select>
+                            <label>Method</label>
                         </md-input-container>
                         <md-input-container class="md-block" flex="20">
                             <label>Price</label>
-                            <input type="number" ng-model="qt.selectedExamMethod.price">
+                            <input type="number" ng-model="exam.selectedExamMethod.price" ng-change="qt.setPrice()">
                         </md-input-container>
                         <md-input-container flex class="md-block">
-                            <md-button ng-show="$index == qt.selectedExams.length -1" class="md-fab md-mini md-warn" aria-label="Add new" ng-click="qt.addNewExam()">
+                            <md-button ng-show="$index == qt.selectedExams.length -1" class="md-fab md-mini green" aria-label="Add new" ng-click="qt.addNewExam()">
                                 <md-icon md-svg-src="assets/img/ic_add_circle_outline_white_24px.svg"></md-icon>
                             </md-button>
-                            {{$index}}
-                            <md-button ng-show="$index != qt.selectedExams.length-1" class="md-fab md-mini green" aria-label="Add new" ng-click="qt.removeThisExam($index)">
-                                <md-icon md-svg-src="assets/img/ic_add_circle_outline_white_24px.svg"></md-icon>
+                            <md-button ng-show="$index != qt.selectedExams.length-1" class="md-fab md-mini md-warn" aria-label="Remove" ng-click="qt.removeThisExam($index)">
+                                <md-icon md-svg-src="assets/img/ic_clear_white_24px.svg"></md-icon>
                             </md-button>
                         </md-input-container>
                     </div>
+                    TOTAAAAL:{{qt.total}}
                     <div layout="row" layout-align="end">
-                        <md-button type="submit" class="md-raised md-warn">Next ></md-button>
+                        <md-button type="submit" class="md-raised green">Next ></md-button>
                     </div>
                 </form>
             </div>

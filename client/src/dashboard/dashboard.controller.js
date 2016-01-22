@@ -22,6 +22,7 @@
         vm.examTypeId = undefined;
         vm.examTypes = undefined;
         vm.examTMethods = undefined;
+        vm.total = 0;
 
 
         vm.getExamMethods = getExamMethods;
@@ -36,26 +37,58 @@
         vm.addNewExam = addNewExam;
         vm.removeThisExam = removeThisExam;
 
+        vm.setPrice = setPrice;
+        vm.setTotal = setTotal;
+
+        function setPrice() {
+            console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
+
+                vm.selectedExams[i].price = vm.selectedExams[i].selectedExamMethod.price;
+                setTotal();
+                // vm.total = vm.total + vm.selectedExams[i].price;
+
+            };
+
+        }
+
+        function setTotal() {
+            console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+            console.log(vm.selectedExams);
+            vm.total = 0;
+
+            for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
+
+                // vm.selectedExams[i].price = vm.selectedExams[i].selectedExamMethod.price
+                vm.total = vm.total + vm.selectedExams[i].price;
+
+            };
+
+        }
+
         function removeThisExam(id) {
             vm.selectedExams.splice(id, 1);
+            setTotal();
 
         }
 
         function addNewExam() {
             vm.selectedExams.push({});
+            //setTotal();
+
         }
 
         function newState(state) {
             alert("Sorry! You'll need to create a Constituion for " + state + " first!");
         }
 
-        function getExamMethods(ext) {
+        function getExamMethods(ext, id) {
             console.log(ext)
                 //vm.examTypes = types;
             ExamMethodService.getTypeMethodsList(ext).then(function(response) {
-                vm.examMethods = response;
+                vm.selectedExams[id].examMethods = response;
                 //vm.types = response;
-                console.log(vm.examMethods);
+                //console.log(vm.examMethods);
 
             }, function(error) {
                 console.log(error);
