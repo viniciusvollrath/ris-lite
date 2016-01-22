@@ -6,4 +6,6 @@
         padding-bottom: 0px !important;
     }
     
-    .first-element-side-nav {}
+    .collapsible {
+        margin: 0 0 0 0 !important;
+    }
