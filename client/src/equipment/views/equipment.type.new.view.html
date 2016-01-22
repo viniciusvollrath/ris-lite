@@ -1,27 +1,55 @@
 <div class="container">
-    <div class="row  grey lighten-3">
+    <div class="row  ">
         <div ncy-breadcrumb class="col s12 "></div>
     </div>
-    <div class="row grey lighten-2 form-row-div">
-        <form class="col s12" ng-submit="et.addNewEquipmentType()">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate" autofocus ng-model="et.name" required>
-                    <label for="first_name">Name*</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="last_name" type="number" class="validate" ng-model="et.number" required>
-                    <label for="last_name">Number*</label>
-                </div>
+    <!-- <div class="row grey lighten-2 form-row-div">
+    <form class="col s12" ng-submit="et.addNewEquipmentType()">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate" autofocus ng-model="et.name" required>
+                <label for="first_name">Name*</label>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" ng-model="et.observation" required></textarea>
-                    <label for="textarea1">Observation*</label>
+            <div class="input-field col s6">
+                <input id="last_name" type="number" class="validate" ng-model="et.number" required>
+                <label for="last_name">Number*</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" ng-model="et.observation" required></textarea>
+                <label for="textarea1">Observation*</label>
+            </div>
+        </div>
+        <div class="right-align">
+            <button type="submit" class="waves-effect waves-light btn align-right red">Add</button>
+        </div>
+    </form>
+</div>
+ -->
+    <md-card>
+        <div layout="column" ng-cloak class="md-inline-form">
+            <md-content layout-padding>
+                <div>
+                    <form name="userForm" ng-submit="et.addNewEquipmentType()">
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Name</label>
+                                <input ng-model="et.name">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Number</label>
+                                <input type="number" ng-model="et.number">
+                            </md-input-container>
+                        </div>
+                        <md-input-container class="md-block">
+                            <label>Description</label>
+                            <textarea ng-model="et.observation" columns="1" md-maxlength="150" rows="5"></textarea>
+                        </md-input-container>
+                        <div layout="row" layout-align="end">
+                            <md-button type="submit" class="md-raised md-warn">ADD</md-button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="right-align">
-                <button type="submit" class="waves-effect waves-light btn align-right red">Add</button>
-            </div>
-        </form>
-    </div>
+            </md-content>
+        </div>
+    </md-card>

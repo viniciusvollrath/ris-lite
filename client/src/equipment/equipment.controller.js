@@ -60,6 +60,20 @@ function EquipmentTypeNewController(EquipmentService, $state) {
     vm.name = "";
     vm.number = null;
     vm.observation = "";
+    vm.selected = [];
+    vm.query = {
+        order: 'name',
+        limit: 5,
+        page: 1
+    };
+
+    vm.onPaginate = function(page, limit) {
+        angular.extend({}, $scope.query, {
+            page: page,
+            limit: limit
+        });
+    };
+
 
     vm.addNewEquipmentType = addNewEquipmentType;
 

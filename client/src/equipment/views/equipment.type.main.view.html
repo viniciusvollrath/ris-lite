@@ -1,30 +1,33 @@
-<div class="container">
-    <div class="row grey lighten-3">
-        <div ncy-breadcrumb class="col s6 "></div>
-    </div>
-    <div class="row grey lighten-2">
-        <div class="col s12 center-align">
-            <table class="centered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Observation</th>
-                        <th>Quantity</th>
-                        <th>ID</th>
-                    </tr>
-                </thead>
-                <tr ng-repeat="equipment in EquipmentType.equipmentTypeList">
-                    <td> {{equipment.name}}</td>
-                    <td>{{equipment.observation}}</td>
-                    <td>{{equipment.number}}</td>
-                    <td>{{equipment.id}}</td>
-                </tr>
-                <tbody>
-                </tbody>
-            </table>
+<div ncy-breadcrumb class="col s12 "></div>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Equipment type</span>
         </div>
-    </div>
+    </md-toolbar>
+    <!-- exact table from live demo -->
+    <md-table-container>
+        <table md-table md-row-select ng-model="EquipmentType.selected" md-progress="promise">
+            <thead md-head md-order="EquipmentType.query.order" md-on-reorder="onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Name</span></th>
+                    <th md-column md-numeric md-order-by="calories.value"><span>Number</span></th>
+                    <th md-column md-numeric>Observation</th>
+                    <th md-column md-numeric>ID</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="equipment" md-select-id="{{equipment.name}}" md-auto-select ng-repeat="equipment in EquipmentType.equipmentTypeList">
+                    <td md-cell>{{equipment.name}}</td>
+                    <td md-cell>{{equipment.number}}</td>
+                    <td md-cell>{{equipment.observation}}</td>
+                    <td md-cell>{{equipment.id}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="EquipmentType.query.limit" md-page="EquipmentType.query.page" md-total="{{EquipmentType.equipmentTypeList.length}}" md-on-paginate="EquipmentType.onPaginate" md-page-select></md-table-pagination>
     <div class="col s6 right-align dashboard-main-action-bar">
         <a ui-sref="dashboard.admin.equipment-type.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
-</div>
+</md-card>

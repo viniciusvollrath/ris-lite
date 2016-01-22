@@ -1,49 +1,67 @@
-<ul id="slide-out" class="side-nav fixed admin-side-nav">
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Staff<i class="mdi-navigation-arrow-drop-down"></i></a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="#!">Admins</a></li>
-                        <li><a href="#!">Doctors</a></li>
-                        <li><a href="#!">Assistants</a></li>
-                        <li><a href="#!">Techniciens</a></li>
-                    </ul>
-                </div>
+<md-sidenav class="md-sidenav-left md-whiteframe-z2 admin-side-nav" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Administration</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+        <ul>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header center-align">Staff<i class="mdi-navigation-arrow-drop-down"></i></a>
+                        <div class="collapsible-body center-align">
+                            <ul>
+                                <li><a href="#!">Admins</a></li>
+                                <li><a href="#!">Doctors</a></li>
+                                <li><a href="#!">Assistants</a></li>
+                                <li><a href="#!">Techniciens</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header center-align">Equipments<i class="mdi-navigation-arrow-drop-down"></i></a>
+                        <div class="collapsible-body center-align">
+                            <ul>
+                                <li><a ui-sref="dashboard.admin.equipment">My Equipments</a></li>
+                                <li><a ui-sref="dashboard.admin.equipment-type">Equipent types</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header center-align">Exams<i class="mdi-navigation-arrow-drop-down"></i></a>
+                        <div class="collapsible-body center-align">
+                            <ul>
+                                <li><a ui-sref="dashboard.admin.exam-type">Exam Types</a></li>
+                                <li><a ui-sref="dashboard.admin.exam-method">Exam Methods</a></li>
+                                <li><a href="#!">Pricing</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header center-align">Settings<i class="mdi-navigation-arrow-drop-down"></i></a>
+                        <div class="collapsible-body center-align">
+                            <ul>
+                                <li><a href="#!">General Configuration</a></li>
+                                <li><a href="#!">Printing</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </li>
         </ul>
-    </li>
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Equipments<i class="mdi-navigation-arrow-drop-down"></i></a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a ui-sref="dashboard.admin.equipment">My Equipments</a></li>
-                        <li><a ui-sref="dashboard.admin.equipment-type">Equipent types</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-    <li><a ui-sref="dashboard.admin.exam-type">Exam Types</a></li>
-    <li><a ui-sref="dashboard.admin.exam-method">Exam Methods</a></li>
-    <li><a href="#!">Pricing</a></li>
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Settings<i class="mdi-navigation-arrow-drop-down"></i></a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="#!">General Configuration</a></li>
-                        <li><a href="#!">Printing</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-</ul>
-<script>
-$('.collapsible').collapsible();
-</script>
+        <script>
+        $('.collapsible').collapsible();
+        </script>
+    </md-content>
+</md-sidenav>

@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <div class="navbar-fixed">
         <nav class="blue dashboard-layout-nav">
             <div class="nav-wrapper">
@@ -18,7 +18,47 @@
         </nav>
     </div>
     <div ui-view="left-side" ng-if="layout.hasSideNav()" class="level0"></div>
+</header> -->
+<!-- <md-toolbar class="light-blue">
+    <div class="md-toolbar-tools">
+        <h2>
+          <span>RaDiag*</span>
+        </h2>
+        <span flex></span>
+        <a class="menu-item" ui-sref="dashboard.main">Dashboard</a>
+        <a class="menu-item" ui-sref="dashboard">Appointments</a>
+        <a class="menu-item" ui-sref="dashboard">Exams</a>
+        <a class="menu-item" ui-sref="dashboard">Patients</a>
+        <a class="menu-item" ui-sref="dashboard" ng-if="isAuthorized([userRoles.doctor,userRoles.admin])">Billing</a>
+        <a href="">Welcome, {{layout.username}}</a>
+        <md-button ng-click="layout.logout()" class="md-fab md-mini" aria-label="Favorite">
+            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar> -->
+<header>
+    <div class="navbar-fixed">
+        <nav class="blue dashboard-layout-nav">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo logo-padding">RaDiag*</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a ui-sref="dashboard.main">Dashboard</a></li>
+                    <li><a ui-sref="dashboard">Appointments</a></li>
+                    <li><a ui-sref="dashboard">Exams</a></li>
+                    <li><a ui-sref="dashboard">Patients</a></li>
+                    <li><a ui-sref="dashboard" ng-if="isAuthorized([userRoles.doctor,userRoles.admin])">Billing</a></li>
+                    <li><a ui-sref="dashboard.admin" ng-if="isAuthorized(userRoles.admin)">Administration</a></li>
+                    <li><a href="">Welcome, {{layout.username}}</a></li>
+                    <li><a ng-click="layout.logout()" class="red light-3"><i class="material-icons right">lock_outline</i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- <div ui-view="left-side" ng-if="layout.hasSideNav()" class="level0"></div> -->
 </header>
-<main>
-    <div ui-view="main" ng-class="layout.hasSideNav() ? 'grey lighten-5 dashboard-layout-main' : 'grey lighten-5 dashboard-layout-main-no-nav'"></div>
-</main>
+<section layout="row" flex class="full-height">
+    <div ui-view="left-side" ng-if="layout.hasSideNav()"></div>
+    <md-content flex layout-padding ui-view="main">
+    </md-content>
+</section>

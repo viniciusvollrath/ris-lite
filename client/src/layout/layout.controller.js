@@ -20,8 +20,8 @@ function LayoutController($state, AuthService) {
     function hasSideNav() {
         var height = $(window).height() - 64;
         $(".admin-side-nav").height(height);
-        $(".dashboard-layout-main").css('min-height', height);
-        $(".dashboard-layout-main-no-nav").css('min-height', height);
+        $(".full-height").css('min-height', height);
+        $(".full-height").css('min-height', height);
         var next = $state.$current.name;
         var nextTbl = next.split(".");
 

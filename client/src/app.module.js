@@ -3,12 +3,15 @@
 
     angular.module('app', [
         'ui.router',
+        'ngMaterial',
+        'ngMessages',
         'restangular',
         'angular-loading-bar',
         'ngAnimate',
         'cfp.loadingBar',
         'ncy-angular-breadcrumb',
         'ui.select',
+        'md.data.table',
         'ngSanitize',
         'app.layout',
         'app.auth',
