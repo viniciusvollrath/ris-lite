@@ -15,7 +15,7 @@
 
     }
 
-    function DashboardQuotationNewController(ExamTypeService, ExamMethodService) {
+    function DashboardQuotationNewController(ExamTypeService, ExamMethodService, store, $state) {
         var vm = this;
         vm.simulateQuery = false;
         vm.isDisabled = false;
@@ -31,7 +31,7 @@
         vm.selectedExamType = null;
         vm.searchExamType = null;
         vm.querySearch = querySearch;
-
+        //list of selected exams with all the details
         vm.selectedExams = [{}];
 
         vm.addNewExam = addNewExam;
@@ -39,6 +39,7 @@
 
         vm.setPrice = setPrice;
         vm.setTotal = setTotal;
+        vm.goToNextStep = goToNextStep;
         //add the price to the selected exams list
         function setPrice() {
 
@@ -118,6 +119,12 @@
 
                 }
             };
+        }
+
+        function goToNextStep() {
+            store.set('examsList', vm.selectedExams);
+            $state.go('dashboard.main');
+
         }
 
     }

@@ -55,7 +55,8 @@
                 "username": credentials.username,
                 "password": credentials.password
             }, "login").then(function(user) {
-                storeUserCredentials(credentials.userName + user.id, user.role[0]);
+                storeUserCredentials((credentials.username + "." + user.id
+), user.role[0]);
                 //role = user.role[0];
                 console.log(user);
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);

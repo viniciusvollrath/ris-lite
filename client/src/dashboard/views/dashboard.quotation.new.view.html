@@ -32,7 +32,7 @@
     <div layout="column" ng-cloak class="md-inline-form">
         <md-content layout-padding>
             <div>
-                <form name="userForm" ng-submit="">
+                <form name="userForm" ng-submit="qt.goToNextStep()">
                     <div layout="row" class="md-inline-form" ng-repeat="exam in qt.selectedExams">
                         <md-autocomplete class="auto-complte" flex="35" md-no-cache="true" md-selected-item="exam.selectedExamType" md-selected-item-change="qt.getExamMethods(exam.selectedExamType.id,$index)" md-search-text="exam.searchExamType" md-items="item in qt.querySearch(exam.searchExamType)" md-item-text="item.name" md-min-length="0" ng-focus="qt.querySearch(exam.searchExamType)">
                             <md-item-template>
@@ -42,6 +42,9 @@
                                 No states matching "{{ctrl.searchText}}" were found.
                                 <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
                             </md-not-found>
+                            <div ng-messages="exam.selectedExamType.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
                         </md-autocomplete>
                         <!-- <md-autocomplete flex="35" required md-input-name="autocompleteField" md-input-minlength="0" md-input-maxlength="18" md-no-cache="qt.noCache" md-selected-item="exam.selectedExamType" md-search-text="exam.searchExamType" md-items="item in qt.querySearch(exam.searchExamType)" md-item-text="item.name" md-floating-label="Exam Type" md-selected-item-change="qt.getExamMethods(exam.selectedExamType.id,$index)">
                             <md-item-template>
@@ -64,19 +67,19 @@
                             <input type="number" ng-model="exam.selectedExamMethod.price" ng-change="qt.setPrice()">
                         </md-input-container>
                         <md-input-container flex="15" class="md-block">
-                           <md-button ng-show="(qt.selectedExams.length > 1) " class="md-fab md-mini md-warn" aria-label="Remove" ng-click="qt.removeThisExam($index)">
-    <md-icon md-svg-src="assets/img/ic_clear_white_24px.svg"></md-icon>
-</md-button>
-
+                            <md-button ng-show="(qt.selectedExams.length > 1) " class="md-fab md-mini md-warn" aria-label="Remove" ng-click="qt.removeThisExam($index)">
+                                <md-icon md-svg-src="assets/img/ic_clear_white_24px.svg"></md-icon>
+                            </md-button>
                             <md-button ng-show="$index == qt.selectedExams.length -1" class="md-fab md-mini green" aria-label="Add new" ng-click="qt.addNewExam()">
                                 <md-icon md-svg-src="assets/img/ic_add_circle_outline_white_24px.svg"></md-icon>
                             </md-button>
                         </md-input-container>
                     </div>
                     <md-divider ng-if="!$last"></md-divider>
-                    TOTAAAAL:{{qt.total}}
+                    <div>
+                        <h3>TOTAL: {{qt.total}} DA</h3></div>
                     <div layout="row" layout-align="end">
-                        <md-button type="submit" class="md-raised green">Next ></md-button>
+                        <md-button type="submit" class="md-raised md-warn">Next</md-button>
                     </div>
                 </form>
             </div>

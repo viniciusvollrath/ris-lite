@@ -7,6 +7,7 @@
         'ngMessages',
         'restangular',
         'angular-loading-bar',
+        'angular-storage',
         'ngAnimate',
         'cfp.loadingBar',
         'ncy-angular-breadcrumb',
