@@ -22,6 +22,7 @@
         'app.equipment',
         'app.exam-type',
         'app.exam-method',
+        'app.exam',
         'app.patient'
 
 
