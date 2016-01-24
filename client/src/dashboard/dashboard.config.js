@@ -48,6 +48,23 @@
                 ncyBreadcrumb: {
                     label: 'New Quotation'
                 }
+            })
+            .state('dashboard.quotation.patient', {
+                url: '/patient',
+                views: {
+                    'main@dashboard': {
+                        templateUrl: 'src/dashboard/views/dashboard.quotation.patient.details.view.html',
+                        controller: 'DashboardQuotationPatientController',
+                        controllerAs: 'qtp'
+                    }
+
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+                ncyBreadcrumb: {
+                    label: 'Patient Details'
+                }
             });
     }
 

@@ -8,7 +8,6 @@
         var examMethod = Rest.all("examMethodes");
 
         function getTypeMethodsList(ext) {
-            console.log("exec");
             return examMethod.customGET('?filter[where][examTypeId]=' + ext);
         }
 

@@ -5,15 +5,15 @@
         'ui.router',
         'ngMaterial',
         'ngMessages',
+        'ngAnimate',
+        'ngSanitize',
         'restangular',
         'angular-loading-bar',
         'angular-storage',
-        'ngAnimate',
+        'md.data.table',
         'cfp.loadingBar',
         'ncy-angular-breadcrumb',
         'ui.select',
-        'md.data.table',
-        'ngSanitize',
         'app.layout',
         'app.auth',
         'app.welcome',
@@ -21,7 +21,8 @@
         'app.dash',
         'app.equipment',
         'app.exam-type',
-        'app.exam-method'
+        'app.exam-method',
+        'app.patient'
 
 
     ]);

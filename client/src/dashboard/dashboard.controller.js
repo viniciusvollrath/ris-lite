@@ -9,12 +9,13 @@
      */
     angular.module('app.dash')
         .controller('DashboardMainController', DashboardMainController)
-        .controller('DashboardQuotationNewController', DashboardQuotationNewController);
+        .controller('DashboardQuotationNewController', DashboardQuotationNewController)
+        .controller('DashboardQuotationPatientController', DashboardQuotationPatientController);
 
-    function DashboardMainController($scope, AUTH_EVENTS) {
+    function DashboardMainController($scope) {
 
     }
-
+    // MOVE ALL THE LOGIQUE TO A SERVICE
     function DashboardQuotationNewController(ExamTypeService, ExamMethodService, store, $state) {
         var vm = this;
         vm.simulateQuery = false;
@@ -123,9 +124,29 @@
 
         function goToNextStep() {
             store.set('examsList', vm.selectedExams);
-            $state.go('dashboard.main');
+            $state.go('dashboard.quotation.patient');
 
         }
+
+    }
+
+    function DashboardQuotationPatientController($state, store, PatientService) {
+        var vm = this;
+        vm.patient = {};
+        vm.selectedExamsTotal = 0;
+        vm.selectedExams = store.get('examsList');
+        for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
+            vm.selectedExamsTotal = vm.selectedExamsTotal + vm.selectedExams[i].price;
+        };
+
+        vm.addNewPatient = addNewPatient;
+
+        function addNewPatient() {
+            console.log("add new patient");
+            PatientService.addNewPatient(vm.patient);
+            $state.go('dashboard.main');
+        }
+
 
     }
 

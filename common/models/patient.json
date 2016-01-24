@@ -1,44 +1,48 @@
 {
-  "name": "patient",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "firstName": {
-      "type": "string",
-      "required": true
+    "name": "patient",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "lastName": {
-      "type": "string",
-      "required": true
+    "properties": {
+        "firstName": {
+            "type": "string",
+            "required": true
+        },
+        "lastName": {
+            "type": "string",
+            "required": true
+        },
+        "gender": {
+            "type": "string",
+            "required": true
+        },
+        "age": {
+            "type": "number",
+            "required": true
+        },
+        "phoneNumber": {
+            "type": "string"
+        },
+        "address": {
+            "type": "string",
+            "required": true
+        }
     },
-    "age": {
-      "type": "number",
-      "required": true
+    "validations": [],
+    "relations": {
+        "exams": {
+            "type": "hasMany",
+            "model": "exam",
+            "foreignKey": ""
+        },
+        "appointments": {
+            "type": "hasMany",
+            "model": "appointment",
+            "foreignKey": ""
+        }
     },
-    "phoneNumber": {
-      "type": "string"
-    },
-    "address": {
-      "type": "string",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {
-    "exams": {
-      "type": "hasMany",
-      "model": "exam",
-      "foreignKey": ""
-    },
-    "appointments": {
-      "type": "hasMany",
-      "model": "appointment",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }
