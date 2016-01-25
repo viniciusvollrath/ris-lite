@@ -11,11 +11,11 @@
                 <div layout="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Emergency Level</label>
-                        <md-select ng-model="qtp.patient.emergencyLevel">
+                        <md-select ng-model="qtp.emergencyLevel">
                             <md-option value="LOW" selected>LOW</md-option>
                             <md-option value="MEDIUM">MEDIUM</md-option>
                             <md-option value="HIGH">HIGH</md-option>
-                            <div ng-messages="qtp.patient.emergencyLevel.$error">
+                            <div ng-messages="qtp.emergencyLevel.$error">
                                 <div ng-message="required">This is required.</div>
                             </div>
                         </md-select>

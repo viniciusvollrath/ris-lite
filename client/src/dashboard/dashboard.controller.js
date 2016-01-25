@@ -153,6 +153,7 @@
     function DashboardQuotationPatientController($state, store, PatientService) {
         var vm = this;
         vm.patient = {};
+        vm.emergencyLevel = undefined;
         vm.selectedExamsTotal = 0;
         vm.selectedExams = store.get('examsList');
         console.log(vm.selectedExams);
@@ -179,7 +180,8 @@
                 data.exams.push({
                     price: vm.selectedExams[i].price,
                     examMethodeId: vm.selectedExams[i].selectedExamMethod.id,
-                    examTypeId: vm.selectedExams[i].selectedExamType.id
+                    examTypeId: vm.selectedExams[i].selectedExamType.id,
+                    emergencyLevel: vm.emergencyLevel
                 });
 
             }
