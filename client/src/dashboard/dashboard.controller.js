@@ -135,15 +135,36 @@
         vm.patient = {};
         vm.selectedExamsTotal = 0;
         vm.selectedExams = store.get('examsList');
+        console.log(vm.selectedExams);
         for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
             vm.selectedExamsTotal = vm.selectedExamsTotal + vm.selectedExams[i].price;
         };
 
         vm.addNewPatient = addNewPatient;
+        vm.addPatientAndExams = addPatientAndExams;
 
         function addNewPatient() {
-            console.log("add new patient");
             PatientService.addNewPatient(vm.patient);
+            $state.go('dashboard.main');
+        }
+
+        function addPatientAndExams() {
+            var data = {};
+            data.patient = vm.patient;
+            data.exams = [];
+
+
+            for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
+                data.exams.push({
+                    price: vm.selectedExams[i].price,
+                    examMethodeId: vm.selectedExams[i].selectedExamMethod.id,
+                    examTypeId: vm.selectedExams[i].selectedExamType.id
+                });
+
+            }
+
+
+            PatientService.addPatientAndExams(data);
             $state.go('dashboard.main');
         }
 

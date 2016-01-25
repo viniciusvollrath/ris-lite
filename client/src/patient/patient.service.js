@@ -25,6 +25,18 @@
                 }, function(error) {
                     console.log(error);
                 });
+            },
+            addPatientAndExams: function(ptnt) {
+                console.log(ptnt);
+                return patient.customPOST("", "new", ptnt).then(function(response) {
+                    //examMethod.getList().push(response);
+                    console.log(response);
+                    //$state.go('dashboard');
+
+
+                }, function(error) {
+                    console.log(error);
+                });
             }
 
         }
