@@ -157,9 +157,16 @@
         vm.selectedExamsTotal = 0;
         vm.selectedExams = store.get('examsList');
         console.log(vm.selectedExams);
-        for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
-            vm.selectedExamsTotal = vm.selectedExamsTotal + vm.selectedExams[i].price;
-        };
+        // if trying to access this state without selecting exams redirect to the select exams view
+        if (vm.selectedExams == null) {
+            $state.go('dashboard.quotation');
+        } else {
+            console.log(vm.selectedExams);
+            for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
+                vm.selectedExamsTotal = vm.selectedExamsTotal + vm.selectedExams[i].price;
+            }
+
+        }
 
         vm.addNewPatient = addNewPatient;
         vm.addPatientAndExams = addPatientAndExams;
