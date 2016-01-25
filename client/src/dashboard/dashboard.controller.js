@@ -24,16 +24,20 @@
         vm.examTypes = undefined;
         vm.examTMethods = undefined;
         vm.total = 0;
-
-
-        vm.getExamMethods = getExamMethods;
         vm.types = null;
         loadAll();
         vm.selectedExamType = null;
         vm.searchExamType = null;
-        vm.querySearch = querySearch;
         //list of selected exams with all the details
         vm.selectedExams = [{}];
+
+        if (store.get("examsList").count != 0) {
+            vm.selectedExams = store.get("examsList");
+            setPrice()
+        }
+
+        vm.getExamMethods = getExamMethods;
+        vm.querySearch = querySearch;
 
         vm.addNewExam = addNewExam;
         vm.removeThisExam = removeThisExam;
@@ -158,6 +162,7 @@
 
         vm.addNewPatient = addNewPatient;
         vm.addPatientAndExams = addPatientAndExams;
+        vm.goBack = goBack;
 
         function addNewPatient() {
             PatientService.addNewPatient(vm.patient);
@@ -182,6 +187,11 @@
 
             PatientService.addPatientAndExams(data);
             $state.go('dashboard.main');
+        }
+
+        function goBack() {
+            $state.go('dashboard.quotation');
+
         }
 
 

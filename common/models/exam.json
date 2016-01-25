@@ -39,6 +39,10 @@
         "status": {
             "type": "string",
             "required": true
+        },
+        "emergencyLevel": {
+            "type": "string",
+            "required": false
         }
 
     },

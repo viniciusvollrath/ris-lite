@@ -10,6 +10,19 @@
             <form name="patientForm" ng-submit="qtp.addPatientAndExams()">
                 <div layout="row">
                     <md-input-container class="md-block" flex-gt-sm>
+                        <label>Emergency Level</label>
+                        <md-select ng-model="qtp.patient.emergencyLevel">
+                            <md-option value="LOW" selected>LOW</md-option>
+                            <md-option value="MEDIUM">MEDIUM</md-option>
+                            <md-option value="HIGH">HIGH</md-option>
+                            <div ng-messages="qtp.patient.emergencyLevel.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>First Name</label>
                         <input required name="description" ng-model="qtp.patient.firstName">
                         <div ng-messages="qtp.patient.firstName.$error">
@@ -62,7 +75,7 @@
                     </md-input-container>
                 </div>
                 <div layout="row" layout-align="space-between">
-                    <md-button layout-align="start" class="md-raised md-warn" ng-click="goBack()">Back</md-button>
+                    <md-button layout-align="start" class="md-raised md-warn" ng-click="qtp.goBack()">Back</md-button>
                     <md-button type="submit" class="md-raised md-primary" ng-disabled="patientForm.$invalid">Create</md-button>
                 </div>
             </form>
