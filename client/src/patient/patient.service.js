@@ -4,7 +4,7 @@
     angular.module('app.patient')
         .service('PatientService', PatientService);
 
-    function PatientService(Rest, $state) {
+    function PatientService(Rest, $state, store) {
         var patient = Rest.all("patients");
 
         function getTypeMethodsList(ext) {
@@ -30,9 +30,9 @@
                 console.log(ptnt);
                 return patient.customPOST("", "new", ptnt).then(function(response) {
                     //examMethod.getList().push(response);
-                    console.log(response);
-                    //$state.go('dashboard');
-
+                    //console.log(response);
+                    $state.go('dashboard.main');
+                    store.remove('examsList');
 
                 }, function(error) {
                     console.log(error);

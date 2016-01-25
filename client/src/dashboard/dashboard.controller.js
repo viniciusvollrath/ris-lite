@@ -31,7 +31,7 @@
         //list of selected exams with all the details
         vm.selectedExams = [{}];
 
-        if (store.get("examsList").count != 0) {
+        if (store.get("examsList") != null) {
             vm.selectedExams = store.get("examsList");
             setPrice()
         }
@@ -186,7 +186,7 @@
 
 
             PatientService.addPatientAndExams(data);
-            $state.go('dashboard.main');
+            // $state.go('dashboard.main');
         }
 
         function goBack() {
