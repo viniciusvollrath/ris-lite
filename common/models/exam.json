@@ -35,8 +35,12 @@
         "isPaid": {
             "type": "boolean",
             "required": true
-
+        },
+        "status": {
+            "type": "string",
+            "required": true
         }
+
     },
     "validations": [],
     "relations": {

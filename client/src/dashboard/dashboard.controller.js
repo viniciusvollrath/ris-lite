@@ -16,7 +16,7 @@
 
     }
     // MOVE ALL THE LOGIQUE TO A SERVICE
-    function DashboardQuotationNewController(ExamTypeService, ExamMethodService, store, $state) {
+    function DashboardQuotationNewController(ExamTypeService, ExamMethodService, store, $state, $mdDialog) {
         var vm = this;
         vm.simulateQuery = false;
         vm.isDisabled = false;
@@ -40,10 +40,27 @@
 
         vm.setPrice = setPrice;
         vm.setTotal = setTotal;
+        vm.methodSelected = methodSelected;
         vm.goToNextStep = goToNextStep;
         //add the price to the selected exams list
-        function setPrice() {
+        function methodSelected(index) {
+            if (vm.selectedExams[index].selectedExamMethod.remarque != '' && vm.selectedExams[index].selectedExamMethod.remarque != 'RAS') {
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .title('WARNING: This Exam requires a special preparation')
+                    .textContent(vm.selectedExams[index].selectedExamMethod.remarque)
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Got it!')
+                );
+            };
+            setPrice()
 
+
+        }
+
+        function setPrice() {
             for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
 
                 vm.selectedExams[i].price = vm.selectedExams[i].selectedExamMethod.price;
@@ -51,7 +68,6 @@
 
 
             };
-
         }
         // calculate the total price of all the selected exams on every change
         function setTotal() {

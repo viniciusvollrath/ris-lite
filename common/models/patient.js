@@ -23,6 +23,7 @@ module.exports = function(Patient) {
                         ex.conclusion = eMethod.conclusionModel;
                         ex.isInterpreted = false;
                         ex.isPaid = false;
+                        ex.status = "NEW";
                         exam.create(ex, function(error, exm) {
                             if (error) {
                                 cb(error, {});

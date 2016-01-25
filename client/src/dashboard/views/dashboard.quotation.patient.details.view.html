@@ -61,8 +61,9 @@
                         </div>
                     </md-input-container>
                 </div>
-                <div layout="row" layout-align="end">
-                    <md-button type="submit" class="md-raised md-warn" ng-disabled="patientForm.$invalid">Create</md-button>
+                <div layout="row" layout-align="space-between">
+                    <md-button layout-align="start" class="md-raised md-warn" ng-click="goBack()">Back</md-button>
+                    <md-button type="submit" class="md-raised md-primary" ng-disabled="patientForm.$invalid">Create</md-button>
                 </div>
             </form>
         </div>

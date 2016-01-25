@@ -22,7 +22,7 @@
                             </div>
                         </md-autocomplete>
                         <md-input-container flex="35">
-                            <md-select ng-model="exam.selectedExamMethod" md-on-open="" style="min-width: 200px;" ng-change="qt.setPrice()" required>
+                            <md-select ng-model="exam.selectedExamMethod" md-on-open="" style="min-width: 200px;" ng-change="qt.methodSelected($index)" required>
                                 <md-option ng-value="method" ng-repeat="method in exam.examMethods">{{method.name}}</md-option>
                             </md-select>
                             <div ng-messages="exam.selectedExamMethod.$error">
