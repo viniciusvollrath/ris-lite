@@ -1,38 +1,58 @@
-<div class="container dashboard-container ">
-    <div class="row ">
-        <div class="col s6" ncy-breadcrumb></div>
-    </div>
-    <div class="row">
-        <div class="col s2 offset-s4 center-align">
-            <button ui-sref="dashboard.quotation" class="col s12 green waves-effect waves-light btn btn-large">New Qutoation</button>
-        </div>
-        <div class="col s2 center-align">
-            <button class="col s12 green accent-4  waves-effect waves-light btn btn-large">New Exam</button>
-        </div>
-        <div class="col s2 center-align">
-            <button class="col blue s12 waves-effect waves-light btn btn-large">Ongoing Exams</button>
-        </div>
-        <div class="col s2 ">
-            <button class="col s12 purple right-align waves-effect waves-light btn btn-large">New Appointment</button>
-        </div>
-    </div>
-    <dv class="row">
-        <div class="col s12  center-align dashboard-main-table grey lighten-3">
-            <table class="centered">
-                <thead>
-                    <tr>
-                        <th data-field="id">Name</th>
-                        <th data-field="name">Item Name</th>
-                        <th data-field="price">Item Price</th>
-                        <th data-field="price">Item Price</th>
-                        <th data-field="price">Item Price</th>
-                        <th data-field="price">Item Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-    </dv>
+<div class="row ">
+    <div class="col s6" ncy-breadcrumb></div>
 </div>
+<div class
+="row">
+    <div class="col s2 offset-s4 center-align">
+        <button ui-sref="dashboard.quotation" class="col s12 green waves-effect waves-light btn btn-large">New Qutoation</button>
+    </div>
+    <div class="col s2 center-align">
+        <button class="col s12 green accent-4  waves-effect waves-light btn btn-large">New Exam</button>
+    </div>
+    <div class="col s2 center-align">
+        <button class="col blue s12 waves-effect waves-light btn btn-large">Ongoing Exams</button>
+    </div>
+    <div class="col s2 ">
+        <button class="col s12 purple right-align waves-effect waves-light btn btn-large">New Appointment</button>
+    </div>
 </div>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Exams List</span>
+        </div>
+    </md-toolbar>
+    <!-- exact table from live demo -->
+    <md-table-container>
+        <table md-table md-row-select ng-model="ex.selected" md-progress="ex.promise">
+            <thead md-head md-order="ex.query.order" md-on-reorder="onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
+                    <th md-column md-order-by="nameToLower"><span>Type</span></th>
+                    <th md-column md-numeric md-order-by="calories.value"><span>Method</span></th>
+                    <th md-column md-numeric>Status</th>
+                    <th md-column md-numeric>Payed</th>
+                    <th md-column md-numeric>Emergency</th>
+                    <th md-column md-numeric>Price (DA )
+                    </th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
+                    <td md-cell>{{exam.patient.firstName}}</td>
+                    <td md-cell>{{exam.examType.name}}</td>
+                    <td md-cell>{{exam.examMethode.name}}</td>
+                    <td md-cell>{{exam.status}}</td>
+                    <td md-cell ng-if="exam.isPaid">YES</td>
+                    <td md-cell ng-if="!exam.isPaid">NO</td>
+                    <td md-cell>{{exam.emergencyLevel}}</td>
+                    <td md-cell>{{exam.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="ex.query.limit" md-page="ex.query.page" md-total="{{ex.equipmentTypeList.length}}" md-on-paginate="ex.onPaginate" md-page-select></md-table-pagination>
+    <div class="col s6 right-align dashboard-main-action-bar">
+        <a ui-sref="dashboard.admin.equipment-type.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+</md-card>

@@ -7,14 +7,14 @@
     function ExamService(Rest, $state) {
         var exam = Rest.all("exams");
 
-        function getTypeMethodsList(ext) {
+        function getDetailedList() {
 
-            return patient.customGET('?filter[where][examTypeId]=' + ext);
+            return exam.customGET('?filter[include]=examType&filter[include]=examMethode&filter[include]=patient')
         }
 
         return {
             examList: Rest.all("exams").getList(),
-            getTypeMethodsList: getTypeMethodsList,
+            getDetailedList: getDetailedList,
             addNewExam: function(ex) {
                 return patient.post(ex).then(function(response) {
                     //examMethod.getList().push(response);

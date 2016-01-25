@@ -21,7 +21,8 @@
                 views: {
                     'main@dashboard': {
                         templateUrl: 'src/dashboard/views/dashboard.main.view.html',
-                        controller: 'DashboardMainController'
+                        controller: 'DashboardMainController',
+                        controllerAs: 'ex'
                     }
 
                 },

@@ -12,7 +12,28 @@
         .controller('DashboardQuotationNewController', DashboardQuotationNewController)
         .controller('DashboardQuotationPatientController', DashboardQuotationPatientController);
 
-    function DashboardMainController($scope) {
+    function DashboardMainController(ExamService, $scope) {
+        var vm = this;
+        ExamService.getDetailedList().then(function(list) {
+            vm.examList = list;
+        });
+        console.log(vm.examList);
+        vm.selected = [];
+        vm.query = {
+            order: 'name',
+            limit: 5,
+            page: 1
+        };
+
+        vm.onPaginate = function(page, limit) {
+            angular.extend({}, $scope.query, {
+                page: page,
+                limit: limit
+            });
+        };
+
+
+
 
     }
     // MOVE ALL THE LOGIQUE TO A SERVICE
