@@ -16,14 +16,14 @@
         console.info("the admin config is runing");
 
         $stateProvider
-            .state('dashboard.admin', {
+            .state('app.admin', {
                 url: '/admin',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/admin/admin.main.view.html',
                         controller: ''
                     },
-                    'left-side@dashboard': {
+                    'left-side@app': {
                         templateUrl: 'src/admin/admin.side.view.html',
                         controller: ''
                     }

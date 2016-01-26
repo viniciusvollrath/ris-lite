@@ -14,6 +14,7 @@
 
         return {
             examList: Rest.all("exams").getList(),
+            examDetails: Rest.all("exams").getList(),
             getDetailedList: getDetailedList,
             addNewExam: function(ex) {
                 return patient.post(ex).then(function(response) {

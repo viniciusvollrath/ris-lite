@@ -1,17 +1,23 @@
+var async = require('async');
+
 module.exports = function(Patient) {
     Patient.new = function(patient, exams, cb) {
-        //console.log(patient);
         var exam = Patient.app.models.Exam;
         var examMethode = Patient.app.models.ExamMethode;
         Patient.create(patient, function(err, result) {
             if (err) {
                 cb(err, {});
             }
+            //if exams list not empty
             if (exams.length > 0) {
-                for (var i = exams.length - 1; i >= 0; i--) {
-                    exams[i].creationDate = Date.now();
-                    exams[i].patientId = result.id;
-                    var ex = exams[i];
+                console.log(exams.length);
+                var ex = {};
+                //for each exam complete the data
+                async.each(exams, function(ex, callback) {
+                    console.log(ex);
+                    ex.creationDate = Date.now();
+                    ex.patientId = result.id;
+
                     examMethode.findOne({
                         id: ex.examMethodeId
                     }, function(err, eMethod) {
@@ -29,11 +35,13 @@ module.exports = function(Patient) {
                                 cb(error, {});
                             }
                             console.log(exm);
+                            callback();
                         });
                     });
-                    // console.log(exams[i]);
+                }, function(err) {
 
-                }
+                });
+
                 cb(null, "totally nailed IT");
 
             } else {

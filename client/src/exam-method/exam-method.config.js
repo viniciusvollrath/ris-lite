@@ -16,10 +16,10 @@
         console.info("the exam method config is runing");
 
         $stateProvider
-            .state('dashboard.admin.exam-method', {
+            .state('app.admin.exam-method', {
                 url: '/exam-method',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/exam-method/views/exam-method.main.view.html',
                         controller: 'ExamMethodMainController',
                         controllerAs: 'exm'
@@ -33,10 +33,10 @@
                     label: 'Exam Method'
                 }
             })
-            .state('dashboard.admin.exam-method.new', {
+            .state('app.admin.exam-method.new', {
                 url: '/new',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/exam-method/views/exam-method.new.view.html',
                         controller: 'ExamMethodNewController',
                         controllerAs: 'exm'

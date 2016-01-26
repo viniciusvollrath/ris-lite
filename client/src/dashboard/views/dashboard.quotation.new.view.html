@@ -1,7 +1,5 @@
-<div class="container dashboard-container ">
-    <div class="row ">
-        <div class="col s6" ncy-breadcrumb></div>
-    </div>
+<div class="row ">
+    <div class="col s6" ncy-breadcrumb></div>
 </div>
 <md-card>
     <div layout="column" ng-cloak class="md-inline-form">
@@ -22,13 +20,13 @@
                             </div>
                         </md-autocomplete>
                         <md-input-container flex="35">
-                            <md-select ng-model="exam.selectedExamMethod" md-on-open="" style="min-width: 200px;" ng-change="qt.methodSelected($index)" required>
+                            <label>Method</label>
+                            <md-select ng-model="exam.selectedExamMethod" style="min-width: 200px;" ng-change="qt.methodSelected($index)" required>
                                 <md-option ng-value="method" ng-repeat="method in exam.examMethods">{{method.name}}</md-option>
                             </md-select>
                             <div ng-messages="exam.selectedExamMethod.$error">
                                 <div ng-message="required">This is required.</div>
                             </div>
-                            <label>Method</label>
                         </md-input-container>
                         <md-input-container flex="10">
                             <label>Price</label>

@@ -55,8 +55,7 @@
                 "username": credentials.username,
                 "password": credentials.password
             }, "login").then(function(user) {
-                storeUserCredentials((credentials.username + "." + user.id
-), user.role[0]);
+                storeUserCredentials((credentials.username + "." + user.id), user.role[0]);
                 //role = user.role[0];
                 console.log(user);
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
@@ -68,7 +67,7 @@
 
 
                 cfpLoadingBar.complete()
-                $state.go('dashboard.main');
+                $state.go('app.dashboard.main');
 
 
             }, function error(err) {

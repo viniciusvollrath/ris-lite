@@ -16,10 +16,10 @@
         console.info("the dashboard config is runing");
 
         $stateProvider
-            .state('dashboard.main', {
+            .state('app.dashboard.main', {
                 url: '/dashboard',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/dashboard/views/dashboard.main.view.html',
                         controller: 'DashboardMainController',
                         controllerAs: 'ex'
@@ -30,13 +30,13 @@
                     authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
                 },
                 ncyBreadcrumb: {
-                    label: 'Home'
+                    label: 'Dashboard'
                 }
             })
-            .state('dashboard.quotation', {
+            .state('app.dashboard.main.quotation', {
                 url: '/quotation',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/dashboard/views/dashboard.quotation.new.view.html',
                         controller: 'DashboardQuotationNewController',
                         controllerAs: 'qt'
@@ -50,10 +50,10 @@
                     label: 'New Quotation'
                 }
             })
-            .state('dashboard.quotation.patient', {
+            .state('app.dashboard.main.quotation.patient', {
                 url: '/patient',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/dashboard/views/dashboard.quotation.patient.details.view.html',
                         controller: 'DashboardQuotationPatientController',
                         controllerAs: 'qtp'

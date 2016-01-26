@@ -16,10 +16,10 @@
         console.info("the equipment config is runing");
 
         $stateProvider
-            .state('dashboard.admin.equipment', {
+            .state('app.admin.equipment', {
                 url: '/equipment',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/equipment/views/equipment.main.view.html',
                         controller: 'EquipmentMainController',
                         controllerAs: 'equipment'
@@ -33,10 +33,10 @@
                     label: 'Equipment'
                 }
             })
-            .state('dashboard.admin.equipment.new', {
+            .state('app.admin.equipment.new', {
                 url: '/new',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/equipment/views/equipment.new.view.html',
                         controller: 'EquipmentNewController',
                         controllerAs: 'eq'
@@ -49,10 +49,10 @@
                     label: 'New'
                 }
             })
-            .state('dashboard.admin.equipment-type', {
+            .state('app.admin.equipment-type', {
                 url: '/equipment-type',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/equipment/views/equipment.type.main.view.html',
                         controller: 'EquipmentTypeController',
                         controllerAs: 'EquipmentType'
@@ -65,10 +65,10 @@
                     label: 'Equipment-type'
                 }
             })
-            .state('dashboard.admin.equipment-type.new', {
+            .state('app.admin.equipment-type.new', {
                 url: '/new',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/equipment/views/equipment.type.new.view.html',
                         controller: 'EquipmentTypeNewController',
                         controllerAs: 'et'

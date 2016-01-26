@@ -16,10 +16,10 @@
         console.info("the equipment config is runing");
 
         $stateProvider
-            .state('dashboard.admin.exam-type', {
+            .state('app.admin.exam-type', {
                 url: '/exam-type',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/exam-type/views/exam-type.main.view.html',
                         controller: 'ExamTypeMainController',
                         controllerAs: 'ext'
@@ -33,10 +33,10 @@
                     label: 'Exam Type'
                 }
             })
-            .state('dashboard.admin.exam-type.new', {
+            .state('app.admin.exam-type.new', {
                 url: '/new',
                 views: {
-                    'main@dashboard': {
+                    'main@app': {
                         templateUrl: 'src/exam-type/views/exam-type.new.view.html',
                         controller: 'ExamTypeNewController',
                         controllerAs: 'ext'

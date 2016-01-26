@@ -16,19 +16,29 @@
         console.info("the layout configuration is runing");
 
         $stateProvider
-            .state('dashboard', {
+            .state('app', {
                 url: '',
                 abstract: true,
                 views: {
                     '': {
-                        templateUrl: 'src/layout/templates/dashboard.layout.html',
+                        templateUrl: 'src/layout/templates/app.layout.html',
                         controller: 'LayoutController',
-                        controllerAs: 'layout'
+                        controllerAs: 'app'
                     }
                 },
                 data: {
                     authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
                 },
+            })
+            .state('app.dashboard', {
+                url: '',
+                abstract: true,
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+                ncyBreadcrumb: {
+                    label: 'Dashboard'
+                }
             });
 
     }

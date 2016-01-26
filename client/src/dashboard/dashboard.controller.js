@@ -12,18 +12,17 @@
         .controller('DashboardQuotationNewController', DashboardQuotationNewController)
         .controller('DashboardQuotationPatientController', DashboardQuotationPatientController);
 
-    function DashboardMainController(ExamService, $scope) {
+    function DashboardMainController(ExamService) {
         var vm = this;
-        ExamService.getDetailedList().then(function(list) {
-            vm.examList = list;
-        });
-        console.log(vm.examList);
         vm.selected = [];
         vm.query = {
             order: 'name',
             limit: 5,
             page: 1
         };
+        ExamService.getDetailedList().then(function(list) {
+            vm.examList = list;
+        });
 
         vm.onPaginate = function(page, limit) {
             angular.extend({}, $scope.query, {
@@ -31,8 +30,6 @@
                 limit: limit
             });
         };
-
-
 
 
     }
@@ -165,7 +162,7 @@
 
         function goToNextStep() {
             store.set('examsList', vm.selectedExams);
-            $state.go('dashboard.quotation.patient');
+            $state.go('app.dashboard.main.quotation.patient');
 
         }
 
@@ -180,7 +177,7 @@
         console.log(vm.selectedExams);
         // if trying to access this state without selecting exams redirect to the select exams view
         if (vm.selectedExams == null) {
-            $state.go('dashboard.quotation');
+            $state.go('app.dashboard,main.quotation');
         } else {
             console.log(vm.selectedExams);
             for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
@@ -195,7 +192,7 @@
 
         function addNewPatient() {
             PatientService.addNewPatient(vm.patient);
-            $state.go('dashboard.main');
+            $state.go('app.dashboard.main');
         }
 
         function addPatientAndExams() {
@@ -214,13 +211,13 @@
 
             }
 
-
+            console.log(data);
             PatientService.addPatientAndExams(data);
-            // $state.go('dashboard.main');
+
         }
 
         function goBack() {
-            $state.go('dashboard.quotation');
+            $state.go('app.dashboard.main.quotation');
 
         }
 

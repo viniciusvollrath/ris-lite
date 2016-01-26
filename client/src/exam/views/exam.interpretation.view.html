@@ -1,0 +1,41 @@
+<div class="row ">
+    <div class="col s6" ncy-breadcrumb></div>
+</div>
+<md-card>
+    <div layout="column" ng-cloak layout-padding>
+        <div flex="70">
+            <h5>Exam details</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-field="id">First Name</th>
+                        <th data-field="name">Last Name</th>
+                        <th data-field="price">Gender</th>
+                        <th data-field="price">Age</th>
+                        <th data-field="price">Doctor</th>
+                        <th data-field="price">Exam Type</th>
+                        <th data-field="price">Exam Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                        <td>$0.87</td>
+                        <td>$0.87</td>
+                        <td>$0.87</td>
+                        <td>$0.87</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div flex>
+            <h5>Exam Results</h5>
+            <md-input-container class="md-block">
+                <label>Results</label>
+                <textarea ng-model="exam.results" columns="1" md-maxlength="15000" rows="25"></textarea>
+            </md-input-container>
+        </div>
+    </div>
+</md-card>
