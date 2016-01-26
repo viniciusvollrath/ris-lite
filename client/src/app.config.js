@@ -34,7 +34,7 @@
 
         // breadcrumb configuration custom layout
         $breadcrumbProvider.setOptions({
-            template: '<div>RaDiag<span ng-repeat="step in steps"> > <a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></span></div>'
+            template: '<div>RIS<span ng-repeat="step in steps"> > <a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></span></div>'
         });
     };
 

@@ -2,14 +2,18 @@
     <div class="navbar-fixed">
         <nav class="blue dashboard-layout-nav">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo logo-padding">RaDiag*</a>
+                <a href="#" class="brand-logo logo-padding">RIS<em> Light*</em></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a ui-sref="app.dashboard.main">Dashboard</a></li>
-                    <li><a ui-sref="dashboard">Appointments</a></li>
+                    <li><a ui-sref="dashboard">Rendez vous</a></li>
                     <li><a ui-sref="app.exam">Exams</a></li>
                     <li><a ui-sref="dashboard">Patients</a></li>
-                    <li><a ui-sref="dashboard" ng-if="isAuthorized([userRoles.doctor,userRoles.admin])">Billing</a></li>
+                    <li><a ui-sref="dashboard">Medecins</a></li>
+                    <!-- <li><a ui-sref="dashboard" ng-if="isAuthorized([userRoles.doctor,userRoles.admin])">Billing</a></li>
+ -->
+                    <li><a ui-sref="app.admin" ng-if="isAuthorized(userRoles.admin)">Statistique</a></li>
                     <li><a ui-sref="app.admin" ng-if="isAuthorized(userRoles.admin)">Administration</a></li>
+                    <li><a ui-sref="app.admin" ng-if="isAuthorized(userRoles.admin)">Configuration</a></li>
                     <li><a href="">Welcome, {{app.username}}</a></li>
                     <li><a ng-click="app.logout()" class="red light-3"><i class="material-icons right">lock_outline</i></a>
                     </li>
