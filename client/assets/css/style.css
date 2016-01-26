@@ -10,12 +10,23 @@
 
 @import url(https://fonts.googleapis.com/css?family=Nixie+One);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Mr+Dafoe);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900,700);
 html {
     height: 100vh;
 }
 
 main {
     flex: 1 0 auto;
+}
+
+.ris {
+    font-family: 'Cinzel Decorative', cursive;
+    font-weight: 700;
+}
+
+.light {
+    font-family: 'Mr Dafoe', cursive;
 }
 
 .container {

@@ -23,7 +23,8 @@
         'app.exam-type',
         'app.exam-method',
         'app.exam',
-        'app.patient'
+        'app.patient',
+        'app.appointment'
 
 
     ]);
