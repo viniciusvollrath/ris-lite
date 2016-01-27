@@ -20,6 +20,10 @@
                     controller: 'AdminMainController',
                     controllerAs: 'admin'
 
+                },
+                'left-side@app': {
+                    templateUrl: 'src/setting/views/setting.side.view.html',
+                    controller: ''
                 }
             },
             data: {

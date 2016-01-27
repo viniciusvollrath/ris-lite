@@ -14,7 +14,7 @@
                 return equipmentType.post(et).then(function(response) {
                     equipmentType.getList().push(response);
                     console.log(response);
-                    $state.go('dashboard.admin.equipment-type');
+                    $state.go('app.setting.equipment-type');
 
                 }, function(response) {
                     console.log("Error with status code", response.status);
@@ -25,7 +25,7 @@
                 return equipment.post(eq).then(function(response) {
                     equipment.getList().push(response);
                     console.log(response);
-                    $state.go('dashboard.admin.equipment');
+                    $state.go('app.setting.equipment');
 
                 }, function(response) {
                     console.log("Error with status code", response.status);

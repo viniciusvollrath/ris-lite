@@ -18,7 +18,7 @@
                 return examMethod.post(exm).then(function(response) {
                     //examMethod.getList().push(response);
                     // console.log(response);
-                    $state.go('dashboard.admin.exam-method');
+                    $state.go('app.setting.exam-method');
 
                 }, function(error) {
                     console.log(error);

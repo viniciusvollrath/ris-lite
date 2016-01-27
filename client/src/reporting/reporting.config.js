@@ -20,6 +20,10 @@
                     controller: 'ReportingMainController',
                     controllerAs: 'reporting'
 
+                },
+                'left-side@app': {
+                    templateUrl: 'src/setting/views/setting.side.view.html',
+                    controller: ''
                 }
             },
             data: {

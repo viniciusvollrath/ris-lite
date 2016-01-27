@@ -21,12 +21,13 @@ main {
 }
 
 .ris {
-    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Montserrat', cursive;
     font-weight: 700;
 }
 
 .light {
     font-family: 'Mr Dafoe', cursive;
+    font-size: 22px;
 }
 
 .container {

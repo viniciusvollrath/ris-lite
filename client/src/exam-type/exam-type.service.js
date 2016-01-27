@@ -13,7 +13,7 @@
                     return examType.post(et).then(function(response) {
                         examType.getList().push(response);
                         console.log(response);
-                        $state.go('dashboard.admin.exam-type');
+                        $state.go('app.setting.exam-type');
 
                     }, function(response) {
                         console.log("Error with status code", response.status);
