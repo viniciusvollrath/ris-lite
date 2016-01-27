@@ -3,6 +3,9 @@
 
     angular.module('app.dash', [
         'ui.router',
-        'app.auth'
+        'ncy-angular-breadcrumb',
+        'app.auth',
+        'ui.select',
+        'ngSanitize'
     ]);
 })();

@@ -1,0 +1,20 @@
+.logo-padding {
+    margin-left: 10px;
+}
+
+.dashboard-main-action-bar {
+    margin-bottom: 20px;
+}
+
+.dashboard-main-table {
+    min-height: 70vh;
+}
+
+.ui-select-toggle {
+    background-color: #ffffff !important;
+}
+
+.auto-complte {
+    margin-top: 10px;
+    margin-right: 10PX;
+}

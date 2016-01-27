@@ -11,6 +11,8 @@
 
     function AppController($scope, $state, USER_ROLES, AuthService, AUTH_EVENTS) {
         $scope.username = AuthService.username();
+        $scope.userRoles = USER_ROLES;
+        $scope.isAuthorized = AuthService.isAuthorized;
 
         $scope.$on(AUTH_EVENTS.notAuthorized, function(event) {
 

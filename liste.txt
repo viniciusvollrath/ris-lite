@@ -9,3 +9,8 @@
 # ajouter le derget d urgence d examin 3 degre (normal, legerement fatigue , urgent malade tres fatigue )
 # slectioner le manipulateur qui a effectuer l examin lors de la validation de le execution de le xamin
 # un examin a trois status (en attente, realise, remis)
+
+
+## ajouter l option se souvenir de moi avec le local storage sinon utiliser seulement le session storage
+
+## ajouter un status a chaqu equipmenet pour active deactive l equipement selon son etat

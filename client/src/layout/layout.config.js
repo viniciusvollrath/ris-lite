@@ -10,25 +10,36 @@
         .module('app.layout')
         .config(configure);
 
-    configure.$inject = ['$stateProvider'];
+    configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
-    function configure($stateProvider) {
+    function configure($stateProvider, USER_ROLES) {
         console.info("the layout configuration is runing");
 
-        // $stateProvider
-//     .state('login', {
-//         url: '/login',
-//         views: {
-//             '': {
-//                 templateUrl: 'src/layout/templates/login.layout.html'
-//             },
-//             'form@login': {
-//                 templateUrl: 'src/common/auth/login.view.html',
-//                 controller: 'LoginController',
-//                 controllerAs: 'login'
-//             }
-//         }
-//     });
+        $stateProvider
+            .state('app', {
+                url: '',
+                abstract: true,
+                views: {
+                    '': {
+                        templateUrl: 'src/layout/templates/app.layout.html',
+                        controller: 'LayoutController',
+                        controllerAs: 'app'
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+            })
+            .state('app.dashboard', {
+                url: '',
+                abstract: true,
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
+                },
+                ncyBreadcrumb: {
+                    label: 'Dashboard'
+                }
+            });
 
     }
 

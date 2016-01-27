@@ -3,12 +3,32 @@
 
     angular.module('app', [
         'ui.router',
+        'ngMaterial',
+        'ngMessages',
+        'ngAnimate',
+        'ngSanitize',
         'restangular',
         'angular-loading-bar',
-        'ngAnimate',
+        'angular-storage',
+        'md.data.table',
         'cfp.loadingBar',
+        'ncy-angular-breadcrumb',
+        'ui.select',
+        'app.layout',
         'app.auth',
         'app.welcome',
-        'app.dash'
+        'app.admin',
+        'app.dash',
+        'app.equipment',
+        'app.exam-type',
+        'app.exam-method',
+        'app.exam',
+        'app.patient',
+        'app.appointment',
+        'app.doctor',
+        'app.reporting',
+        'app.setting'
+
+
     ]);
 })();

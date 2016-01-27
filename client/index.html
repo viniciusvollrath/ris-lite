@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head n>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
@@ -9,17 +9,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
+    <link rel="stylesheet" href="bower_components/ui-select/dist/select.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+    <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="src/dashboard/dashboard.css">
+    <link rel="stylesheet" href="src/layout/layout.css">
+    <link rel="stylesheet" href="src/setting/setting.css">
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body ng-app="app" class="blue darken-1" ng-cloak ng-controller="AppController as app">
-    this is the index page
     <div ui-view class="page {{ pageClass }}"></div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
     $(document).ready(function() {
-        $('select').material_select();
+
     });
     </script>
     <script src="assets/js/materialize.js"></script>
@@ -32,6 +37,14 @@
     <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
     <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="/bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="/bower_components/ui-select/dist/select.js"></script>
+    <script src="/bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+    <script src="/bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
     <!-- end of dependencies -->
     <!-- the app logic -->
     <script src="src/app.module.js"></script>
@@ -39,6 +52,9 @@
     <script src="src/app.run.js"></script>
     <script src="src/app.controller.js"></script>
     <script src="src/services/api.config.service.js"></script>
+    <script src="src/layout/layout.module.js"></script>
+    <script src="src/layout/layout.config.js"></script>
+    <script src="src/layout/layout.controller.js"></script>
     <script src="src/common/auth/auth.module.js"></script>
     <script src="src/common/auth/auth.config.js"></script>
     <script src="src/common/auth/auth.const.js"></script>
@@ -49,6 +65,46 @@
     <script src="src/dashboard/dashboard.module.js"></script>
     <script src="src/dashboard/dashboard.controller.js"></script>
     <script src="src/dashboard/dashboard.config.js"></script>
+    <script src="src/setting/setting.module.js"></script>
+    <script src="src/setting/setting.service.js"></script>
+    <script src="src/setting/setting.config.js"></script>
+    <script src="src/setting/setting.controller.js"></script>
+    <script src="src/equipment/equipment.module.js"></script>
+    <script src="src/equipment/equipment.config.js"></script>
+    <script src="src/equipment/equipment.service.js"></script>
+    <script src="src/equipment/equipment.controller.js"></script>
+    <script src="src/exam-type/exam-type.module.js"></script>
+    <script src="src/exam-type/exam-type.config.js"></script>
+    <script src="src/exam-type/exam-type.service.js"></script>
+    <script src="src/exam-type/exam-type.controller.js"></script>
+    <script src="src/exam-method/exam-method.module.js"></script>
+    <script src="src/exam-method/exam-method.config.js"></script>
+    <script src="src/exam-method/exam-method.service.js"></script>
+    <script src="src/exam-method/exam-method.controller.js"></script>
+    <script src="src/patient/patient.module.js"></script>
+    <script src="src/patient/patient.config.js"></script>
+    <script src="src/patient/patient.controller.js"></script>
+    <script src="src/patient/patient.service.js"></script>
+    <script src="src/exam/exam.module.js"></script>
+    <script src="src/exam/exam.service.js"></script>
+    <script src="src/exam/exam.config.js"></script>
+    <script src="src/exam/exam.controller.js"></script>
+    <script src="src/appointment/appointment.module.js"></script>
+    <script src="src/appointment/appointment.service.js"></script>
+    <script src="src/appointment/appointment.config.js"></script>
+    <script src="src/appointment/appointment.controller.js"></script>
+    <script src="src/doctor/doctor.module.js"></script>
+    <script src="src/doctor/doctor.service.js"></script>
+    <script src="src/doctor/doctor.config.js"></script>
+    <script src="src/doctor/doctor.controller.js"></script>
+    <script src="src/reporting/reporting.module.js"></script>
+    <script src="src/reporting/reporting.service.js"></script>
+    <script src="src/reporting/reporting.config.js"></script>
+    <script src="src/reporting/reporting.controller.js"></script>
+    <script src="src/admin/admin.module.js"></script>
+    <script src="src/admin/admin.service.js"></script>
+    <script src="src/admin/admin.config.js"></script>
+    <script src="src/admin/admin.controller.js"></script>
 </body>
 
 </html>

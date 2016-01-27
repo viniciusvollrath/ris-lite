@@ -1,1 +1,26 @@
-this is the dashboard
+<header>
+    <div class="navbar-fixed">
+        <nav class="blue dashboard-layout-nav">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo logo-padding">RaDiag*</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a ui-sref="dashboard.main">Dashboard</a></li>
+                    <li><a ui-sref="dashboard">Appointments</a></li>
+                    <li><a ui-sref="dashboard">Exams</a></li>
+                    <li><a ui-sref="dashboard">Patients</a></li>
+                    <li><a ui-sref="dashboard" ng-if="isAuthorized([userRoles.doctor,userRoles.admin])">Billing</a></li>
+                    <li><a ui-sref="dashboard.admin" ng-if="isAuthorized(userRoles.admin)">Administration</a></li>
+                    <li><a href="">Welcome, {{layout.username}}</a></li>
+                    <li><a ng-click="layout.logout()" class="red light-3"><i class="material-icons right">lock_outline</i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- <div ui-view="left-side" ng-if="layout.hasSideNav()" class="level0"></div> -->
+</header>
+<section layout="row" flex class="full-height">
+    <div ui-view="left-side" ng-if="layout.hasSideNav()"></div>
+    <md-content flex layout-padding ui-view="main">
+    </md-content>
+</section>

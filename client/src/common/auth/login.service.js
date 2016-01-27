@@ -4,11 +4,11 @@
     angular.module('app.auth')
         .service('AuthService', AuthService);
 
-    function AuthService(USER_ROLES, AUTH_EVENTS, DevRestangular, $state, $http, $rootScope, cfpLoadingBar) {
+    function AuthService(USER_ROLES, AUTH_EVENTS, Rest, $state, $http, $rootScope, cfpLoadingBar) {
         var LOCAL_TOKEN_KEY = 'yourTokenKey';
         var username = '';
         var isAuthenticated = false;
-        var role = '';
+        //var role = '';
         var authToken;
 
         function loadUserCredentials() {
@@ -18,8 +18,12 @@
             }
         }
 
-        function storeUserCredentials(token) {
+        function storeUserCredentials(token, role) {
             window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
+            window.localStorage.setItem('ROLE', role);
+            Rest.setDefaultHeaders({
+                "X-Access-Token": token,
+            });
             useCredentials(token);
         }
 
@@ -39,19 +43,20 @@
             isAuthenticated = false;
             $http.defaults.headers.common['X-Access-Token'] = undefined;
             window.localStorage.removeItem(LOCAL_TOKEN_KEY);
+            window.localStorage.removeItem('ROLE');
         }
 
         var login = function(credentials) {
-            console.log("login service");
+            // console.log("login service");
             cfpLoadingBar.start();
             console.log(credentials);
-            var login = DevRestangular.all("users");
+            var login = Rest.all("users");
             return login.customPOST({
                 "username": credentials.username,
                 "password": credentials.password
             }, "login").then(function(user) {
-                storeUserCredentials(credentials.userName + user.id);
-                role = user.role[0];
+                storeUserCredentials((credentials.username + "." + user.id), user.role[0]);
+                //role = user.role[0];
                 console.log(user);
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
                 cfpLoadingBar.set(0.3);
@@ -62,7 +67,7 @@
 
 
                 cfpLoadingBar.complete()
-                $state.go('dashboard');
+                $state.go('app.dashboard.main');
 
 
             }, function error(err) {
@@ -73,11 +78,12 @@
 
         var logout = function() {
             destroyUserCredentials();
+            $state.go('welcome');
         };
 
         var isAuthorized = function(authorizedRoles) {
-            console.log(authorizedRoles);
-            console.log(role);
+            // console.log(authorizedRoles);
+            var role = window.localStorage.getItem('ROLE');
 
             if (!angular.isArray(authorizedRoles)) {
                 authorizedRoles = [authorizedRoles];
@@ -98,7 +104,7 @@
                 return username;
             },
             role: function() {
-                return role;
+                return window.localStorage.getItem('ROLE');;
             }
         };
     };

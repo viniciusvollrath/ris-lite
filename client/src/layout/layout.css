@@ -1,0 +1,40 @@
+.dashboard-layout-nav {
+    min-height: 10vh;
+    z-index: 1 !important;
+    position: absolute;
+}
+
+.level0 {
+    z-index: 0 !important;
+    position: absolute;
+}
+
+.dashboard-layout-main {
+    padding-top: 20px;
+    padding-left: 240px;
+}
+
+.dashboard-layout-main-no-nav {
+    min-height: 90vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.menu-item {
+    margin-left: 2%;
+    margin-right: 1%;
+}
+
+.full-height {
+    /*min-height: 100vh;*/
+}
+
+md-content.ul {
+    list-style-image: none !important;
+    list-style-type: none !important;
+}
+
+.collapsible-body li {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
