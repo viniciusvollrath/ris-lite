@@ -16,7 +16,7 @@
         console.info("the equipment config is runing");
 
         $stateProvider
-            .state('app.admin.equipment', {
+            .state('app.setting.equipment', {
                 url: '/equipment',
                 views: {
                     'main@app': {
@@ -33,7 +33,7 @@
                     label: 'Equipment'
                 }
             })
-            .state('app.admin.equipment.new', {
+            .state('app.setting.equipment.new', {
                 url: '/new',
                 views: {
                     'main@app': {
@@ -49,7 +49,7 @@
                     label: 'New'
                 }
             })
-            .state('app.admin.equipment-type', {
+            .state('app.setting.equipment-type', {
                 url: '/equipment-type',
                 views: {
                     'main@app': {
@@ -65,7 +65,7 @@
                     label: 'Equipment-type'
                 }
             })
-            .state('app.admin.equipment-type.new', {
+            .state('app.setting.equipment-type.new', {
                 url: '/new',
                 views: {
                     'main@app': {

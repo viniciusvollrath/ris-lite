@@ -24,7 +24,10 @@
         'app.exam-method',
         'app.exam',
         'app.patient',
-        'app.appointment'
+        'app.appointment',
+        'app.doctor',
+        'app.reporting',
+        'app.setting'
 
 
     ]);

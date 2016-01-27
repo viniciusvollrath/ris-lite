@@ -16,7 +16,7 @@
         console.info("the equipment config is runing");
 
         $stateProvider
-            .state('app.admin.exam-type', {
+            .state('app.setting.exam-type', {
                 url: '/exam-type',
                 views: {
                     'main@app': {
@@ -33,7 +33,7 @@
                     label: 'Exam Type'
                 }
             })
-            .state('app.admin.exam-type.new', {
+            .state('app.setting.exam-type.new', {
                 url: '/new',
                 views: {
                     'main@app': {

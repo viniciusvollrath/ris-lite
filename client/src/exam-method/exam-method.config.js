@@ -16,7 +16,7 @@
         console.info("the exam method config is runing");
 
         $stateProvider
-            .state('app.admin.exam-method', {
+            .state('app.setting.exam-method', {
                 url: '/exam-method',
                 views: {
                     'main@app': {
@@ -33,7 +33,7 @@
                     label: 'Exam Method'
                 }
             })
-            .state('app.admin.exam-method.new', {
+            .state('app.setting.exam-method.new', {
                 url: '/new',
                 views: {
                     'main@app': {

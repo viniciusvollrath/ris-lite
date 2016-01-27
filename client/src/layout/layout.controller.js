@@ -25,7 +25,7 @@ function LayoutController($state, AuthService) {
         var next = $state.$current.name;
         var nextTbl = next.split(".");
 
-        return nextTbl[0] == 'app' && nextTbl[1] == 'admin';
+        return nextTbl[0] == 'app' && nextTbl[1] == 'setting';
 
     }
 }

@@ -1,8 +1,7 @@
 (function() {
     "use strict";
-
     /**
-     * Configuration for the  module
+     * Configuration for the  module app.setting
      * Description:
      * 
      */
@@ -13,28 +12,25 @@
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
     function configure($stateProvider, USER_ROLES) {
-        console.info("the admin config is runing");
+        $stateProvider.state('app.admin', {
+            url: '/admin',
+            views: {
+                'main@app': {
+                    templateUrl: 'src/admin/views/admin.main.view.html',
+                    controller: 'AdminMainController',
+                    controllerAs: 'admin'
 
-        $stateProvider
-            .state('app.admin', {
-                url: '/admin',
-                views: {
-                    'main@app': {
-                        templateUrl: 'src/admin/admin.main.view.html',
-                        controller: ''
-                    },
-                    'left-side@app': {
-                        templateUrl: 'src/admin/admin.side.view.html',
-                        controller: ''
-                    }
-                },
-                data: {
-                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor, USER_ROLES.assistant]
-                },
-                ncyBreadcrumb: {
-                    label: 'Admin'
                 }
-            });
+            },
+            data: {
+                authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+            },
+            ncyBreadcrumb: {
+                label: 'Administration'
+            }
+        })
     }
+
+
 
 })();
