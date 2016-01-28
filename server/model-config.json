@@ -92,5 +92,9 @@
   "appointment": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "examMethod": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
