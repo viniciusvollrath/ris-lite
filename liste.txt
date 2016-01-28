@@ -14,3 +14,24 @@
 ## ajouter l option se souvenir de moi avec le local storage sinon utiliser seulement le session storage
 
 ## ajouter un status a chaqu equipmenet pour active deactive l equipement selon son etat
+
+**********************************
+
+TODO
+refaire les forme de creation des module suivant:
+equipment type
+equipment
+exam Type
+exam Method(Introfuire le principe de compte rendu par defaut et de compte rendu type illimite )
+Refaire les module d afichage de la liste avec un tableau completement operationel pour les modules suivants:
+equipment type
+equipment
+exam type
+exam Method
+Ajouter l interface d affichage des details d un examin complet et en modal
+Completer l interface d interpretation
+Faire une interface de creation d utilisateur
+Faire une interface de gestion des utilisateur par role et par permission
+Ajouter la notion de prix par vacation (normal et garde)
+ajouter la notion de recherche par nom de patient avant la creation d un nouveau patient
+ajouter l interface de creation de RDV sans date

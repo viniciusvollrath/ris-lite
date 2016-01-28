@@ -1,32 +1,37 @@
 {
-    "name": "equipment",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "equipment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "brand": {
-            "type": "string",
-            "required": true
-        },
-        "year": {
-            "type": "number",
-            "required": true
-        }
+    "brand": {
+      "type": "string",
+      "required": true
     },
-    "validations": [],
-    "relations": {
-        "equipmentType": {
-            "type": "belongsTo",
-            "model": "equipmentType",
-            "foreignKey": ""
-        }
+    "year": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "equipmentType": {
+      "type": "belongsTo",
+      "model": "equipmentType",
+      "foreignKey": ""
     },
-    "acls": [],
-    "methods": {}
+    "room": {
+      "type": "belongsTo",
+      "model": "room",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
 }

@@ -1,0 +1,30 @@
+{
+  "name": "room",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "floor": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "equipment": {
+      "type": "hasMany",
+      "model": "equipment",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

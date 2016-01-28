@@ -26,9 +26,9 @@
       "model": "examType",
       "foreignKey": ""
     },
-    "examMethode": {
+    "examMethod": {
       "type": "belongsTo",
-      "model": "examMethode",
+      "model": "examMethod",
       "foreignKey": ""
     }
   },

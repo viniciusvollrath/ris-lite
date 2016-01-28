@@ -204,7 +204,7 @@
             for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
                 data.exams.push({
                     price: vm.selectedExams[i].price,
-                    examMethodeId: vm.selectedExams[i].selectedExamMethod.id,
+                    examMethodId: vm.selectedExams[i].selectedExamMethod.id,
                     examTypeId: vm.selectedExams[i].selectedExamType.id,
                     emergencyLevel: vm.emergencyLevel
                 });

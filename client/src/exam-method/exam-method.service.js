@@ -5,14 +5,14 @@
         .service('ExamMethodService', ExamMethodService);
 
     function ExamMethodService(Rest, $state) {
-        var examMethod = Rest.all("examMethodes");
+        var examMethod = Rest.all("examMethods");
 
         function getTypeMethodsList(ext) {
             return examMethod.customGET('?filter[where][examTypeId]=' + ext);
         }
 
         return {
-            examMethodList: Rest.all("examMethodes").getList(),
+            examMethodList: Rest.all("examMethods").getList(),
             getTypeMethodsList: getTypeMethodsList,
             addNewExamMethod: function(exm) {
                 return examMethod.post(exm).then(function(response) {

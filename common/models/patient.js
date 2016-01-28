@@ -3,7 +3,7 @@ var async = require('async');
 module.exports = function(Patient) {
     Patient.new = function(patient, exams, cb) {
         var exam = Patient.app.models.Exam;
-        var examMethode = Patient.app.models.ExamMethode;
+        var examMethod = Patient.app.models.ExamMethod;
         Patient.create(patient, function(err, result) {
             if (err) {
                 cb(err, {});
@@ -18,7 +18,7 @@ module.exports = function(Patient) {
                     ex.creationDate = Date.now();
                     ex.patientId = result.id;
 
-                    examMethode.findOne({
+                    examMethod.findOne({
                         id: ex.examMethodeId
                     }, function(err, eMethod) {
                         if (err) {

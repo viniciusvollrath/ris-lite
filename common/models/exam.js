@@ -1,6 +1,6 @@
 module.exports = function(Exam) {
     Exam.createMultiple = function(id, cb) {
-        var examMethod = Exam.app.models.ExamMethode;
+        var examMethod = Exam.app.models.ExamMethod;
 
 
 

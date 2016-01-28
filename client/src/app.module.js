@@ -27,6 +27,7 @@
         'app.appointment',
         'app.doctor',
         'app.reporting',
+        'app.room',
         'app.setting'
 
 

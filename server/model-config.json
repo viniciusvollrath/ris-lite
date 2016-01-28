@@ -96,5 +96,9 @@
   "examMethod": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "room": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "examMethode",
+  "name": "examMethod",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

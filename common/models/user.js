@@ -86,17 +86,17 @@ module.exports = function(User) {
                 }
 
                 if (err) {
-                    debug('An error is reported from User.findOne: %j', err);
+                    // debug('An error is reported from User.findOne: %j', err);
                     fn(defaultError);
                 } else if (user) {
                     user.hasPassword(credentials.password, function(err, isMatch) {
                         if (err) {
-                            debug('An error is reported from User.hasPassword: %j', err);
+                            // debug('An error is reported from User.hasPassword: %j', err);
                             fn(defaultError);
                         } else if (isMatch) {
                             if (self.settings.emailVerificationRequired && !user.emailVerified) {
                                 // Fail to log in if email verification is not done yet
-                                debug('User email has not been verified');
+                                // debug('User email has not been verified');
                                 err = new Error('login failed as the email has not been verified');
                                 err.statusCode = 401;
                                 err.code = 'LOGIN_FAILED_EMAIL_NOT_VERIFIED';
@@ -109,12 +109,12 @@ module.exports = function(User) {
                                 }
                             }
                         } else {
-                            debug('The password is invalid for user %s', query.email || query.username);
+                            // debug('The password is invalid for user %s', query.email || query.username);
                             fn(defaultError);
                         }
                     });
                 } else {
-                    debug('No matching record is found for user %s', query.email || query.username);
+                    // debug('No matching record is found for user %s', query.email || query.username);
                     fn(defaultError);
                 }
             });
