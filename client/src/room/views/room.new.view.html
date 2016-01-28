@@ -1,0 +1,25 @@
+<div ncy-breadcrumb class="col s12 ">
+</div>
+<md-card>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="userForm" ng-submit="et.addNewRoom()">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Name</label>
+                            <input ng-model="et.name">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Floor</label>
+                            <input ng-model="et.floor">
+                        </md-input-container>
+                    </div>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-raised md-warn">ADD</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</md-card>

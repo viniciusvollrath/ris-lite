@@ -31,6 +31,23 @@
                     label: 'Rooms'
                 }
             })
+            .state('app.setting.room.new', {
+                url: '/new',
+                views: {
+                    'main@app': {
+                        templateUrl: 'src/room/views/room.new.view.html',
+                        controller: 'RoomNewController',
+                        controllerAs: 'room'
+
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+                },
+                ncyBreadcrumb: {
+                    label: 'New'
+                }
+            })
     }
 
 })();

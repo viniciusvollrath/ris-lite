@@ -7,9 +7,15 @@
      * Description:
      * 
      */
-    angular.module('app.room').controller('RoomMainController', RoomMainController);
+    angular.module('app.room')
+        .controller('RoomMainController', RoomMainController)
+        .controller('RoomNewController', RoomNewController);
 
     function RoomMainController() {
+
+    }
+
+    function RoomNewController() {
 
     }
 
