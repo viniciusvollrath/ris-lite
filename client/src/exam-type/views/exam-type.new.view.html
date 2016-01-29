@@ -1,29 +1,33 @@
-<div class="container">
-    <div class="row  grey lighten-3">
-        <div ncy-breadcrumb class="col s12 "></div>
+<div ncy-breadcrumb class="col s12 ">
+</div>
+<md-card>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="userForm" ng-submit="examTypeVm.addNewExamType()">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Name</label>
+                            <input required ng-model="examTypeVm.exType.name">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Type</label>
+                            <md-select required ng-model="examTypeVm.exType.equipmentTypeId">
+                                <md-option ng-repeat="type in examTypeVm.equipmentTypes" value="{{type.id}}">
+                                    {{type.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                        <label>Description</label>
+                        <textarea required ng-model="examTypeVm.exType.description" columns="1" md-maxlength="150" rows="5"></textarea>
+                    </md-input-container>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-raised md-warn">ADD</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
     </div>
-    <div class="row grey lighten-2 form-row-div">
-        <form class="col s12" ng-submit="ext.addNewExamType()">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate" autofocus ng-model="ext.name" required>
-                    <label for="first_name">Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <select ng-model="ext.equipmentTypeId" ng-options="type.id
-  as type.name for type in ext.equipmentTypes track by type.id" required>
-                    </select>
-                    <label for="last_name">Equipment Type</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" ng-model="ext.description"></textarea required>
-                    <label for="textarea1">Description</label>
-                </div>
-            </div>
-            <div class="right-align">
-                <button type="submit" class="waves-effect waves-light btn align-right red">Add</button>
-            </div>
-        </form>
-    </div>
+</md-card>

@@ -8,30 +8,94 @@ angular.module('app.exam-type')
     .controller('ExamTypeMainController', ExamTypeMainController)
     .controller('ExamTypeNewController', ExamTypeNewController);
 
-function ExamTypeMainController(Rest) {
+function ExamTypeMainController($scope, ExamTypeService) {
     var vm = this;
-    vm.examTypes = undefined;
-    Rest.all("examTypes").customGET("?filter[include][equipmentType]").then(function(types) {
-        vm.examTypes = types;
-        console.log(vm.examTypes);
+    var bookmark;
+    vm.examTypes = [];
+    vm.selected = [];
+    vm.filter = {
+        options: {
+            debounce: 500
+        }
+    };
+    vm.query = {
+        order: 'name',
+        limit: 5,
+        page: 1,
+        filter: ''
+    };
+    vm.onPaginate = onPaginate;
+    vm.onReorder = onReorder;
+    vm.removeFilter = removeFilter;
+    activate();
+
+    function onPaginate(page, limit) {
+        vm.query.limit = limit;
+        vm.query.page = page;
+        examTypeList(vm.query);
+    }
+
+    function onReorder(order) {
+        vm.query.order = order;
+        examTypeList(vm.query);
+    }
+
+
+    function examTypeList() {
+        ExamTypeService.examTypeListDetails(vm.query).then(function(data) {
+            vm.examTypes = data;
+        }, function(error) {
+
+        });
+
+    }
+
+    function examTypeCount() {
+        ExamTypeService.count().then(function(data) {
+            vm.count = data;
+        }, function(error) {
+
+        });
+    }
+
+    function removeFilter() {
+        vm.filter.show = false;
+        vm.query.filter = '';
+
+        if (vm.filter.form.$dirty) {
+            vm.filter.form.$setPristine();
+        }
+    }
+
+    function activate() {
+        examTypeList();
+        examTypeCount();
+    }
+
+    $scope.$watch('equipmentVm.query.filter', function(newValue, oldValue) {
+        if (!oldValue) {
+            bookmark = vm.query.page;
+        }
+
+        if (newValue !== oldValue) {
+            vm.query.page = 1;
+        }
+
+        if (!newValue) {
+            vm.query.page = bookmark;
+        }
+
+        activate();
     });
-    // Rest.all("examTypes").customGET("findAll", "filter[include][equipmentType]");
 
 }
 
 function ExamTypeNewController(ExamTypeService, EquipmentService) {
     var vm = this;
-    vm.name = "";
-    vm.equipmentTypeId = "";
-    vm.description = "";
+    vm.exType = {};
     vm.equipmentTypes = undefined;
     EquipmentService.equipmentTypeList.then(function(types) {
         vm.equipmentTypes = types;
-        //console.log(vm.equipmentTypes.length);
-        setTimeout(function() {
-            $('select').material_select();
-
-        }, 200);
 
     });
 
@@ -39,13 +103,7 @@ function ExamTypeNewController(ExamTypeService, EquipmentService) {
     vm.addNewExamType = addNewExamType;
 
     function addNewExamType() {
-        var examType = {
-            name: vm.name,
-            equipmentTypeId: vm.equipmentTypeId,
-            description: vm.description
-        };
-        console.log(examType);
-        ExamTypeService.addNewExamType(examType);
+        ExamTypeService.addNewExamType(vm.exType);
 
     }
 }

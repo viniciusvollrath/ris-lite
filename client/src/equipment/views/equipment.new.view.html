@@ -1,34 +1,47 @@
-<div class="container">
-    <div class="row">
-        <div ncy-breadcrumb class="col s12 "></div>
+<div ncy-breadcrumb class="col s12 ">
+</div>
+<md-card>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="userForm" ng-submit="equipmentVm.addNewEquipment()">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Name</label>
+                            <input required ng-model="equipmentVm.name">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Type</label>
+                            <md-select ng-model="equipmentVm.type">
+                                <md-option ng-repeat="type in equipmentVm.types" value="{{type.id}}">
+                                    {{type.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Room</label>
+                            <md-select ng-model="equipmentVm.roomId">
+                                <md-option ng-repeat="room in equipmentVm.rooms" value="{{room.id}}">
+                                    {{room.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Brand</label>
+                            <input required ng-model="equipmentVm.brand">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Year</label>
+                            <input required type="number" ng-model="equipmentVm.year">
+                        </md-input-container>
+                    </div>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-raised md-warn">ADD</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
     </div>
-    <div class="row">
-        <form class="col s12" ng-submit="eq.addNewEquipment()">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate" autofocus ng-model="eq.name" required>
-                    <label for="first_name">Name*</label>
-                </div>
-                <div class="input-field col s6">
-                    <select ng-model="eq.type" ng-options="type.id as type.name for type in eq.equipmentTypes track by type.id" browser-default required>
-                    </select>
-                    <label for="last_name">Type*</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate" autofocus ng-model="eq.brand" required>
-                    <label for="first_name">Brand*</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="last_name" type="number" class="validate" ng-model="eq.year" required>
-                    <label for="last_name">Year*</label>
-                </div>
-            </div>
-            <div class="right-align">
-                <button type="submit" value="Add" class="waves-effect waves-light btn align-right red">Add </button>
-            </div>
-        </form>
-    </div>
-    <script>
-    </script>
+</md-card>

@@ -20,7 +20,7 @@
                     'main@app': {
                         templateUrl: 'src/exam-type/views/exam-type.main.view.html',
                         controller: 'ExamTypeMainController',
-                        controllerAs: 'ext'
+                        controllerAs: 'examTypeVm'
 
                     }
                 },
@@ -37,7 +37,7 @@
                     'main@app': {
                         templateUrl: 'src/exam-type/views/exam-type.new.view.html',
                         controller: 'ExamTypeNewController',
-                        controllerAs: 'ext'
+                        controllerAs: 'examTypeVm'
                     }
                 },
                 data: {

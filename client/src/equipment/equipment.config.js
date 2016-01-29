@@ -22,7 +22,7 @@
                     'main@app': {
                         templateUrl: 'src/equipment/views/equipment.main.view.html',
                         controller: 'EquipmentMainController',
-                        controllerAs: 'equipment'
+                        controllerAs: 'equipmentVm'
 
                     }
                 },
@@ -39,7 +39,7 @@
                     'main@app': {
                         templateUrl: 'src/equipment/views/equipment.new.view.html',
                         controller: 'EquipmentNewController',
-                        controllerAs: 'eq'
+                        controllerAs: 'equipmentVm'
                     }
                 },
                 data: {
@@ -55,7 +55,7 @@
                     'main@app': {
                         templateUrl: 'src/equipment/views/equipment.type.main.view.html',
                         controller: 'EquipmentTypeController',
-                        controllerAs: 'EquipmentType'
+                        controllerAs: 'equipmentTypeVm'
                     }
                 },
                 data: {
@@ -71,7 +71,7 @@
                     'main@app': {
                         templateUrl: 'src/equipment/views/equipment.type.new.view.html',
                         controller: 'EquipmentTypeNewController',
-                        controllerAs: 'et'
+                        controllerAs: 'equipmentTypeVm'
                     }
                 },
                 data: {

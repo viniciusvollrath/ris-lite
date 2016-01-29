@@ -15,12 +15,12 @@
 
 
         $rootScope.$on('$stateChangeStart', function(event, next, nextParams, fromState) {
-            console.log(next);
+            // console.log(next);
             if ('data' in next && 'authorizedRoles' in next.data) {
                 var authorizedRoles = next.data.authorizedRoles;
                 if (!AuthService.isAuthorized(authorizedRoles)) {
                     event.preventDefault();
-                    console.log($state.current);
+                    // console.log($state.current);
                     if ($state.current.views != null) {
                         $state.go($state.current, {}, {
                             reload: true

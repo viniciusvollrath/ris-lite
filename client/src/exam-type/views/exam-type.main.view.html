@@ -1,30 +1,46 @@
-<div class="container">
-    <div class="row  grey lighten-3">
-        <div ncy-breadcrumb class="col s6 "></div>
-    </div>
-    <div class="row  grey lighten-2">
-        <div class="col s12 center-align">
-            <table class="centered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Equipment Type</th>
-                        <th>Description</th>
-                        <th>ID</th>
-                    </tr>
-                </thead>
-                <tr ng-repeat="examType in ext.examTypes">
-                    <td>{{examType.name}}</td>
-                    <td>{{examType.equipmentType.name}}</td>
-                    <td>{{examType.description}}</td>
-                    <td>{{examType.id}}</td>
-                </tr>
-                <tbody>
-                </tbody>
-            </table>
+<div ncy-breadcrumb class="col s12 "></div>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default" ng-hide="examTypeVm.filter.show">
+        <div class="md-toolbar-tools">
+            <h2 class="md-title">Equipment</h2>
+            <div flex></div>
+            <md-button class="md-icon-button" ng-click="examTypeVm.filter.show = true">
+                <md-icon>search</md-icon>
+            </md-button>
         </div>
-    </div>
+    </md-toolbar>
+    <md-toolbar class="md-table-toolbar md-default" ng-show="examTypeVm.filter.show">
+        <div class="md-toolbar-tools">
+            <md-icon>search</md-icon>
+            <form flex name="examTypeVm.filter.form">
+                <input type="text" ng-model="examTypeVm.query.filter" ng-model-options="examTypeVm.filter.options" placeholder="search">
+            </form>
+            <md-button class="md-icon-button" ng-click="examTypeVm.removeFilter()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <!-- exact table from live demo -->
+    <md-table-container>
+        <table md-table ng-model="examTypeVm.selected" md-progress="examTypeVm.roomList">
+            <thead md-head md-order="examTypeVm.query.order" md-on-reorder="examTypeVm.onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="name"><span>Name</span></th>
+                    <th md-column md-numeric><span>Type</span></th>
+                    <th md-column md-numeric>Description</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="equipment" md-select-id="{{equipment.id}}" md-auto-select ng-repeat="equipment in examTypeVm.examTypes">
+                    <td md-cell>{{equipment.name}}</td>
+                    <td md-cell>{{equipment.equipmentType.name}}</td>
+                    <td md-cell>{{equipment.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="examTypeVm.query.limit" md-page="examTypeVm.query.page" md-total="{{examTypeVm.count}}" md-on-paginate="examTypeVm.onPaginate" md-page-select></md-table-pagination>
     <div class="col s6 right-align dashboard-main-action-bar">
-        <a ui-sref="app.setting.exam-type.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <a ui-sref="app.setting.examType.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
-</div>
+</md-card>

@@ -4,20 +4,20 @@
     <div layout="column" ng-cloak class="md-inline-form">
         <md-content layout-padding>
             <div>
-                <form name="userForm" ng-submit="et.addNewEquipmentType()">
+                <form name="userForm" ng-submit="equipmentTypeVm.addNewEquipmentType()">
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>Name</label>
-                            <input ng-model="et.name">
+                            <input ng-model="equipmentTypeVm.name">
                         </md-input-container>
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>Number</label>
-                            <input type="number" ng-model="et.number">
+                            <input type="number" ng-model="equipmentTypeVm.number">
                         </md-input-container>
                     </div>
                     <md-input-container class="md-block">
                         <label>Description</label>
-                        <textarea ng-model="et.observation" columns="1" md-maxlength="150" rows="5"></textarea>
+                        <textarea ng-model="equipmentTypeVm.observation" columns="1" md-maxlength="150" rows="5"></textarea>
                     </md-input-container>
                     <div layout="row" layout-align="end">
                         <md-button type="submit" class="md-raised md-warn">ADD</md-button>

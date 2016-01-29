@@ -10,36 +10,116 @@ angular.module('app.equipment')
     .controller('EquipmentTypeController', EquipmentTypeController)
     .controller('EquipmentTypeNewController', EquipmentTypeNewController);
 
-function EquipmentMainController(Rest) {
+function EquipmentMainController($scope, EquipmentService) {
     var vm = this;
-    vm.equipments = Rest.all("equipment").getList().$object;
-    console.log(vm.equipments);
+    var bookmark;
+    vm.equipments = [];
+    vm.selected = [];
+    vm.filter = {
+        options: {
+            debounce: 500
+        }
+    };
+    vm.query = {
+        order: 'name',
+        limit: 5,
+        page: 1,
+        filter: ''
+    };
+    vm.onPaginate = onPaginate;
+    vm.onReorder = onReorder;
+    vm.removeFilter = removeFilter;
+    activate();
+
+    function onPaginate(page, limit) {
+        vm.query.limit = limit;
+        vm.query.page = page;
+        equipmentList(vm.query);
+    }
+
+    function onReorder(order) {
+        vm.query.order = order;
+        equipmentList(vm.query);
+    }
+
+
+    function equipmentList() {
+        EquipmentService.equipmentListDetails(vm.query).then(function(data) {
+            vm.equipments = data;
+        }, function(error) {
+
+        });
+
+    }
+
+    function equipmentCount() {
+        EquipmentService.count().then(function(data) {
+            vm.count = data;
+        }, function(error) {
+
+        });
+    }
+
+    function removeFilter() {
+        vm.filter.show = false;
+        vm.query.filter = '';
+
+        if (vm.filter.form.$dirty) {
+            vm.filter.form.$setPristine();
+        }
+    }
+
+    function activate() {
+        equipmentList();
+        equipmentCount();
+    }
+
+    $scope.$watch('equipmentVm.query.filter', function(newValue, oldValue) {
+        if (!oldValue) {
+            bookmark = vm.query.page;
+        }
+
+        if (newValue !== oldValue) {
+            vm.query.page = 1;
+        }
+
+        if (!newValue) {
+            vm.query.page = bookmark;
+        }
+
+        activate();
+    });
 }
 
-function EquipmentNewController(EquipmentService) {
+function EquipmentNewController(EquipmentService, RoomService) {
     var vm = this;
     vm.name = "";
     vm.type = "";
+    vm.roomId = "";
     vm.brand = "";
     vm.year = "";
-    vm.equipmentTypes = undefined;
-    EquipmentService.equipmentTypeList.then(function(types) {
-        vm.equipmentTypes = types;
-        console.log(vm.equipmentTypes.length);
-        setTimeout(function() {
-            $('select').material_select();
+    vm.types = undefined;
+    vm.rooms = undefined;
+    vm.addNewEquipment = addNewEquipment;
 
-        }, 200);
+    EquipmentService.equipmentTypeList.then(function(types) {
+        vm.types = types;
+        console.log(vm.types.length);
+
+    });
+    RoomService.roomList.then(function(rooms) {
+        vm.rooms = rooms;
+        console.log(vm.rooms.length);
 
     });
 
 
-    vm.addNewEquipment = addNewEquipment;
 
     function addNewEquipment() {
         var eq = {
             name: vm.name,
-            type: vm.type,
+            equipmentTypeId: vm.type,
+            roomId: vm.roomId,
             brand: vm.brand,
             year: vm.year,
             observation: vm.observation
