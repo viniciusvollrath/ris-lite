@@ -4,15 +4,21 @@
     <div layout="column" ng-cloak class="md-inline-form">
         <md-content layout-padding>
             <div>
-                <form name="userForm" ng-submit="et.addNewRoom()">
+                <form name="userForm" ng-submit="roomVm.addNewRoom()">
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>Name</label>
-                            <input ng-model="et.name">
+                            <input required ng-model="roomVm.room.name">
+                            <div ng-messages="roomVm.room.name.$error">
+                                <div ng-message="required">This is required maaaan.</div>
+                            </div>
                         </md-input-container>
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>Floor</label>
-                            <input ng-model="et.floor">
+                            <input required ng-model="roomVm.room.floor">
+                            <div ng-messages="roomVm.room.floor.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
                         </md-input-container>
                     </div>
                     <div layout="row" layout-align="end">

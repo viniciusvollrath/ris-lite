@@ -20,7 +20,7 @@
                     'main@app': {
                         templateUrl: 'src/room/views/room.main.view.html',
                         controller: 'RoomMainController',
-                        controllerAs: 'room'
+                        controllerAs: 'roomVm'
 
                     }
                 },
@@ -37,7 +37,7 @@
                     'main@app': {
                         templateUrl: 'src/room/views/room.new.view.html',
                         controller: 'RoomNewController',
-                        controllerAs: 'room'
+                        controllerAs: 'roomVm'
 
                     }
                 },

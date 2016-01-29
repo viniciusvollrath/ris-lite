@@ -7,26 +7,28 @@
     </md-toolbar>
     <!-- exact table from live demo -->
     <md-table-container>
-        <table md-table md-row-select ng-model="EquipmentType.selected" md-progress="promise">
-            <thead md-head md-order="EquipmentType.query.order" md-on-reorder="onReorder">
+        <table md-table md-row-select ng-model="roomVm.selected" md-progress="roomVm.roomList">
+            <thead md-head md-order="roomVm.query.order" md-on-reorder="roomVm.onReorder">
                 <tr md-row>
-                    <th md-column md-order-by="nameToLower"><span>Name</span></th>
-                    <th md-column md-numeric md-order-by="calories.value"><span>Number</span></th>
-                    <th md-column md-numeric>Observation</th>
-                    <th md-column md-numeric>ID</th>
+                    <th md-column md-order-by="name"><span>Name</span></th>
+                    <th md-column md-numeric md-order-by="floor"><span>Floor</span></th>
+                    <th md-column md-numeric>Status</th>
+                    <th md-column md-numeric>Equipment</th>
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="equipment" md-select-id="{{equipment.name}}" md-auto-select ng-repeat="equipment in EquipmentType.equipmentTypeList">
-                    <td md-cell>{{equipment.name}}</td>
-                    <td md-cell>{{equipment.number}}</td>
-                    <td md-cell>{{equipment.observation}}</td>
-                    <td md-cell>{{equipment.id}}</td>
+                <tr md-row md-select="room" md-select-id="{{room.id}}" md-auto-select ng-repeat="room in roomVm.rooms">
+                    <td md-cell>{{room.name}}</td>
+                    <td md-cell>{{room.floor}}</td>
+                    <td md-cell>{{room.status}}</td>
+                    <td md-cell>
+                        <p ng-repeat="equipment in room.equipment">{{equipment.name}}, {{equipment.brand}}</p>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </md-table-container>
-    <md-table-pagination md-limit="EquipmentType.query.limit" md-page="EquipmentType.query.page" md-total="{{EquipmentType.equipmentTypeList.length}}" md-on-paginate="EquipmentType.onPaginate" md-page-select></md-table-pagination>
+    <md-table-pagination md-limit="roomVm.query.limit" md-page="roomVm.query.page" md-total="{{roomVm.count}}" md-on-paginate="roomVm.onPaginate" md-page-select></md-table-pagination>
     <div class="col s6 right-align dashboard-main-action-bar">
         <a ui-sref="app.setting.room.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
