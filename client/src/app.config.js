@@ -11,9 +11,9 @@
         .config(configure)
         .factory('AuthInterceptor', AuthInterceptor);
 
-    configure.$inject = ['$httpProvider', '$urlRouterProvider', 'cfpLoadingBarProvider', '$breadcrumbProvider'];
+    configure.$inject = ['$httpProvider', '$urlRouterProvider', '$mdThemingProvider', 'cfpLoadingBarProvider', '$breadcrumbProvider'];
 
-    function configure($httpProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider) {
+    function configure($httpProvider, $urlRouterProvider, $mdThemingProvider, cfpLoadingBarProvider, $breadcrumbProvider) {
         //injecting the auth interceptor for http request responses
         $httpProvider.interceptors.push([
             '$injector',
@@ -36,6 +36,15 @@
         $breadcrumbProvider.setOptions({
             template: '<div>RIS<span ng-repeat="step in steps"> > <a href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a></span></div>'
         });
+
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue', {
+                'hue-1': '100',
+                'hue-2': '400',
+                'hue-3': '300'
+            })
+            .accentPalette('red');
     };
 
     function AuthInterceptor($rootScope, $q, AUTH_EVENTS) {
