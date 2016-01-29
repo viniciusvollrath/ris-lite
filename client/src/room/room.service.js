@@ -29,7 +29,7 @@
         function getDetailedList(query) {
             if (query != undefined) {
                 console.log(query);
-                return room.customGET('?filter[include][equipment]&filter[limit]=' + query.limit + '&filter[skip]=' + (query.limit * (query.page - 1)) + '&filter[order]=' + query.order).then(function(rooms) {
+                return room.customGET('?filter[include][equipment]&filter[limit]=' + query.limit + '&filter[skip]=' + (query.limit * (query.page - 1)) + '&filter[order]=' + query.order + '&filter[where][name][options]=i&filter[where][name][like]=' + '.' + query.filter + '.').then(function(rooms) {
                     return rooms;
                 }, function(error) {
 

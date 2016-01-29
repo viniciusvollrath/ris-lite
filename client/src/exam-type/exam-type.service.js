@@ -10,27 +10,16 @@
         return {
             examTypeList: Rest.all("examTypes").getList(),
             addNewExamType: function(et) {
-                    return examType.post(et).then(function(response) {
-                        examType.getList().push(response);
-                        console.log(response);
-                        $state.go('app.setting.exam-type');
+                return examType.post(et).then(function(response) {
+                    examType.getList().push(response);
+                    console.log(response);
+                    $state.go('app.setting.exam-type');
 
-                    }, function(response) {
-                        console.log("Error with status code", response.status);
-                    });
-                }
-                // ,
-                // equipmentList: Rest.all("equipment").getList(),
-                // addNewEquipment: function(eq) {
-                //     return equipment.post(eq).then(function(response) {
-                //         equipment.getList().push(response);
-                //         console.log(response);
-                //         $state.go('dashboard.admin.equipment');
+                }, function(response) {
+                    console.log("Error with status code", response.status);
+                });
+            }
 
-            //     }, function(response) {
-            //         console.log("Error with status code", response.status);
-            //     });
-            // }
 
         }
     }

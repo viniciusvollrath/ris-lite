@@ -1,13 +1,28 @@
 <div ncy-breadcrumb class="col s12 "></div>
 <md-card>
-    <md-toolbar class="md-table-toolbar md-default">
+    <md-toolbar class="md-table-toolbar md-default" ng-hide="roomVm.filter.show">
         <div class="md-toolbar-tools">
-            <span>Rooms</span>
+            <h2 class="md-title">Rooms</h2>
+            <div flex></div>
+            <md-button class="md-icon-button" ng-click="roomVm.filter.show = true">
+                <md-icon>filter_list</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar class="md-table-toolbar md-default" ng-show="roomVm.filter.show">
+        <div class="md-toolbar-tools">
+            <md-icon>search</md-icon>
+            <form flex name="roomVm.filter.form">
+                <input type="text" ng-model="roomVm.query.filter" ng-model-options="roomVm.filter.options" placeholder="search">
+            </form>
+            <md-button class="md-icon-button" ng-click="roomVm.removeFilter()">
+                <md-icon>close</md-icon>
+            </md-button>
         </div>
     </md-toolbar>
     <!-- exact table from live demo -->
     <md-table-container>
-        <table md-table md-row-select ng-model="roomVm.selected" md-progress="roomVm.roomList">
+        <table md-table ng-model="roomVm.selected" md-progress="roomVm.roomList">
             <thead md-head md-order="roomVm.query.order" md-on-reorder="roomVm.onReorder">
                 <tr md-row>
                     <th md-column md-order-by="name"><span>Name</span></th>

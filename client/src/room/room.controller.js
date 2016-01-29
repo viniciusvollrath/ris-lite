@@ -11,19 +11,27 @@
         .controller('RoomMainController', RoomMainController)
         .controller('RoomNewController', RoomNewController);
 
-    function RoomMainController(RoomService) {
+    function RoomMainController(RoomService, $scope) {
         var vm = this;
+        var bookmark;
         vm.rooms = [];
         vm.selected = [];
+        vm.filter = {
+            options: {
+                debounce: 500
+            }
+        };
         vm.query = {
             order: 'name',
             limit: 5,
-            page: 1
+            page: 1,
+            filter: ''
         };
 
         vm.roomList = roomList;
         vm.onPaginate = onPaginate;
         vm.onReorder = onReorder;
+        vm.removeFilter = removeFilter;
         activate();
 
 
@@ -57,10 +65,35 @@
             });
         }
 
+        function removeFilter() {
+            vm.filter.show = false;
+            vm.query.filter = '';
+
+            if (vm.filter.form.$dirty) {
+                vm.filter.form.$setPristine();
+            }
+        }
+
         function activate() {
             roomList();
             roomCount();
         }
+
+        $scope.$watch('roomVm.query.filter', function(newValue, oldValue) {
+            if (!oldValue) {
+                bookmark = vm.query.page;
+            }
+
+            if (newValue !== oldValue) {
+                vm.query.page = 1;
+            }
+
+            if (!newValue) {
+                vm.query.page = bookmark;
+            }
+
+            activate();
+        });
 
 
     }
