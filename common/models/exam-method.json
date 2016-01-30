@@ -1,40 +1,44 @@
 {
-  "name": "examMethod",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "name": "examMethod",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "remarque": {
-      "type": "string",
-      "required": true
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "remarque": {
+            "type": "string",
+            "required": true
+        },
+        "defaultResultModel": {
+            "type": "string",
+            "required": true
+        },
+        "dayPrice": {
+            "type": "number",
+            "required": true
+        },
+        "nightPrice": {
+            "type": "number",
+            "required": false
+        },
+        "resultModels": {
+            "type": [],
+            "required": false
+        }
     },
-    "reportModel": {
-      "type": "string",
-      "required": true
+    "validations": [],
+    "relations": {
+        "examType": {
+            "type": "belongsTo",
+            "model": "examType",
+            "foreignKey": ""
+        }
     },
-    "conclusionModel": {
-      "type": "string",
-      "required": true
-    },
-    "price": {
-      "type": "number",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {
-    "examType": {
-      "type": "belongsTo",
-      "model": "examType",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }

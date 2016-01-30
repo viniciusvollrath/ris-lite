@@ -1,32 +1,70 @@
-<div class="container">
-    <div class="row ">
-        <div ncy-breadcrumb class="col s6 "></div>
-    </div>
-    <div class="row  grey lighten-2">
-        <div class="col s12 center-align">
-            <table class="centered">
-                <thead>
-                    <tr>
-                        <th>Exam Type</th>
-                        <th>Exam Method</th>
-                        <th>Remarque</th>
-                        <th>Price</th>
-                        <th>ID</th>
-                    </tr>
-                </thead>
-                <tr ng-repeat="method in exm.examMethods">
-                    <td>{{method.examType.name}}</td>
-                    <td>{{method.name}}</td>
-                    <td>{{method.remarque}}</td>
-                    <td>{{method.price}}</td>
-                    <td>{{method.id}}</td>
-                </tr>
-                <tbody>
-                </tbody>
-            </table>
+<div ncy-breadcrumb class="col s12 "></div>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default" ng-hide="exameMethodVm.filter.show">
+        <div class="md-toolbar-tools">
+            <h2 class="md-title">Exam Methods</h2>
+            <div flex></div>
+            <md-button class="md-icon-button" ng-click="exameMethodVm.filter.show = true">
+                <md-icon>search</md-icon>
+            </md-button>
         </div>
-    </div>
+    </md-toolbar>
+    <md-toolbar class="md-table-toolbar md-default" ng-show="exameMethodVm.filter.show">
+        <div class="md-toolbar-tools">
+            <md-icon>search</md-icon>
+            <form flex name="exameMethodVm.filter.form">
+                <input type="text" ng-model="exameMethodVm.query.filter" placeholder="search">
+            </form>
+            <md-button class="md-icon-button" ng-click="exameMethodVm.removeFilter()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <md-icon>filter</md-icon>
+            <form flex name="exameMethodVm.filter.form">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label></label>
+                    <md-select ng-model="exameMethodVm.query.examTypeId" ng-change="exameMethodVm.filterByEquipmentType()">
+                        <md-option ng-repeat="examType in exameMethodVm.examTypes" value="{{examType.id}}">
+                            {{examType.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </form>
+            <md-button class="md-icon-button" ng-click="exameMethodVm.removeexamTypeFilter()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <!-- exact table from live demo -->
+    <md-table-container>
+        <table md-table ng-model="exameMethodVm.selected" md-progress="exameMethodVm.examMethods">
+            <thead md-head md-order="exameMethodVm.query.order" md-on-reorder="exameMethodVm.onReorder">
+                <tr md-row>
+                    <th md-column><span>Technique</span></th>
+                    <th md-column><span>Type</span></th>
+                    <th md-column><span>Method</span></th>
+                    <th md-column>Remarque</th>
+                    <th md-column md-numeric md-order-by="dayPrice">Regular Price</th>
+                    <th md-column md-numeric>Night Shift Price</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="examMethod" md-select-id="{{examMethod.id}}" md-auto-select ng-repeat="examMethod in exameMethodVm.examMethods">
+                    <td md-cell>{{examMethod.examType.equipmentType.name}}</td>
+                    <td md-cell>{{examMethod.examType.name}}</td>
+                    <td md-cell>{{examMethod.name}}</td>
+                    <td md-cell>{{examMethod.remarque}}</td>
+                    <td md-cell>{{examMethod.dayPrice}}</td>
+                    <td md-cell>{{examMethod.nightPrice}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="exameMethodVm.query.limit" md-page="exameMethodVm.query.page" md-total="{{exameMethodVm.count}}" md-on-paginate="exameMethodVm.onPaginate" md-page-select></md-table-pagination>
     <div class="col s6 right-align dashboard-main-action-bar">
         <a ui-sref="app.setting.exam-method.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
-</div>
+</md-card>

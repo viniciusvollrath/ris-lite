@@ -8,21 +8,27 @@
         var examType = Rest.all("examTypes");
 
         return {
-            examTypeList: Rest.all("examTypes").getList(),
+            examTypeList: examTypeList,
+            list: Rest.all("examTypes").getList(),
             examTypeListDetails: examTypeListDetails,
             count: count,
             addNewExamType: function(et) {
                 return examType.post(et).then(function(response) {
-                    examType.getList().push(response);
-                    console.log(response);
+                    examType.getList().pus
                     $state.go('app.setting.exam-type');
 
                 }, function(response) {
                     console.log("Error with status code", response.status);
                 });
             }
+        };
 
+        function examTypeList() {
+            return examType.getList().then(function(examTypes) {
+                return examTypes;
+            }, function(error) {
 
+            });
         }
 
         function examTypeListDetails(query) {

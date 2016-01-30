@@ -1,43 +1,62 @@
-<div class="container">
-    <div class="row  grey lighten-3">
-        <div ncy-breadcrumb class="col s12 "></div>
-    </div>
-    <div class="row grey lighten-2 form-row-div">
-        <form class="col s12" ng-submit="exm.addNewExamMethod()">
-            <div class="row">
-                <div class="input-field col s4">
-                    <select ng-model="exm.examTypeId" autofocus ng-options="type.id as type.name for type in exm.examTypes track by type.id" required>
-                    </select>
-                    <label for="last_name">Exam Type</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="first_name" type="text" class="validate" ng-model="exm.name" required>
-                    <label for="first_name">Exam Method (Technique)</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="price" type="number" class="validate" ng-model="exm.price" required>
-                    <label for="price">Price</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" ng-model="exm.remarque"></textarea required>
-                    <label for="textarea1">Remarque</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" ng-model="exm.reportModel"></textarea required>
-                    <label for="textarea1">Report Model</label>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" ng-model="exm.conclusionModel"></textarea required>
-                    <label for="textarea1">Conclusion Model</label>
-                </div>
-            </div>
-            <div class="right-align">
-                <button type="submit" class="waves-effect waves-light btn align-right red">Add</button>
-            </div>
-        </form>
-    </div>
+<div ncy-breadcrumb class="col s12 ">
 </div>
+<md-card>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="userForm" ng-submit="exameMethodVm.addNewExamMethod()">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Type</label>
+                            <md-select required ng-model="exameMethodVm.exMethod.examTypeId">
+                                <md-option ng-repeat="type in exameMethodVm.examTypes" value="{{type.id}}">
+                                    {{type.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Name</label>
+                            <input required ng-model="exameMethodVm.exMethod.name">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Regular Price</label>
+                            <input required type="number" ng-model="exameMethodVm.exMethod.dayPrice">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Night Price</label>
+                            <input required type="number" ng-model="exameMethodVm.exMethod.nightPrice">
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                        <label>Remarque</label>
+                        <textarea required ng-model="exameMethodVm.exMethod.remarque" columns="1" md-maxlength="150" rows="5"></textarea>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Default Results Model</label>
+                        <textarea required ng-model="exameMethodVm.exMethod.defaultResultModel" columns="1" md-maxlength="150" rows="25"></textarea>
+                    </md-input-container>
+                    Other Result Models:
+                    <md-card ng-repeat="resultModel in exameMethodVm.exMethod.resultModels">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content layout-padding>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Name</label>
+                                    <input ng-model="resultModel.name">
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Default Results Model</label>
+                                    <textarea ng-model="resultModel.resultModel" columns="1" md-maxlength="150" rows="5"></textarea>
+                                </md-input-container>
+                            </md-content>
+                        </div>
+                    </md-card>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-raised md-warn">ADD</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</md-card>

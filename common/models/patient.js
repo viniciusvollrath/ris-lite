@@ -10,11 +10,11 @@ module.exports = function(Patient) {
             }
             //if exams list not empty
             if (exams.length > 0) {
-                console.log(exams.length);
+                //console.log(exams.length);
                 var ex = {};
                 //for each exam complete the data
                 async.each(exams, function(ex, callback) {
-                    console.log(ex);
+                    // console.log(ex);
                     ex.creationDate = Date.now();
                     ex.patientId = result.id;
 
@@ -25,8 +25,7 @@ module.exports = function(Patient) {
                             cb(err, {});
 
                         };
-                        ex.interpretation = eMethod.reportModel;
-                        ex.conclusion = eMethod.conclusionModel;
+                        ex.interpretation = eMethod.defaultResultModel;
                         ex.isInterpreted = false;
                         ex.isPaid = false;
                         ex.status = "NEW";

@@ -30,8 +30,8 @@
                 console.log(ptnt);
                 return patient.customPOST("", "new", ptnt).then(function(response) {
                     //examMethod.getList().push(response);
-                    //console.log(response);
-                    $state.go('dashboard.main');
+                    console.log(response);
+                    $state.go('app.dashboard.main');
                     store.remove('examsList');
 
                 }, function(error) {

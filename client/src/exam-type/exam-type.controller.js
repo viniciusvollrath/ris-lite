@@ -72,7 +72,8 @@ function ExamTypeMainController($scope, ExamTypeService) {
         examTypeCount();
     }
 
-    $scope.$watch('equipmentVm.query.filter', function(newValue, oldValue) {
+    $scope.$watch('examTypeVm.query.filter', function(newValue, oldValue) {
+        console.log("changed");
         if (!oldValue) {
             bookmark = vm.query.page;
         }

@@ -1,75 +1,71 @@
 {
-  "name": "exam",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "creationDate": {
-      "type": "date",
-      "required": true
+    "name": "exam",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "description": {
-      "type": "string",
-      "required": false
+    "properties": {
+        "creationDate": {
+            "type": "date",
+            "required": true
+        },
+        "description": {
+            "type": "string",
+            "required": false
+        },
+        "interpretationDate": {
+            "type": "date"
+        },
+        "interpretation": {
+            "type": "string",
+            "required": true
+        },
+        "isInterpreted": {
+            "type": "boolean",
+            "required": true
+        },
+        "isPaid": {
+            "type": "boolean",
+            "required": true
+        },
+        "status": {
+            "type": "string",
+            "required": true
+        },
+        "emergencyLevel": {
+            "type": "string",
+            "required": false
+        }
     },
-    "interpretationDate": {
-      "type": "date"
+    "validations": [],
+    "relations": {
+        "examType": {
+            "type": "belongsTo",
+            "model": "examType",
+            "foreignKey": ""
+        },
+        "examMethod": {
+            "type": "belongsTo",
+            "model": "examMethod",
+            "foreignKey": ""
+        },
+        "patient": {
+            "type": "belongsTo",
+            "model": "patient",
+            "foreignKey": ""
+        },
+        "shift": {
+            "type": "belongsTo",
+            "model": "shift",
+            "foreignKey": ""
+        },
+        "doctor": {
+            "type": "belongsTo",
+            "model": "doctor",
+            "foreignKey": ""
+        }
     },
-    "interpretation": {
-      "type": "string",
-      "required": true
-    },
-    "conclusion": {
-      "type": "string",
-      "required": true
-    },
-    "isInterpreted": {
-      "type": "boolean",
-      "required": true
-    },
-    "isPaid": {
-      "type": "boolean",
-      "required": true
-    },
-    "status": {
-      "type": "string",
-      "required": true
-    },
-    "emergencyLevel": {
-      "type": "string",
-      "required": false
-    }
-  },
-  "validations": [],
-  "relations": {
-    "examType": {
-      "type": "belongsTo",
-      "model": "examType",
-      "foreignKey": ""
-    },
-    "examMethod": {
-      "type": "belongsTo",
-      "model": "examMethod",
-      "foreignKey": ""
-    },
-    "patient": {
-      "type": "belongsTo",
-      "model": "patient",
-      "foreignKey": ""
-    },
-    "shift": {
-      "type": "belongsTo",
-      "model": "shift",
-      "foreignKey": ""
-    },
-    "doctor": {
-      "type": "belongsTo",
-      "model": "doctor",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }

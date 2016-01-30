@@ -9,7 +9,7 @@
         var equipment = Rest.all("equipment");
 
         return {
-            equipmentTypeList: Rest.all("equipmentTypes").getList(),
+            equipmentTypeList: equipmentType.getList(),
             addNewEquipmentType: addNewEquipmentType,
             equipmentList: equipmentList,
             equipmentListDetails: equipmentListDetails,
@@ -17,10 +17,11 @@
             addNewEquipment: addNewEquipment
         }
 
+
+
         function addNewEquipmentType(et) {
             return equipmentType.post(et).then(function(response) {
-                equipmentType.getList().push(response);
-                //console.log(response);
+
                 $state.go('app.setting.equipment-type');
 
             }, function(response) {

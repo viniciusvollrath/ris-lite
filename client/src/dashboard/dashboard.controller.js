@@ -136,7 +136,7 @@
          * Build `types` list of key/value pairs
          */
         function loadAll() {
-            ExamTypeService.examTypeList.then(function(types) {
+            ExamTypeService.list.then(function(types) {
                 vm.types = types;
                 //return types;
 
@@ -177,7 +177,7 @@
         console.log(vm.selectedExams);
         // if trying to access this state without selecting exams redirect to the select exams view
         if (vm.selectedExams == null) {
-            $state.go('app.dashboard,main.quotation');
+            $state.go('app.dashboard.main.quotation');
         } else {
             console.log(vm.selectedExams);
             for (var i = vm.selectedExams.length - 1; i >= 0; i--) {

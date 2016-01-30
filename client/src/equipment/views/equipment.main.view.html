@@ -2,7 +2,7 @@
 <md-card>
     <md-toolbar class="md-table-toolbar md-default" ng-hide="equipmentVm.filter.show">
         <div class="md-toolbar-tools">
-            <h2 class="md-title">Equipment</h2>
+            <h2 class="md-title">Equipments</h2>
             <div flex></div>
             <md-button class="md-icon-button" ng-click="equipmentVm.filter.show = true">
                 <md-icon>search</md-icon>
@@ -13,7 +13,7 @@
         <div class="md-toolbar-tools">
             <md-icon>search</md-icon>
             <form flex name="equipmentVm.filter.form">
-                <input type="text" ng-model="equipmentVm.query.filter" ng-model-options="equipmentVm.filter.options" placeholder="search">
+                <input type="text" ng-model="equipmentVm.query.filter" placeholder="search">
             </form>
             <md-button class="md-icon-button" ng-click="equipmentVm.removeFilter()">
                 <md-icon>close</md-icon>

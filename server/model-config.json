@@ -1,104 +1,100 @@
 {
-  "_meta": {
-    "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
-      "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../common/mixins",
-      "./mixins"
-    ]
-  },
-  "User": {
-    "dataSource": "mongoDB",
-    "public": false
-  },
-  "AccessToken": {
-    "dataSource": "mongoDB",
-    "public": false
-  },
-  "ACL": {
-    "dataSource": "mongoDB",
-    "public": false
-  },
-  "RoleMapping": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "Role": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "user": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "business": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "equipment": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "equipmentType": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "examType": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "examMethode": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "shift": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "patient": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "doctor": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "staff": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "exam": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "price": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "inventory": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "billing": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "appointment": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "examMethod": {
-    "dataSource": "mongoDB",
-    "public": true
-  },
-  "room": {
-    "dataSource": "mongoDB",
-    "public": true
-  }
+    "_meta": {
+        "sources": [
+            "loopback/common/models",
+            "loopback/server/models",
+            "../common/models",
+            "./models"
+        ],
+        "mixins": [
+            "loopback/common/mixins",
+            "loopback/server/mixins",
+            "../common/mixins",
+            "./mixins"
+        ]
+    },
+    "User": {
+        "dataSource": "mongoDB",
+        "public": false
+    },
+    "AccessToken": {
+        "dataSource": "mongoDB",
+        "public": false
+    },
+    "ACL": {
+        "dataSource": "mongoDB",
+        "public": false
+    },
+    "RoleMapping": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "Role": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "user": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "business": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "equipment": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "equipmentType": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "examType": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "shift": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "patient": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "doctor": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "staff": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "exam": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "price": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "inventory": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "billing": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "appointment": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "examMethod": {
+        "dataSource": "mongoDB",
+        "public": true
+    },
+    "room": {
+        "dataSource": "mongoDB",
+        "public": true
+    }
 }

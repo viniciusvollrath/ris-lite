@@ -9,7 +9,7 @@
 
         function getDetailedList() {
 
-            return exam.customGET('?filter[include]=examType&filter[include]=examMethode&filter[include]=patient')
+            return exam.customGET('?filter[include]=examType&filter[include]=examMethod&filter[include]=patient')
         }
 
         return {
