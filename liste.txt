@@ -1,12 +1,15 @@
-# commancer par le type d examin et afficher le prix immediatement apres selection du type d examin
-# si le client accepte le prix et decide de passer l examin saisire les info malade 
-# ajouter la case medcin traitant dans le formulaire (non obligatoire) avec autocomplete
-# ajouter une alerte pour signaler les examin qui nessecite une preparation particulaire (a jeune, examin a faire avece produit de contraste ...etc)
+======DONE======# commancer par le type d examin et afficher le prix immediatement apres selection du type d examin
+
+======DONE======# si le client accepte le prix et decide de passer l examin saisire les info malade 
+
+======DONE======# ajouter la case medcin traitant dans le formulaire (non obligatoire) 
+#avec autocomplete
+======DONE======# ajouter une alerte pour signaler les examin qui nessecite une preparation particulaire (a jeune, examin a faire avece produit de contraste ...etc)
 # status financier de l examin : paye non paye 
-#  un malade peut demander plusure examin 
-## lors de la selection d examin l utilisateur peut selectioner plsuure examin et le prix total sera afficher si le madale decide de passer l enssemble des examin lors de la validation du formulaire tout les examin seron cree separement (daaahhhh)
+======DONE======#  un malade peut demander plusure examin 
+======DONE======## lors de la selection d examin l utilisateur peut selectioner plsuure examin et le prix total sera afficher si le madale decide de passer l enssemble des examin lors de la validation du formulaire tout les examin seron cree separement (daaahhhh)
 # possibilite d imprimer un ticket pour le malade lors de l attente (ticket de caisse)
-# ajouter le derget d urgence d examin 3 degre (normal, legerement fatigue , urgent malade tres fatigue )
+======DONE======# ajouter le derget d urgence d examin 3 degre (normal, legerement fatigue , urgent malade tres fatigue )
 # slectioner le manipulateur qui a effectuer l examin lors de la validation de le execution de le xamin
 # un examin a trois status (en attente, realise, remis)
 
@@ -19,15 +22,16 @@
 
 TODO
 refaire les forme de creation des module suivant:
-equipment type
-equipment
-exam Type
-exam Method(Introfuire le principe de compte rendu par defaut et de compte rendu type illimite )
+//equipment type --done
+//equipment --done
+//exam Type --done
+exam Method(Introduire le principe de compte rendu par defaut et de compte rendu type illimite)
+
 Refaire les module d afichage de la liste avec un tableau completement operationel pour les modules suivants:
-equipment type
-equipment
-exam type
-exam Method
+//equipment type --done
+//equipment --done
+//exam type --done
+//exam Method --done
 Ajouter l interface d affichage des details d un examin complet et en modal
 Completer l interface d interpretation
 Faire une interface de creation d utilisateur
