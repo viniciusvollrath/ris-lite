@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 .logo-padding {
     margin-left: 10px;
 }
@@ -17,4 +18,30 @@
 .auto-complte {
     margin-top: 10px;
     margin-right: 10PX;
+}
+
+.monitoring-header {
+    text-align: center;
+    color: #000000;
+    font-family: 'Montserrat', cursive;
+    font-weight: 400;
+}
+
+.monitoring-number {
+    text-align: center;
+    font-size: 17vh;
+    font-family: 'Montserrat', cursive;
+    font-weight: 400;
+}
+
+.awaiting {
+    color: #F44336;
+}
+
+.ongoing {
+    color: #03a9f4;
+}
+
+.done {
+    color: #4CAF50;
 }
