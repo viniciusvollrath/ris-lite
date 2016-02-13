@@ -122,7 +122,7 @@
         function querySearch(query) {
             if (query != '') {
                 var results = query ? vm.types.filter(createFilterFor(query)) : [];
-                console.log(query);
+                // console.log(query);
                 console.log(results);
                 return results;
             } else {
@@ -148,8 +148,6 @@
         function createFilterFor(query) {
             //var lowercaseQuery = angular.lowercase(query);
             return function filterFn(state) {
-                console.log(state)
-                console.log(state.name.indexOf(query) === 0)
                 if (query != '') {
                     return (state.name.indexOf(query) === 0);
 

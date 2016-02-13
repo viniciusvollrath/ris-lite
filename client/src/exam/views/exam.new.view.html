@@ -1,0 +1,64 @@
+<div ncy-breadcrumb class="col s12 ">
+</div>
+<md-card>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="userForm" ng-submit="examTypeVm.addNewPatient()">
+                    <div layout="row">
+                        <md-autocomplete flex required md-selected-item="examVm.selectedPatient" md-input-minlength="2" md-input-maxlength="18" md-no-cache="examVm.noCache" md-search-text-change="examVm.searchTextChange(examVm.searchText)" md-search-text="examVm.searchText" md-selected-item-change="examVm.selectedPatientChange(patient)" md-items="patient in examVm.patients" md-item-text="patient.firstName" md-floating-label="Favorite state">
+                            <md-item-template>
+                                <span md-highlight-text="examVm.searchText" md-highlight-flags="^i">{{patient.firstName}} {{patient.lastName}} (age: {{patient.age}})</span>
+                            </md-item-template>
+                            <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                                <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                                <div ng-message="minlength">Your entry is not long enough.</div>
+                                <div ng-message="maxlength">Your entry is too long.</div>
+                            </div>
+                        </md-autocomplete>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input required name="description" ng-model="examVm.patient.lastName" ng-disabled="examVm.patientSelected">
+                            <div ng-messages="examVm.patient.lastName.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Age</label>
+                            <input type="number" required name="description" ng-model="examVm.patient.age" ng-disabled="examVm.patientSelected">
+                            <div ng-messages="examVm.patient.age.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Gender</label>
+                            <md-select ng-model="examVm.patient.gender" ng-disabled="examVm.patientSelected">
+                                <md-option value="MALE">Male</md-option>
+                                <md-option value="FEMALE">Female</md-option>
+                                <div ng-messages="examVm.patient.gender.$error">
+                                    <div ng-message="required">This is required.</div>
+                                </div>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="30">
+                            <label>Phone Number</label>
+                            <input name="description" ng-model="examVm.patient.phoneNumber" ng-disabled="examVm.patientSelected">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex>
+                            <label>Address</label>
+                            <input required name="description " ng-model="examVm.patient.address" ng-disabled="examVm.patientSelected">
+                            <div ng-messages="examVm.patient.address.$error">
+                                <div ng-message="required ">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-raised md-warn" ng-hide="examVm.patientSelected">ADD</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</md-card>

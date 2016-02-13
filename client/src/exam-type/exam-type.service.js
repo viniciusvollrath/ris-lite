@@ -14,7 +14,7 @@
             count: count,
             addNewExamType: function(et) {
                 return examType.post(et).then(function(response) {
-                    examType.getList().pus
+
                     $state.go('app.setting.exam-type');
 
                 }, function(response) {

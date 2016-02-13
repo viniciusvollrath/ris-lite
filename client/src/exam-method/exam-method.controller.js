@@ -124,8 +124,10 @@ function ExamMethodNewController(ExamTypeService, ExamMethodService) {
     vm.exMethod = {};
     vm.exMethod.resultModels = [{}];
     vm.examTypes = undefined;
-    ExamTypeService.list.then(function(types) {
-        vm.examTypes = types;
+    ExamTypeService.examTypeList().then(function(data) {
+        vm.examTypes = data;
+    }, function(error) {
+
     });
 
 

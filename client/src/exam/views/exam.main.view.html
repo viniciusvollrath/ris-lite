@@ -1,9 +1,8 @@
-<div class="row ">
-    <div class="col s6" ncy-breadcrumb></div>
+<div class="col s6" ncy-breadcrumb>
 </div>
 <div class="row">
     <div class="col s2 offset-s8 center-align">
-        <button ui-sref="app.dashboard.main.quotation" class="col s12 green waves-effect waves-light btn btn-large">New Exam</button>
+        <button ui-sref="app.exam.new" class="col s12 green waves-effect waves-light btn btn-large">New Exam</button>
     </div>
     <div class="col s2 center-align">
         <button class="col blue s12 waves-effect waves-light btn btn-large">Ongoing Exams</button>
@@ -17,8 +16,8 @@
     </md-toolbar>
     <!-- exact table from live demo -->
     <md-table-container>
-        <table md-table ng-model="exam.selected" md-progress="exam.promise">
-            <thead md-head md-order="exam.query.order" md-on-reorder="onReorder">
+        <table md-table ng-model="examVm.selected" md-progress="examVm.promise">
+            <thead md-head md-order="examVm.query.order" md-on-reorder="onReorder">
                 <tr md-row>
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
                     <th md-column md-order-by="nameToLower"><span>Type</span></th>
@@ -31,7 +30,7 @@
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in exam.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in examVm.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
                     <td md-cell>{{exam.patient.firstName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
                     <td md-cell>{{exam.examMethode.name}}</td>
@@ -48,7 +47,7 @@
             </tbody>
         </table>
     </md-table-container>
-    <md-table-pagination md-limit="exam.query.limit" md-page="exam.query.page" md-total="{{exam.equipmentTypeList.length}}" md-on-paginate="exam.onPaginate" md-page-select></md-table-pagination>
+    <md-table-pagination md-limit="examVm.query.limit" md-page="examVm.query.page" md-total="{{exam.equipmentTypeList.length}}" md-on-paginate="examVm.onPaginate" md-page-select></md-table-pagination>
     <div class="col s6 right-align dashboard-main-action-bar">
         <a ui-sref="dashboard.admin.equipment-type.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>

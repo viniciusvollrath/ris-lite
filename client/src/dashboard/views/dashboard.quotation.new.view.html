@@ -37,10 +37,10 @@
                         </md-input-container>
                         <md-input-container flex="15" class="md-block">
                             <md-button ng-show="(qt.selectedExams.length > 1) " class="md-fab md-mini md-warn" aria-label="Remove" ng-click="qt.removeThisExam($index)">
-                                <md-icon md-svg-src="assets/img/ic_clear_white_24px.svg"></md-icon>
+                                <md-icon>remove</md-icon>
                             </md-button>
                             <md-button ng-show="$index == qt.selectedExams.length -1" class="md-fab md-mini green" aria-label="Add new" ng-click="qt.addNewExam()">
-                                <md-icon md-svg-src="assets/img/ic_add_circle_outline_white_24px.svg"></md-icon>
+                                <md-icon>add</md-icon>
                             </md-button>
                         </md-input-container>
                     </div>

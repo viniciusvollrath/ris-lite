@@ -5,7 +5,7 @@
         'ui.router',
         'ncy-angular-breadcrumb',
         'app.layout',
-        'app.auth'
+        'app.patient'
     ]);
 
 })();

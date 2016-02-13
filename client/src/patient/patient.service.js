@@ -7,38 +7,60 @@
     function PatientService(Rest, $state, store) {
         var patient = Rest.all("patients");
 
-        function getTypeMethodsList(ext) {
-
-            return patient.customGET('?filter[where][examTypeId]=' + ext);
-        }
 
         return {
-            examPatientList: Rest.all("patients").getList(),
-            getTypeMethodsList: getTypeMethodsList,
-            addNewPatient: function(ptnt) {
-                return patient.post(ptnt).then(function(response) {
-                    //examMethod.getList().push(response);
-                    // console.log(response);
-                    //$state.go('dashboard');
+
+            patientList: patientList,
+            findPatient: findPatient,
+            addNewPatient: addNewPatient,
+            addPatientAndExams: addPatientAndExams
+
+        };
+
+        function findPatient(text) {
+            return patient.customGET('?filter[where][firstName][like]=' + text).then(function(response) {
+                console.log(response);
+                return response;
+
+            }, function(error) {
+                console.log(error);
+                return error;
+            });
+        }
+
+        function addNewPatient(ptnt) {
+            return patient.post(ptnt).then(function(response) {
+                //examMethod.getList().push(response);
+                // console.log(response);
+                //$state.go('dashboard');
 
 
-                }, function(error) {
-                    console.log(error);
-                });
-            },
-            addPatientAndExams: function(ptnt) {
-                console.log(ptnt);
-                return patient.customPOST("", "new", ptnt).then(function(response) {
-                    //examMethod.getList().push(response);
-                    console.log(response);
-                    $state.go('app.dashboard.main');
-                    store.remove('examsList');
+            }, function(error) {
+                console.log(error);
+            });
+        }
 
-                }, function(error) {
-                    console.log(error);
-                });
-            }
+        function addPatientAndExams(ptnt) {
+            console.log(ptnt);
+            return patient.customPOST("", "new", ptnt).then(function(response) {
+                //examMethod.getList().push(response);
+                console.log(response);
+                $state.go('app.dashboard.main');
+                store.remove('examsList');
 
+            }, function(error) {
+                console.log(error);
+            });
+        }
+
+        function patientList() {
+            return patient.getList().then(function(response) {
+                return response;
+
+            }, function(error) {
+                console.log(error);
+                return error;
+            });
         }
     }
 })();

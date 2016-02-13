@@ -22,7 +22,7 @@
                     'main@app': {
                         templateUrl: 'src/exam/views/exam.main.view.html',
                         controller: 'ExamMainController',
-                        controllerAs: 'exam'
+                        controllerAs: 'examVm'
 
                     }
                 },
@@ -39,7 +39,7 @@
                     'main@app': {
                         templateUrl: 'src/exam/views/exam.new.view.html',
                         controller: 'ExamNewController',
-                        controllerAs: 'exam'
+                        controllerAs: 'examVm'
                     }
                 },
                 data: {
@@ -55,7 +55,7 @@
                     'main@app': {
                         templateUrl: 'src/exam/views/exam.interpretation.view.html',
                         controller: 'ExamInterpretationController',
-                        controllerAs: 'exam'
+                        controllerAs: 'examVm'
                     }
                 },
                 data: {
