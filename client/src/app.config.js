@@ -11,9 +11,9 @@
         .config(configure)
         .factory('AuthInterceptor', AuthInterceptor);
 
-    configure.$inject = ['$httpProvider', '$urlRouterProvider', '$mdThemingProvider', 'cfpLoadingBarProvider', '$breadcrumbProvider'];
+    configure.$inject = ['$httpProvider', '$urlRouterProvider', '$mdThemingProvider', 'cfpLoadingBarProvider', '$breadcrumbProvider', 'RestangularProvider'];
 
-    function configure($httpProvider, $urlRouterProvider, $mdThemingProvider, cfpLoadingBarProvider, $breadcrumbProvider) {
+    function configure($httpProvider, $urlRouterProvider, $mdThemingProvider, cfpLoadingBarProvider, $breadcrumbProvider, RestangularProvider) {
         //injecting the auth interceptor for http request responses
         $httpProvider.interceptors.push([
             '$injector',
@@ -45,6 +45,7 @@
                 'hue-3': '300'
             })
             .accentPalette('red');
+
     };
 
     function AuthInterceptor($rootScope, $q, AUTH_EVENTS) {

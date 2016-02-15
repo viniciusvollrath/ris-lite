@@ -19,7 +19,7 @@
 
         function findPatient(text) {
             return patient.customGET('?filter[where][firstName][like]=' + text).then(function(response) {
-                console.log(response);
+               
                 return response;
 
             }, function(error) {
@@ -30,9 +30,6 @@
 
         function addNewPatient(ptnt) {
             return patient.post(ptnt).then(function(response) {
-                //examMethod.getList().push(response);
-                // console.log(response);
-                //$state.go('dashboard');
 
 
             }, function(error) {

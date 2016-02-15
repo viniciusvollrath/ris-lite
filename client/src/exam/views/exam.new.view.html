@@ -1,14 +1,19 @@
 <div ncy-breadcrumb class="col s12 ">
 </div>
 <md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Patient Information</span>
+        </div>
+    </md-toolbar>
     <div layout="column" ng-cloak class="md-inline-form">
         <md-content layout-padding>
             <div>
-                <form name="userForm" ng-submit="examTypeVm.addNewPatient()">
+                <form name="userForm" ng-submit="examVm.addNewPatient()">
                     <div layout="row">
-                        <md-autocomplete flex required md-selected-item="examVm.selectedPatient" md-input-minlength="2" md-input-maxlength="18" md-no-cache="examVm.noCache" md-search-text-change="examVm.searchTextChange(examVm.searchText)" md-search-text="examVm.searchText" md-selected-item-change="examVm.selectedPatientChange(patient)" md-items="patient in examVm.patients" md-item-text="patient.firstName" md-floating-label="Favorite state">
+                        <md-autocomplete flex required md-selected-item="examVm.selectedPatient" md-input-minlength="2" md-input-maxlength="18" md-no-cache="examVm.noCache" md-search-text-change="examVm.searchTextChange(examVm.patient.firstName)" md-search-text="examVm.patient.firstName" md-selected-item-change="examVm.selectedPatientChange(patient)" md-items="patient in examVm.patients" md-item-text="patient.firstName" md-floating-label="Favorite state">
                             <md-item-template>
-                                <span md-highlight-text="examVm.searchText" md-highlight-flags="^i">{{patient.firstName}} {{patient.lastName}} (age: {{patient.age}})</span>
+                                <span md-highlight-text="examVm.patient.firstName" md-highlight-flags="^i">{{patient.firstName}} {{patient.lastName}} (age: {{patient.age}})</span>
                             </md-item-template>
                             <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
                                 <div ng-message="required">You <b>must</b> have a favorite state.</div>
@@ -56,6 +61,67 @@
                     </div>
                     <div layout="row" layout-align="end">
                         <md-button type="submit" class="md-raised md-warn" ng-hide="examVm.patientSelected">ADD</md-button>
+                    </div>
+                    <div layout="row" layout-align="end">
+                        <md-button class="md-raised md-warn" ng-show="examVm.newPatient" ng-click="">EDIT</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</md-card>
+<md-card ng-show="examVm.patientSelected">
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Exams Details</span>
+        </div>
+    </md-toolbar>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="examsListForm" ng-submit="examVm.createExams()">
+                    <div layout="row" class="md-inline-form" ng-repeat="exam in examVm.selectedExams">
+                        <md-autocomplete class="auto-complte" flex="35" md-no-cache="true" md-selected-item="exam.selectedExamType" md-selected-item-change="examVm.getExamMethods(exam.selectedExamType.id,$index)" md-search-text="exam.searchExamType" md-items="item in examVm.querySearch(exam.searchExamType)" md-item-text="item.name" md-min-length="0" ng-focus="examVm.querySearch(exam.searchExamType)" required>
+                            <md-item-template>
+                                <span md-highlight-text="examVm.searchExamType">{{item.name}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No exam was found.
+                            </md-not-found>
+                            <div ng-messages="exam.selectedExamType.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-autocomplete>
+                        <md-input-container flex="35">
+                            <label>Method</label>
+                            <md-select ng-model="exam.selectedExamMethod" style="min-width: 200px;" ng-change="examVm.methodSelected($index)" required>
+                                <md-option ng-value="method" ng-repeat="method in examVm.examMethods[$index]">{{method.name}}</md-option>
+                            </md-select>
+                            <div ng-messages="exam.selectedExamMethod.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="10">
+                            <label>Price</label>
+                            <input type="number" ng-model="exam.price" ng-change="examVm.setPrice()" required>
+                            <div ng-messages="exam.price.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="15" class="md-block">
+                            <md-button ng-show="(examVm.selectedExams.length > 1) " class="md-fab md-mini md-warn" aria-label="Remove" ng-click="examVm.removeThisExam($index)">
+                                <md-icon>remove</md-icon>
+                            </md-button>
+                            <md-button ng-show="$index == examVm.selectedExams.length -1" class="md-fab md-mini green" aria-label="Add new" ng-click="examVm.addNewExam()">
+                                <md-icon>add</md-icon>
+                            </md-button>
+                        </md-input-container>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                    <div>
+                        <h4>TOTAL: {{examVm.total}} DA</h4></div>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-warn md-raised" ng-disabled="examsListForm.$invalid">CREATE EXAM(S)</md-button>
                     </div>
                 </form>
             </div>

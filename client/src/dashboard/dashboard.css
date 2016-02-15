@@ -25,11 +25,19 @@
     color: #000000;
     font-family: 'Montserrat', cursive;
     font-weight: 400;
+    font-size: 5vh;
 }
 
 .monitoring-number {
     text-align: center;
-    font-size: 17vh;
+    font-size: 7vh;
+    font-family: 'Montserrat', cursive;
+    font-weight: 400;
+}
+
+.exam-number {
+    text-align: center;
+    font-size: 5vh;
     font-family: 'Montserrat', cursive;
     font-weight: 400;
 }
@@ -39,9 +47,30 @@
 }
 
 .ongoing {
-    color: #03a9f4;
+    color: #9C27B0;
+}
+
+.exam {
+    color: #2196F3;
+}
+
+.exam-header {
+    color: #616161;
+    font-size: 5vh;
 }
 
 .done {
     color: #4CAF50;
+}
+
+.appointment {
+    color: #42A5F5;
+}
+
+.total-exam-number {
+    text-align: center;
+    font-size: 4vh;
+    font-family: 'Montserrat', cursive;
+    font-weight: 400;
+    color: #000000;
 }

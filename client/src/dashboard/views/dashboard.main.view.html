@@ -1,14 +1,13 @@
 <div class="row ">
     <div class="col s6" ncy-breadcrumb></div>
 </div>
-<div class="row center-align">
+<!-- <div class="row center-align">
     <div class="col s2 offset-s4 center-align">
         <button ui-sref="app.dashboard.main.quotation" class="col s12 green waves-effect waves-light btn btn-large">New Qutoation</button>
     </div>
     <div class="col s2 ">
-    <button class="col s12 purple right-align waves-effect waves-light btn btn-large">New Appointment</button>
-</div>
-
+        <button class="col s12 purple right-align waves-effect waves-light btn btn-large">New Appointment</button>
+    </div>
     <div class="col s2 center-align">
         <button class="col s12 green accent-4  waves-effect waves-light btn btn-large">New Exam</button>
     </div>
@@ -16,18 +15,45 @@
         <button class="col blue s12 waves-effect waves-light btn btn-large">Ongoing Exams</button>
     </div>
 </div>
+ -->
 <div layout="row">
     <md-card flex>
-        <h3 class=" awaiting monitoring-header">Waiting Room</h3>
+        <div class=" appointment monitoring-header">Appointments</div>
+        <div class="appointment monitoring-number">8</div>
+    </md-card>
+    <md-card flex>
+        <div class=" awaiting monitoring-header">Waiting Room</div>
         <div class="awaiting monitoring-number">10</div>
     </md-card>
     <md-card flex>
-        <h3 class=" ongoing monitoring-header">On going</h3>
+        <div class=" ongoing monitoring-header">On going</div>
         <div class="ongoing monitoring-number">4</div>
     </md-card>
     <md-card flex>
-        <h3 class=" done monitoring-header">Done</h3>
+        <div class=" done monitoring-header">Done</div>
         <div class="done monitoring-number">24</div>
+    </md-card>
+</div>
+<div layout="row">
+    <md-card flex>
+        <div class=" exam-header monitoring-header">Scanner</div>
+        <div class="exam exam-number">2<span class="total-exam-number">/4</span></div>
+    </md-card>
+    <md-card flex>
+        <div class=" exam-header monitoring-header">Echo</div>
+        <div class="exam exam-number">4<span class="total-exam-number">/7</span></div>
+    </md-card>
+    <md-card flex>
+        <div class=" exam-header monitoring-header">X-Ray</div>
+        <div class="exam exam-number">0<span class="total-exam-number">/10</span></div>
+    </md-card>
+    <md-card flex>
+        <div class=" exam-header monitoring-header">IRM</div>
+        <div class="exam exam-number">7<span class="total-exam-number">/10</span></div>
+    </md-card>
+    <md-card flex>
+        <div class=" exam-header monitoring-header">Mamo</div>
+        <div class="exam exam-number">2<span class="total-exam-number">/3</span></div>
     </md-card>
 </div>
 <md-card>
@@ -72,5 +98,91 @@
     <md-table-pagination md-limit="ex.query.limit" md-page="ex.query.page" md-total="{{ex.equipmentTypeList.length}}" md-on-paginate="ex.onPaginate" md-page-select></md-table-pagination>
     <div class="col s6 right-align dashboard-main-action-bar">
         <a ui-sref="dashboard.admin.equipment-type.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+</md-card>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Exams List</span>
+        </div>
+    </md-toolbar>
+    <!-- exact table from live demo -->
+    <md-table-container>
+        <table md-table ng-model="ex.selected" md-progress="ex.promise">
+            <thead md-head md-order="ex.query.order" md-on-reorder="onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
+                    <th md-column md-order-by="nameToLower"><span>Type</span></th>
+                    <th md-column md-numeric md-order-by="calories.value"><span>Method</span></th>
+                    <th md-column md-numeric>Status</th>
+                    <th md-column md-numeric>Interpretation</th>
+                    <th md-column md-numeric>Payed</th>
+                    <th md-column md-numeric>Emergency</th>
+                    <th md-column md-numeric>Price (DA )</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
+                    <td md-cell>{{exam.patient.firstName}}</td>
+                    <td md-cell>{{exam.examType.name}}</td>
+                    <td md-cell>{{exam.examMethode.name}}</td>
+                    <td md-cell>{{exam.status}}</td>
+                    <td md-cell>
+                        <md-button ui-sref="app.exam.interpretation({examId:exam.id
+})" class="md-warn">Interpreter</md-button>
+                    </td>
+                    <td md-cell ng-if="exam.isPaid">YES</td>
+                    <td md-cell ng-if="!exam.isPaid">NO</td>
+                    <td md-cell>{{exam.emergencyLevel}}</td>
+                    <td md-cell>{{exam.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="ex.query.limit" md-page="ex.query.page" md-total="{{ex.equipmentTypeList.length}}" md-on-paginate="ex.onPaginate" md-page-select></md-table-pagination>
+    <div class="col s6 right-align dashboard-main-action-bar">
+    </div>
+</md-card>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Exams List</span>
+        </div>
+    </md-toolbar>
+    <!-- exact table from live demo -->
+    <md-table-container>
+        <table md-table ng-model="ex.selected" md-progress="ex.promise">
+            <thead md-head md-order="ex.query.order" md-on-reorder="onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
+                    <th md-column md-order-by="nameToLower"><span>Type</span></th>
+                    <th md-column md-numeric md-order-by="calories.value"><span>Method</span></th>
+                    <th md-column md-numeric>Status</th>
+                    <th md-column md-numeric>Interpretation</th>
+                    <th md-column md-numeric>Payed</th>
+                    <th md-column md-numeric>Emergency</th>
+                    <th md-column md-numeric>Price (DA )</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
+                    <td md-cell>{{exam.patient.firstName}}</td>
+                    <td md-cell>{{exam.examType.name}}</td>
+                    <td md-cell>{{exam.examMethode.name}}</td>
+                    <td md-cell>{{exam.status}}</td>
+                    <td md-cell>
+                        <md-button ui-sref="app.exam.interpretation({examId:exam.id
+})" class="md-warn">Interpreter</md-button>
+                    </td>
+                    <td md-cell ng-if="exam.isPaid">YES</td>
+                    <td md-cell ng-if="!exam.isPaid">NO</td>
+                    <td md-cell>{{exam.emergencyLevel}}</td>
+                    <td md-cell>{{exam.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="ex.query.limit" md-page="ex.query.page" md-total="{{ex.equipmentTypeList.length}}" md-on-paginate="ex.onPaginate" md-page-select></md-table-pagination>
+    <div class="col s6 right-align dashboard-main-action-bar">
     </div>
 </md-card>
