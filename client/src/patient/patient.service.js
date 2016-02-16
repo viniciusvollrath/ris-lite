@@ -19,7 +19,7 @@
 
         function findPatient(text) {
             return patient.customGET('?filter[where][firstName][like]=' + text).then(function(response) {
-               
+
                 return response;
 
             }, function(error) {
@@ -42,7 +42,7 @@
             return patient.customPOST("", "new", ptnt).then(function(response) {
                 //examMethod.getList().push(response);
                 console.log(response);
-                $state.go('app.dashboard.main');
+                $state.go('app.exam');
                 store.remove('examsList');
 
             }, function(error) {

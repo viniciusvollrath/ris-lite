@@ -39,3 +39,6 @@ Faire une interface de gestion des utilisateur par role et par permission
 Ajouter la notion de prix par vacation (normal et garde)
 ajouter la notion de recherche par nom de patient avant la creation d un nouveau patient
 ajouter l interface de creation de RDV sans date
+
+
+L age doit etre calculer et non statique par rapport a l anne de naissance qui doit etre retrouver par inverse

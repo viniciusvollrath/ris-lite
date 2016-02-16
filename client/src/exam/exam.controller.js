@@ -22,6 +22,7 @@
         };
         ExamService.getDetailedList().then(function(list) {
             vm.examList = list;
+            console.log(vm.examList);
         });
 
         vm.onPaginate = function(page, limit) {
@@ -44,11 +45,37 @@
         vm.patient = {};
         vm.patients = [];
 
+        //EXAMS SECTION//
+        vm.examTypeId = undefined;
+        vm.examTypes = undefined;
+        vm.examMethods = [];
+        vm.total = 0;
+        vm.types = null;
+        loadAll();
+        vm.selectedExamType = null;
+        vm.searchExamType = null;
+        //list of selected exams with all the details
+        vm.selectedExams = [{}];
+
+
         vm.searchTextChange = searchTextChange;
         vm.selectedPatientChange = selectedPatientChange;
         vm.addNewPatient = addNewPatient;
+        vm.editPatient = editPatient;
 
-        //exams section
+        //EXAMS SECTION//
+        vm.getExamMethods = getExamMethods;
+        vm.querySearch = querySearch;
+
+        vm.addNewExam = addNewExam;
+        vm.removeThisExam = removeThisExam;
+
+        vm.setPrice = setPrice;
+        vm.setTotal = setTotal;
+        vm.methodSelected = methodSelected;
+        vm.createExams = createExams;
+        vm.addPatientAndExams = addPatientAndExams;
+
 
         //when the search text changes, query for new results
         function searchTextChange(text) {
@@ -80,37 +107,16 @@
         function addNewPatient() {
             vm.patientSelected = true;
             vm.newPatient = true;
-            PatientService.addNewPatient(vm.patient);
+            //PatientService.addNewPatient(vm.patient);
             //$state.go('app.dashboard.main');
         }
 
-
-        //EXAMS SECTION//
-        /////////////////
-
-
-        vm.examTypeId = undefined;
-        vm.examTypes = undefined;
-        vm.examMethods = [];
-        vm.total = 0;
-        vm.types = null;
-        loadAll();
-        vm.selectedExamType = null;
-        vm.searchExamType = null;
-        //list of selected exams with all the details
-        vm.selectedExams = [{}];
+        function editPatient() {
+            vm.patientSelected = false;
+            vm.newPatient = false;
+        }
 
 
-        vm.getExamMethods = getExamMethods;
-        vm.querySearch = querySearch;
-
-        vm.addNewExam = addNewExam;
-        vm.removeThisExam = removeThisExam;
-
-        vm.setPrice = setPrice;
-        vm.setTotal = setTotal;
-        vm.methodSelected = methodSelected;
-        vm.createExams = createExams;
         //add the price to the selected exams list
         function methodSelected(index) {
             if (vm.selectedExams[index].selectedExamMethod.remarque != '' && vm.selectedExams[index].selectedExamMethod.remarque != 'ras') {
@@ -160,7 +166,7 @@
         function getExamMethods(ext, id) {
             ExamMethodService.getTypeMethodsList(ext).then(function(response) {
                 vm.examMethods[id] = response.plain();
-                console.log( vm.examMethods[id]);
+                console.log(vm.examMethods[id]);
             }, function(error) {
                 console.log(error);
             });;
@@ -171,11 +177,11 @@
             if (query != '') {
                 var results = query ? vm.types.filter(createFilterFor(query)) : [];
                 // console.log(query);
-                
+
                 return results;
             } else {
                 var results = vm.types;
-                
+
                 return results;
             }
         }
@@ -211,6 +217,28 @@
             //$state.go('app.dashboard.main.quotation.patient');
 
         }
+
+        function addPatientAndExams() {
+            var data = {};
+            data.patient = vm.patient;
+            data.exams = [];
+
+
+            for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
+                data.exams.push({
+                    price: vm.selectedExams[i].price,
+                    examMethodId: vm.selectedExams[i].selectedExamMethod.id,
+                    examTypeId: vm.selectedExams[i].selectedExamType.id,
+                    emergencyLevel: vm.emergencyLevel
+                });
+
+            }
+
+            console.log(data);
+            PatientService.addPatientAndExams(data);
+
+        }
+
 
     }
 

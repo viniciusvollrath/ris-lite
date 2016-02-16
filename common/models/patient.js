@@ -4,17 +4,26 @@ module.exports = function(Patient) {
     Patient.new = function(patient, exams, cb) {
         var exam = Patient.app.models.Exam;
         var examMethod = Patient.app.models.ExamMethod;
-        Patient.create(patient, function(err, result) {
+        // console.log(patient.id);
+        var id = patient.id;
+        delete patient.id;
+        if (id == undefined) {
+            id = "-1";
+        }
+        // console.log(id);
+
+        Patient.findOrCreate({ where: { id: id, firstName: patient.firstName, lastName: patient.lastName } }, patient, function(err, result) {
             if (err) {
                 cb(err, {});
             }
+            // console.log(result.id);
             //if exams list not empty
             if (exams.length > 0) {
                 //console.log(exams.length);
                 var ex = {};
                 //for each exam complete the data
                 async.each(exams, function(ex, callback) {
-                    // console.log(ex);
+                    // console.log(result.id);
                     ex.creationDate = Date.now();
                     ex.patientId = result.id;
 
@@ -27,13 +36,13 @@ module.exports = function(Patient) {
                         };
                         ex.interpretation = eMethod.defaultResultModel;
                         ex.isInterpreted = false;
-                        ex.isPaid = false;
+                        ex.isPaid = true;
                         ex.status = "NEW";
                         exam.create(ex, function(error, exm) {
                             if (error) {
                                 cb(error, {});
                             }
-                            console.log(exm);
+                            // console.log(exm);
                             callback();
                         });
                     });
