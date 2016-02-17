@@ -1,0 +1,9 @@
+.remarque-text-editor {
+    height: 15vh !important;
+    max-height: 15vh !important;
+    border: 1px solid #000000;
+}
+
+text-angular {
+    min-height: 15vh !important;
+}

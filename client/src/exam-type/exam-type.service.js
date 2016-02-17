@@ -12,15 +12,7 @@
             list: Rest.all("examTypes").getList(),
             examTypeListDetails: examTypeListDetails,
             count: count,
-            addNewExamType: function(et) {
-                return examType.post(et).then(function(response) {
-
-                    $state.go('app.setting.exam-type');
-
-                }, function(response) {
-                    console.log("Error with status code", response.status);
-                });
-            }
+            addNewExamType: addNewExamType
         };
 
         function examTypeList() {
@@ -54,6 +46,16 @@
                 return examType.count;
             }, function(error) {
 
+            });
+        }
+
+        function addNewExamType(et) {
+            return examType.post(et).then(function(response) {
+
+                $state.go('app.setting.exam-type');
+
+            }, function(response) {
+                console.log("Error with status code", response.status);
             });
         }
     }

@@ -21,6 +21,10 @@
             "type": "string",
             "required": true
         },
+        "conclusion": {
+            "type": "string",
+            "required": true
+        },
         "isInterpreted": {
             "type": "boolean",
             "required": true
@@ -43,11 +47,6 @@
         "examType": {
             "type": "belongsTo",
             "model": "examType",
-            "foreignKey": ""
-        },
-        "examMethod": {
-            "type": "belongsTo",
-            "model": "examMethod",
             "foreignKey": ""
         },
         "patient": {

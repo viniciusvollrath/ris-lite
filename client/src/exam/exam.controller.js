@@ -37,7 +37,7 @@
 
     }
 
-    function ExamNewController(ExamTypeService, ExamMethodService, PatientService, $timeout, $q, $log, $state, $mdDialog) {
+    function ExamNewController(ExamTypeService, PatientService, $timeout, $q, $log, $state, $mdDialog) {
         var vm = this;
 
         //patient section
@@ -55,6 +55,7 @@
         vm.total = 0;
         vm.types = null;
         loadAll();
+
         vm.selectedExamType = null;
         vm.searchExamType = null;
         //list of selected exams with all the details
@@ -67,7 +68,7 @@
         vm.editPatient = editPatient;
 
         //EXAMS SECTION//
-        vm.getExamMethods = getExamMethods;
+        //vm.getExamMethods = getExamMethods;
         vm.querySearch = querySearch;
 
         vm.addNewExam = addNewExam;
@@ -75,7 +76,7 @@
 
         vm.setPrice = setPrice;
         vm.setTotal = setTotal;
-        vm.methodSelected = methodSelected;
+        vm.typeSelected = typeSelected;
         vm.createExams = createExams;
         vm.addPatientAndExams = addPatientAndExams;
 
@@ -121,14 +122,14 @@
 
 
         //add the price to the selected exams list
-        function methodSelected(index) {
-            if (vm.selectedExams[index].selectedExamMethod.remarque != '' && vm.selectedExams[index].selectedExamMethod.remarque != 'ras') {
+        function typeSelected(index) {
+            if (vm.selectedExams[index].selectedExamType.remarque != '' && vm.selectedExams[index].selectedExamType.remarque != 'ras') {
                 $mdDialog.show(
                     $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))
                     .clickOutsideToClose(true)
                     .title('WARNING: This Exam requires a special preparation')
-                    .textContent(vm.selectedExams[index].selectedExamMethod.remarque)
+                    .textContent(vm.selectedExams[index].selectedExamType.remarque)
                     .ariaLabel('Alert Dialog Demo')
                     .ok('Got it!')
                 );
@@ -141,7 +142,7 @@
         function setPrice() {
             for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
 
-                vm.selectedExams[i].price = vm.selectedExams[i].selectedExamMethod.dayPrice;
+                vm.selectedExams[i].price = vm.selectedExams[i].selectedExamType.dayPrice;
                 setTotal();
 
 
@@ -163,17 +164,6 @@
         //add new row to selected exams
         function addNewExam() {
             vm.selectedExams.push({});
-        }
-
-        //retrive the exam methods list 
-        function getExamMethods(ext, id) {
-            ExamMethodService.getTypeMethodsList(ext).then(function(response) {
-                vm.examMethods[id] = response.plain();
-                console.log(vm.examMethods[id]);
-            }, function(error) {
-                console.log(error);
-            });;
-
         }
 
         function querySearch(query) {
@@ -230,7 +220,6 @@
             for (var i = vm.selectedExams.length - 1; i >= 0; i--) {
                 data.exams.push({
                     price: vm.selectedExams[i].price,
-                    examMethodId: vm.selectedExams[i].selectedExamMethod.id,
                     examTypeId: vm.selectedExams[i].selectedExamType.id,
                     emergencyLevel: vm.emergencyLevel
                 });
@@ -248,6 +237,7 @@
     function ExamInterpretationController(ExamService, $stateParams) {
         var vm = this;
         vm.examId = $stateParams.examId;
+        console.log(vm.examId)
         vm.selectedExam = $stateParams.exam;
         activate();
 
@@ -268,7 +258,7 @@
         }
 
         function activate() {
-            vm.getExamDetails(vm.examId);
+            getExamDetails(vm.examId);
         }
 
         function saveAndContinue() {

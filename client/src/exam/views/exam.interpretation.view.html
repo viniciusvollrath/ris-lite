@@ -14,7 +14,6 @@
                         <th data-field="price">Age</th>
                         <th data-field="price">Doctor</th>
                         <th data-field="price">Exam Type</th>
-                        <th data-field="price">Exam Method</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +24,6 @@
                         <td>{{examVm.selectedExam.patient.age}}</td>
                         <td>{{examVm.selectedExam.examType.name}}</td>
                         <td>{{examVm.selectedExam.examType.name}}</td>
-                        <td>{{examVm.selectedExam.examMethod.name}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -33,14 +31,11 @@
         <form name="examsListForm">
             <div flex>
                 <h5>Exam Results</h5>
-                <md-input-container class="md-block">
-                    <text-angular ng-model="examVm.selectedExam.interpretation" ta-toolbar="[[ 'h1', 'h2', 'h3','h4', 'bold', 'italics','underline','p','quote','undo','redo','ul','ol']] " autofocus></text-angular>
-                </md-input-container>
+                <trix-editor angular-trix ng-model="examVm.selectedExam.interpretation"></trix-editor>
             </div>
             <div flex>
                 <h5>Exam Conclusion</h5>
-                <md-input-container class="md-block ">
-                    <text-angular ng-model="examVm.selectedExam.interpretation" ta-toolbar="[[ 'h1', 'h2', 'h3','h4', 'bold','italics','underline','p','quote','undo','redo','ul','ol']] "></text-angular>
+                <trix-editor angular-trix ng-model="examVm.selectedExam.conclusion"></trix-editor>
                 </md-input-container>
             </div>
             <div layout="row" layout-align="end">

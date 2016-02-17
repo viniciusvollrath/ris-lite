@@ -94,7 +94,7 @@
             <div>
                 <form name="examsListForm" ng-submit="examVm.addPatientAndExams()">
                     <div layout="row" class="md-inline-form" ng-repeat="exam in examVm.selectedExams">
-                        <md-autocomplete class="auto-complte" flex="35" md-no-cache="true" md-selected-item="exam.selectedExamType" md-selected-item-change="examVm.getExamMethods(exam.selectedExamType.id,$index)" md-search-text="exam.searchExamType" md-items="item in examVm.querySearch(exam.searchExamType)" md-item-text="item.name" md-min-length="0" ng-focus="examVm.querySearch(exam.searchExamType)" required>
+                        <md-autocomplete class="auto-complte" flex="75" md-no-cache="true" md-selected-item="exam.selectedExamType" md-selected-item-change="examVm.typeSelected($index)" md-search-text="exam.searchExamType" md-items="item in examVm.querySearch(exam.searchExamType)" md-item-text="item.name" md-min-length="0" ng-focus="examVm.querySearch(exam.searchExamType)" required>
                             <md-item-template>
                                 <span md-highlight-text="examVm.searchExamType">{{item.name}}</span>
                             </md-item-template>
@@ -105,7 +105,7 @@
                                 <div ng-message="required">This is required.</div>
                             </div>
                         </md-autocomplete>
-                        <md-input-container flex="35">
+                        <!-- <md-input-container flex="35">
                             <label>Method</label>
                             <md-select ng-model="exam.selectedExamMethod" style="min-width: 200px;" ng-change="examVm.methodSelected($index)" required>
                                 <md-option ng-value="method" ng-repeat="method in examVm.examMethods[$index]">{{method.name}}</md-option>
@@ -113,11 +113,11 @@
                             <div ng-messages="exam.selectedExamMethod.$error">
                                 <div ng-message="required">This is required.</div>
                             </div>
-                        </md-input-container>
+                        </md-input-container> -->
                         <md-input-container flex="10">
                             <label>Price</label>
-                            <input type="number" ng-model="exam.selectedExamMethod.dayPrice" ng-change="examVm.setPrice()" required>
-                            <div ng-messages="exam.selectedExamMethod.dayPrice.$error">
+                            <input type="number" ng-model="exam.selectedExamType.dayPrice" ng-change="examVm.setPrice()" required>
+                            <div ng-messages="exam.selectedExamType.dayPrice.$error">
                                 <div ng-message="required">This is required.</div>
                             </div>
                         </md-input-container>

@@ -23,6 +23,35 @@
                         <label>Description</label>
                         <textarea required ng-model="examTypeVm.exType.description" columns="1" md-maxlength="150" rows="5"></textarea>
                     </md-input-container>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Regular Price</label>
+                            <input required type="number" ng-model="examTypeVm.exType.dayPrice">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Night Price</label>
+                            <input required type="number" ng-model="examTypeVm.exType.nightPrice">
+                        </md-input-container>
+                    </div>
+                    Remarque:
+                    <trix-editor angular-trix ng-model="examTypeVm.exType.remarque"></trix-editor>
+                    Default Results Model:
+                    <trix-editor angular-trix ng-model="examTypeVm.exType.defaultResultModel"></trix-editor>
+                    Other Result Models:
+                    <md-card ng-repeat="resultModel in examTypeVm.exType.resultModels">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content layout-padding>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Name</label>
+                                    <input ng-model="resultModel.name">
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Default Results Model</label>
+                                    <textarea ng-model="resultModel.resultModel" columns="1" md-maxlength="150" rows="5"></textarea>
+                                </md-input-container>
+                            </md-content>
+                        </div>
+                    </md-card>
                     <div layout="row" layout-align="end">
                         <md-button type="submit" class="md-raised md-warn">ADD</md-button>
                     </div>

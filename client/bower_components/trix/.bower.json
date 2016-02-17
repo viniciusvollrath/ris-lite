@@ -1,0 +1,44 @@
+{
+  "name": "trix",
+  "description": "A rich text editor for everyday writing",
+  "main": [
+    "dist/trix.js",
+    "dist/trix.css"
+  ],
+  "authors": [
+    "Basecamp, LLC"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "rich text",
+    "wysiwyg",
+    "editor"
+  ],
+  "homepage": "http://trix-editor.org/",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "assets",
+    "bin",
+    "polyfills",
+    "src",
+    "test",
+    "*.md",
+    "config.ru",
+    "Gemfile*",
+    "LICENSE",
+    "package.json"
+  ],
+  "version": "0.9.5",
+  "_release": "0.9.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.9.5",
+    "commit": "138eec9246895e38a7cdec1da8617a8cc065b8ff"
+  },
+  "_source": "git://github.com/basecamp/trix.git",
+  "_target": "*",
+  "_originalSource": "trix"
+}

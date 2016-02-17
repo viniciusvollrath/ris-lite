@@ -94,6 +94,7 @@ function ExamTypeMainController($scope, ExamTypeService) {
 function ExamTypeNewController(ExamTypeService, EquipmentService) {
     var vm = this;
     vm.exType = {};
+    vm.exType.resultModels = [{}];
     vm.equipmentTypes = undefined;
     EquipmentService.equipmentTypeList.then(function(types) {
         vm.equipmentTypes = types;

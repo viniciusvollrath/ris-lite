@@ -3,7 +3,7 @@ var async = require('async');
 module.exports = function(Patient) {
     Patient.new = function(patient, exams, cb) {
         var exam = Patient.app.models.Exam;
-        var examMethod = Patient.app.models.ExamMethod;
+        var examType = Patient.app.models.ExamType;
         // console.log(patient.id);
         var id = patient.id;
         delete patient.id;
@@ -27,25 +27,28 @@ module.exports = function(Patient) {
                     ex.creationDate = Date.now();
                     ex.patientId = result.id;
 
-                    examMethod.findOne({
+                    examType.findOne({
                         where: {
-                            id: ex.examMethodId
+                            id: ex.examTypeId
                         }
-                    }, function(err, eMethod) {
+                    }, function(err, eType) {
                         if (err) {
                             cb(err, {});
 
                         };
-
-                        ex.interpretation = eMethod.defaultResultModel;
+                        console.log(eType);
+                        ex.interpretation = eType.defaultResultModel;
+                        ex.conclusion = " ";
                         ex.isInterpreted = false;
                         ex.isPaid = true;
                         ex.status = "NEW";
+                        console.log('ex')
+                        console.log(ex)
                         exam.create(ex, function(error, exm) {
                             if (error) {
                                 cb(error, {});
                             }
-                            // console.log(exm);
+                            console.log(exm);
                             callback();
                         });
                     });
