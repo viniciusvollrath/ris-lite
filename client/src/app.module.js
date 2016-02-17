@@ -14,6 +14,7 @@
         'cfp.loadingBar',
         'ncy-angular-breadcrumb',
         'ui.select',
+        'textAngular',
         'app.layout',
         'app.auth',
         'app.welcome',

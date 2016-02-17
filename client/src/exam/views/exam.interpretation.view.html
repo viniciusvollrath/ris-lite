@@ -19,23 +19,37 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
+                        <td>{{examVm.selectedExam.patient.firstName}}</td>
+                        <td>{{examVm.selectedExam.patient.lastName}}</td>
+                        <td>{{examVm.selectedExam.patient.gender}}</td>
+                        <td>{{examVm.selectedExam.patient.age}}</td>
+                        <td>{{examVm.selectedExam.examType.name}}</td>
+                        <td>{{examVm.selectedExam.examType.name}}</td>
+                        <td>{{examVm.selectedExam.examMethod.name}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div flex>
-            <h5>Exam Results</h5>
-            <md-input-container class="md-block">
-                <label>Results</label>
-                <textarea ng-model="exam.results" columns="1" md-maxlength="15000" rows="25"></textarea>
-            </md-input-container>
-        </div>
+        <form name="examsListForm">
+            <div flex>
+                <h5>Exam Results</h5>
+                <md-input-container class="md-block">
+                    <text-angular ng-model="examVm.selectedExam.interpretation" ta-toolbar="[[ 'h1', 'h2', 'h3','h4', 'bold', 'italics','underline','p','quote','undo','redo','ul','ol']] " autofocus></text-angular>
+                </md-input-container>
+            </div>
+            <div flex>
+                <h5>Exam Conclusion</h5>
+                <md-input-container class="md-block ">
+                    <text-angular ng-model="examVm.selectedExam.interpretation" ta-toolbar="[[ 'h1', 'h2', 'h3','h4', 'bold','italics','underline','p','quote','undo','redo','ul','ol']] "></text-angular>
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="end">
+                <md-button ng-click="examVm.saveAndContinue" class="md-warn md-raised">SAVE & CONTINUE</md-button>
+                <md-button ng-click="examVm.saveAndClose" class="md-warn md-raised">SAVE & CLOSE</md-button>
+                <md-button ng-click="examVm.preview" class="md-warn md-raised">PREVIEW</md-button>
+                <md-button ng-click="examVm.deliver" class="md-warn md-raised">DELIVER</md-button>
+                <md-button ng-click="examVm.print" class="md-warn md-raised">PRINT</md-button>
+            </div>
+        </form>
     </div>
 </md-card>

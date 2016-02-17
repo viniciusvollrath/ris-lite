@@ -12,9 +12,14 @@
             return exam.customGET('?filter[include]=examType&filter[include]=examMethod&filter[include]=patient')
         }
 
+        function getExamDetails(id) {
+            return exam.customGET('?filter[where][id]=' + id + '&filter[include]=examType&filter[include]=examMethod&filter[include]=patient')
+
+        }
+
         return {
             examList: Rest.all("exams").getList(),
-            examDetails: Rest.all("exams").getList(),
+            getExamDetails: getExamDetails,
             getDetailedList: getDetailedList,
             addNewExam: function(ex) {
                 return patient.post(ex).then(function(response) {

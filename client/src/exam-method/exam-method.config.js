@@ -13,7 +13,7 @@
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
     function configure($stateProvider, USER_ROLES) {
-        console.info("the exam method config is runing");
+        // console.info("the exam method config is runing");
 
         $stateProvider
             .state('app.setting.exam-method', {

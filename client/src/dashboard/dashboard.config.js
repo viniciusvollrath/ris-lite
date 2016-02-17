@@ -13,7 +13,7 @@
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
     function configure($stateProvider, USER_ROLES) {
-        console.info("the dashboard config is runing");
+        // console.info("the dashboard config is runing");
 
         $stateProvider
             .state('app.dashboard.main', {

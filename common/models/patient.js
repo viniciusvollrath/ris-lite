@@ -23,17 +23,20 @@ module.exports = function(Patient) {
                 var ex = {};
                 //for each exam complete the data
                 async.each(exams, function(ex, callback) {
-                    // console.log(result.id);
+                    console.log(ex);
                     ex.creationDate = Date.now();
                     ex.patientId = result.id;
 
                     examMethod.findOne({
-                        id: ex.examMethodeId
+                        where: {
+                            id: ex.examMethodId
+                        }
                     }, function(err, eMethod) {
                         if (err) {
                             cb(err, {});
 
                         };
+
                         ex.interpretation = eMethod.defaultResultModel;
                         ex.isInterpreted = false;
                         ex.isPaid = true;

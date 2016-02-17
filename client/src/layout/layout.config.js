@@ -13,7 +13,7 @@
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
     function configure($stateProvider, USER_ROLES) {
-        console.info("the layout configuration is runing");
+        // console.info("the layout configuration is runing");
 
         $stateProvider
             .state('app', {

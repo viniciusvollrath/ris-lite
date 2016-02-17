@@ -12,8 +12,8 @@
 
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
-    function configure($stateProvider, USER_ROLES) {
-        console.info("the exam config is runing");
+    function configure($stateProvider, USER_ROLES, ExamService) {
+        // console.info("the exam config is runing");
 
         $stateProvider
             .state('app.exam', {
@@ -65,8 +65,10 @@
                     label: 'Interpretation'
                 },
                 params: {
-                    examId: ''
+                    examId: '',
+                    exam: ''
                 }
+
             });
     }
 

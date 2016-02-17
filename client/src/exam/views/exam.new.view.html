@@ -116,8 +116,8 @@
                         </md-input-container>
                         <md-input-container flex="10">
                             <label>Price</label>
-                            <input type="number" ng-model="exam.price" ng-change="examVm.setPrice()" required>
-                            <div ng-messages="exam.price.$error">
+                            <input type="number" ng-model="exam.selectedExamMethod.dayPrice" ng-change="examVm.setPrice()" required>
+                            <div ng-messages="exam.selectedExamMethod.dayPrice.$error">
                                 <div ng-message="required">This is required.</div>
                             </div>
                         </md-input-container>

@@ -8,7 +8,7 @@
     runBlock.$inject = ['$rootScope', '$state', '$stateParams', 'AUTH_EVENTS', 'AuthService'];
 
     function runBlock($rootScope, $state, $stateParams, AUTH_EVENTS, AuthService) {
-        console.info("the app's runBlock is runing");
+        // console.info("the app's runBlock is runing");
         // $rootScope.$state = $state;
         // $rootScope.$stateParams = $stateParams;
         //$state.transitionTo('login');

@@ -31,11 +31,11 @@
                     </div>
                     <md-input-container class="md-block">
                         <label>Remarque</label>
-                        <textarea required ng-model="exameMethodVm.exMethod.remarque" columns="1" md-maxlength="150" rows="5"></textarea>
+                        <text-angular required ng-model="exameMethodVm.exMethod.remarque" ta-toolbar="[[ 'h1', 'h2', 'h3','h4', 'bold', 'italics','p','quote','undo','redo','ul']] " autofocus></text-angular>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Default Results Model</label>
-                        <textarea required ng-model="exameMethodVm.exMethod.defaultResultModel" columns="1" md-maxlength="150" rows="25"></textarea>
+                        <text-angular required ng-model="exameMethodVm.exMethod.defaultResultModel" ta-toolbar="[[ 'h1', 'h2', 'h3','h4', 'bold', 'italics','p','quote','undo','redo','ul']] " autofocus></text-angular>
                     </md-input-container>
                     Other Result Models:
                     <md-card ng-repeat="resultModel in exameMethodVm.exMethod.resultModels">

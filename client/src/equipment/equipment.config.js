@@ -13,7 +13,7 @@
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
     function configure($stateProvider, USER_ROLES) {
-        console.info("the equipment config is runing");
+        // console.info("the equipment config is runing");
 
         $stateProvider
             .state('app.setting.equipment', {
