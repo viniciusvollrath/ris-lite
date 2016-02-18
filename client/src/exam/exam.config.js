@@ -50,7 +50,7 @@
                 }
             })
             .state('app.exam.interpretation', {
-                url: '/interpretation',
+                url: '/interpretation/:examId',
                 views: {
                     'main@app': {
                         templateUrl: 'src/exam/views/exam.interpretation.view.html',

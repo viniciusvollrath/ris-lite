@@ -234,7 +234,7 @@
 
     }
 
-    function ExamInterpretationController(ExamService, $stateParams) {
+    function ExamInterpretationController(ExamService, $document, $stateParams, $state, $mdToast) {
         var vm = this;
         vm.examId = $stateParams.examId;
         console.log(vm.examId)
@@ -251,8 +251,8 @@
 
         function getExamDetails(id) {
             ExamService.getExamDetails(id).then(function(exam) {
-                vm.selectedExam = exam.plain();
-                vm.selectedExam = vm.selectedExam[0];
+                vm.selectedExam = exam;
+                // vm.selectedExam = vm.selectedExam[0];
                 console.log(vm.selectedExam);
             });
         }
@@ -262,11 +262,27 @@
         }
 
         function saveAndContinue() {
+            console.log('save')
+            console.log(vm.selectedExam)
+            vm.selectedExam.save();
+
+            $mdToast.show(
+                $mdToast.simple()
+                .textContent('Exam Saved')
+                .position('bottom right')
+                .hideDelay(3000)
+            );
+
+            // ExamService.saveInterpretation(data).then(function(exam) {
+
+            // });
+
 
         }
 
         function saveAndClose() {
-
+            vm.saveAndContinue();
+            $state.go('app.exam');
         }
 
         function preview() {
@@ -274,6 +290,9 @@
         }
 
         function deliver() {
+            vm.selectedExam.status = "DELIVERED";
+            vm.selectedExam.save();
+            $state.go('app.exam');
 
         }
 

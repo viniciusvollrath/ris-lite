@@ -14,7 +14,8 @@
             getExamDetails: getExamDetails,
             getDetailedList: getDetailedList,
             addNewExam: addNewExam,
-            addMultipleExams: addMultipleExams
+            addMultipleExams: addMultipleExams,
+            saveInterpretation: saveInterpretation
 
         };
 
@@ -24,7 +25,8 @@
         }
 
         function getExamDetails(id) {
-            return exam.customGET('?filter[where][id]=' + id + '&filter[include]=examType&filter[include]=patient')
+            var ex = Rest.one("exams", id);
+            return ex.customGET('?filter[where][id]=' + id + '&filter[include]=examType&filter[include]=patient')
 
         }
 
@@ -49,6 +51,15 @@
 
             }, function(error) {
                 console.log(error);
+            });
+        }
+
+        function saveInterpretation(exam) {
+            return exam.customPOST('saveInterpretation', exam).then(function(response) {
+
+            }, function(error) {
+
+
             });
         }
     }

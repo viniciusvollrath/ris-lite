@@ -1,23 +1,15 @@
 module.exports = function(Exam) {
-    Exam.createMultiple = function(id, cb) {
-        var examMethod = Exam.app.models.ExamMethod;
-
+    Exam.saveInterpretation = function(exam, cb) {
 
 
 
         cb(null, id);
     };
     Exam.remoteMethod(
-        'createMultiple', {
+        'saveInterpretation', {
             accepts: [{
-                arg: 'id',
-                type: 'string'
-            }, {
-                arg: 'adminId',
-                type: 'string'
-            }, {
-                arg: 'status',
-                type: 'string'
+                arg: 'exam',
+                type: 'object'
             }],
             returns: {
                 arg: 'user',
@@ -27,7 +19,7 @@ module.exports = function(Exam) {
                 path: '/process',
                 verb: 'post'
             },
-            description: 'Updates the status of the Invitation request to either Approved or Denied',
+            description: 'Updates the interpretation and conclusion of an exam and changes the status to ONGOING INTERPRETATION',
         }
     );
 };

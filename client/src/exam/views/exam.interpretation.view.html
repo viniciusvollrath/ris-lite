@@ -1,7 +1,7 @@
 <div class="row ">
     <div class="col s6" ncy-breadcrumb></div>
 </div>
-<md-card>
+<md-card id="toastParent">
     <div layout="column" ng-cloak layout-padding>
         <div flex="70">
             <h5>Exam details</h5>
@@ -39,10 +39,10 @@
                 </md-input-container>
             </div>
             <div layout="row" layout-align="end">
-                <md-button ng-click="examVm.saveAndContinue" class="md-warn md-raised">SAVE & CONTINUE</md-button>
-                <md-button ng-click="examVm.saveAndClose" class="md-warn md-raised">SAVE & CLOSE</md-button>
+                <md-button ng-click="examVm.saveAndContinue()" class="md-warn md-raised">SAVE & CONTINUE</md-button>
+                <md-button ng-click="examVm.saveAndClose()" class="md-warn md-raised">SAVE & CLOSE</md-button>
                 <md-button ng-click="examVm.preview" class="md-warn md-raised">PREVIEW</md-button>
-                <md-button ng-click="examVm.deliver" class="md-warn md-raised">DELIVER</md-button>
+                <md-button ng-click="examVm.deliver()" class="md-warn md-raised">DELIVER</md-button>
                 <md-button ng-click="examVm.print" class="md-warn md-raised">PRINT</md-button>
             </div>
         </form>

@@ -20,6 +20,10 @@ main {
     flex: 1 0 auto;
 }
 
+body {
+    overflow-y: hidden !important;
+}
+
 .ris {
     font-family: 'Montserrat', cursive;
     font-weight: 700;
