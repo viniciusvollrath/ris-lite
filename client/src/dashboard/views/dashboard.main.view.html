@@ -59,7 +59,7 @@
 <md-card>
     <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
-            <span>Exams List</span>
+            <span>New Exams</span>
         </div>
     </md-toolbar>
     <!-- exact table from live demo -->
@@ -69,24 +69,17 @@
                 <tr md-row>
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
                     <th md-column md-order-by="nameToLower"><span>Type</span></th>
-                    <th md-column md-numeric md-order-by="calories.value"><span>Method</span></th>
                     <th md-column md-numeric>Status</th>
-                    <th md-column md-numeric>Interpretation</th>
                     <th md-column md-numeric>Payed</th>
                     <th md-column md-numeric>Emergency</th>
                     <th md-column md-numeric>Price (DA )</th>
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'NEW'">
                     <td md-cell>{{exam.patient.firstName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
-                    <td md-cell>{{exam.examMethode.name}}</td>
                     <td md-cell>{{exam.status}}</td>
-                    <td md-cell>
-                        <md-button ui-sref="app.exam.interpretation({examId:exam.id
-})" class="md-warn">Interpreter</md-button>
-                    </td>
                     <td md-cell ng-if="exam.isPaid">YES</td>
                     <td md-cell ng-if="!exam.isPaid">NO</td>
                     <td md-cell>{{exam.emergencyLevel}}</td>
@@ -103,7 +96,7 @@
 <md-card>
     <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
-            <span>Exams List</span>
+            <span>Exams Awaiting Interpretation</span>
         </div>
     </md-toolbar>
     <!-- exact table from live demo -->
@@ -113,7 +106,6 @@
                 <tr md-row>
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
                     <th md-column md-order-by="nameToLower"><span>Type</span></th>
-                    <th md-column md-numeric md-order-by="calories.value"><span>Method</span></th>
                     <th md-column md-numeric>Status</th>
                     <th md-column md-numeric>Interpretation</th>
                     <th md-column md-numeric>Payed</th>
@@ -122,10 +114,9 @@
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if=" exam.status == 'EXECUTED'">
                     <td md-cell>{{exam.patient.firstName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
-                    <td md-cell>{{exam.examMethode.name}}</td>
                     <td md-cell>{{exam.status}}</td>
                     <td md-cell>
                         <md-button ui-sref="app.exam.interpretation({examId:exam.id
@@ -146,7 +137,7 @@
 <md-card>
     <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
-            <span>Exams List</span>
+            <span>Delivered Exams</span>
         </div>
     </md-toolbar>
     <!-- exact table from live demo -->
@@ -156,7 +147,6 @@
                 <tr md-row>
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
                     <th md-column md-order-by="nameToLower"><span>Type</span></th>
-                    <th md-column md-numeric md-order-by="calories.value"><span>Method</span></th>
                     <th md-column md-numeric>Status</th>
                     <th md-column md-numeric>Interpretation</th>
                     <th md-column md-numeric>Payed</th>
@@ -165,10 +155,9 @@
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in ex.examList" ng-if="exam.status == 'DELIVERED'">
                     <td md-cell>{{exam.patient.firstName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
-                    <td md-cell>{{exam.examMethode.name}}</td>
                     <td md-cell>{{exam.status}}</td>
                     <td md-cell>
                         <md-button ui-sref="app.exam.interpretation({examId:exam.id

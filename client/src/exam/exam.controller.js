@@ -234,7 +234,7 @@
 
     }
 
-    function ExamInterpretationController(ExamService, $document, $stateParams, $state, $mdToast) {
+    function ExamInterpretationController(ExamService, $window, $document, $stateParams, $state, $mdToast) {
         var vm = this;
         vm.examId = $stateParams.examId;
         console.log(vm.examId)
@@ -266,11 +266,13 @@
             console.log(vm.selectedExam)
             vm.selectedExam.save();
 
+
+
             $mdToast.show(
                 $mdToast.simple()
                 .textContent('Exam Saved')
                 .position('bottom right')
-                .hideDelay(3000)
+                .hideDelay(1000)
             );
 
             // ExamService.saveInterpretation(data).then(function(exam) {
@@ -297,6 +299,7 @@
         }
 
         function print() {
+            $window.open('/print?id=' + vm.selectedExam.id, '_blank');
 
         }
 

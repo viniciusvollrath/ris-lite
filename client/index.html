@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -21,10 +21,8 @@
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
-<body class="blue darken-1" ng-cloak ng-controller="AppController as app" layout="column">
-    <md-content>
-        <div ui-view class="page {{ pageClass }}"></div>
-    </md-content>
+<body ng-app="app" class="blue darken-1" ng-cloak ng-controller="AppController as app">
+    <div ui-view class="page {{ pageClass }}"></div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="assets/js/materialize.js"></script>
     <script src="assets/js/init.js"></script>

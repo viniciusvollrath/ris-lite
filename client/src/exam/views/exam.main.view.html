@@ -22,8 +22,8 @@
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
                     <th md-column md-order-by="nameToLower"><span>Type</span></th>
                     <th md-column md-numeric>Status</th>
-                    <th md-column md-numeric>Interpretation</th>
-                    <th md-column md-numeric>Payed</th>
+                    <th md-column>Interpretation</th>
+                    <th md-column>Payed</th>
                     <th md-column md-numeric>Emergency</th>
                     <th md-column md-numeric>Price (DA )</th>
                 </tr>
@@ -36,7 +36,7 @@
                     <td md-cell>
                         <md-button ui-sref="app.exam.interpretation({examId:exam.id,exam:exam
 })" class="md-warn" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">Interpreter</md-button>
-                        <md-button href="/print" target="_blank" class="md-warn" ng-if="exam.status == 'DELIVERED'">View Results</md-button>
+                        <md-button href="/print?id={{exam.id}}" target="_blank" class="md-warn" ng-if="exam.status == 'DELIVERED'">View Results</md-button>
                     </td>
                     <td md-cell ng-if="exam.isPaid">YES</td>
                     <td md-cell ng-if="!exam.isPaid">NO</td>
@@ -47,7 +47,4 @@
         </table>
     </md-table-container>
     <md-table-pagination md-limit="examVm.query.limit" md-page="examVm.query.page" md-total="{{exam.equipmentTypeList.length}}" md-on-paginate="examVm.onPaginate" md-page-select></md-table-pagination>
-    <div class="col s6 right-align dashboard-main-action-bar">
-        <a ui-sref="dashboard.admin.equipment-type.new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-    </div>
 </md-card>
