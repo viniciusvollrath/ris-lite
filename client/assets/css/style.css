@@ -121,3 +121,16 @@ body {}
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+/* move later*/
+calendar-md md-content>md-content.calendar>:not(:first-child)>*{
+	min-height:140px !important;
+}
+
+calendar-md .md-toolbar-tools h2{
+	overflow-x: visible !important;
+}
+
+calendar-md .md-toolbar-tools h2{
+	overflow-x: visible !important;
+}

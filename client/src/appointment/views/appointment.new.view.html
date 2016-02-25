@@ -1,1 +1,157 @@
-new appointment
+<div ncy-breadcrumb flex="100">
+</div>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Exams Details</span>
+        </div>
+    </md-toolbar>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="examsListForm" ng-submit="appointmentVm.addPatientAndExams()">
+                    <div layout="row">
+                        <div flex="35">
+                            <p class="center-align">
+                                Date:
+                            </p>
+                        </div>
+                        <input type="date" class="datepicker">
+                    </div>
+                    <div layout="row" class="md-inline-form" ng-repeat="exam in appointmentVm.selectedExams">
+                        <md-autocomplete class="auto-complte" flex="75" md-no-cache="true" md-selected-item="exam.selectedExamType" md-selected-item-change="appointmentVm.typeSelected($index)" md-search-text="exam.searchExamType" md-items="item in appointmentVm.querySearch(exam.searchExamType)" md-item-text="item.name" md-min-length="0" ng-focus="appointmentVm.querySearch(exam.searchExamType)" required>
+                            <md-item-template>
+                                <span md-highlight-text="appointmentVm.searchExamType">{{item.name}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No exam was found.
+                            </md-not-found>
+                            <div ng-messages="exam.selectedExamType.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-autocomplete>
+                        <!-- <md-input-container flex="35">
+                            <label>Method</label>
+                            <md-select ng-model="exam.selectedExamMethod" style="min-width: 200px;" ng-change="appointmentVm.methodSelected($index)" required>
+                                <md-option ng-value="method" ng-repeat="method in appointmentVm.examMethods[$index]">{{method.name}}</md-option>
+                            </md-select>
+                            <div ng-messages="exam.selectedExamMethod.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container> -->
+                        <md-input-container flex="10">
+                            <label>Price</label>
+                            <input type="number" ng-model="exam.selectedExamType.dayPrice" ng-change="appointmentVm.setPrice()" required>
+                            <div ng-messages="exam.selectedExamType.dayPrice.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="15" class="md-block">
+                            <md-button ng-show="(appointmentVm.selectedExams.length > 1) " class="md-fab md-mini md-warn" aria-label="Remove" ng-click="appointmentVm.removeThisExam($index)">
+                                <md-icon>remove</md-icon>
+                            </md-button>
+                            <md-button ng-show="$index == appointmentVm.selectedExams.length -1" class="md-fab md-mini green" aria-label="Add new" ng-click="appointmentVm.addNewExam()">
+                                <md-icon>add</md-icon>
+                            </md-button>
+                        </md-input-container>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                    <div>
+                        <h4>TOTAL: {{appointmentVm.total}} DA</h4></div>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-warn md-raised" ng-disabled="examsListForm.$invalid">Confirm</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</md-card>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Patient Information</span>
+        </div>
+    </md-toolbar>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="userForm" ng-submit="appointmentVm.addNewPatient()">
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Emergency Level</label>
+                            <md-select ng-model="appointmentVm.emergencyLevel">
+                                <md-option value="LOW" selected>LOW</md-option>
+                                <md-option value="MEDIUM">MEDIUM</md-option>
+                                <md-option value="HIGH">HIGH</md-option>
+                                <div ng-messages="appointmentVm.emergencyLevel.$error">
+                                    <div ng-message="required">This is required.</div>
+                                </div>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-autocomplete flex required md-selected-item="appointmentVm.selectedPatient" md-input-minlength="0" md-input-maxlength="18" md-no-cache="appointmentVm.noCache" md-search-text-change="appointmentVm.searchTextChange(appointmentVm.patient.firstName)" md-search-text="appointmentVm.patient.firstName" md-selected-item-change="appointmentVm.selectedPatientChange(patient)" md-items="patient in appointmentVm.patients" md-item-text="patient.firstName" md-floating-label="First Name">
+                            <md-item-template>
+                                <span md-highlight-text="appointmentVm.patient.firstName" md-highlight-flags="^i">{{patient.firstName}} {{patient.lastName}} (age: {{patient.age}})</span>
+                            </md-item-template>
+                            <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                                <div ng-message="required">Is required</div>
+                                <div ng-message="minlength">Your entry is not long enough.</div>
+                                <div ng-message="maxlength">Your entry is too long.</div>
+                            </div>
+                        </md-autocomplete>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input required name="description" ng-model="appointmentVm.patient.lastName" ng-disabled="appointmentVm.patientSelected">
+                            <div ng-messages="appointmentVm.patient.lastName.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Age</label>
+                            <input type="number" required name="description" ng-model="appointmentVm.patient.age" ng-disabled="appointmentVm.patientSelected">
+                            <div ng-messages="appointmentVm.patient.age.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Gender</label>
+                            <md-select ng-model="appointmentVm.patient.gender" ng-disabled="appointmentVm.patientSelected">
+                                <md-option value="MALE">Male</md-option>
+                                <md-option value="FEMALE">Female</md-option>
+                                <div ng-messages="appointmentVm.patient.gender.$error">
+                                    <div ng-message="required">This is required.</div>
+                                </div>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="30">
+                            <label>Phone Number</label>
+                            <input name="description" ng-model="appointmentVm.patient.phoneNumber" ng-disabled="appointmentVm.patientSelected">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex>
+                            <label>Address</label>
+                            <input required name="description " ng-model="appointmentVm.patient.address" ng-disabled="appointmentVm.patientSelected">
+                            <div ng-messages="appointmentVm.patient.address.$error">
+                                <div ng-message="required ">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-raised md-warn" ng-hide="appointmentVm.patientSelected">CREATE APPOINTMENT</md-button>
+                    </div>
+                    <div layout="row" layout-align="end">
+                        <md-button class="md-raised md-warn" ng-show="appointmentVm.newPatient" ng-click="appointmentVm.editPatient()">EDIT</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</md-card>
+<script>
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+});
+</script>

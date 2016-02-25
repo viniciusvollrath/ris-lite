@@ -15,6 +15,7 @@
         'ncy-angular-breadcrumb',
         'ui.select',
         'angularTrix',
+        'materialCalendar',
         'app.layout',
         'app.auth',
         'app.welcome',

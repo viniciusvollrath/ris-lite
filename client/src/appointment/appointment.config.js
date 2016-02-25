@@ -20,7 +20,7 @@
                     'main@app': {
                         templateUrl: 'src/appointment/views/appointment.main.view.html',
                         controller: 'AppointmentMainController',
-                        controllerAs: 'appointment'
+                        controllerAs: 'appointmentVm'
 
                     }
                 },
@@ -29,6 +29,23 @@
                 },
                 ncyBreadcrumb: {
                     label: 'Appointments'
+                }
+            })
+            .state('app.appointment.new', {
+                url: '/new',
+                views: {
+                    'main@app': {
+                        templateUrl: 'src/appointment/views/appointment.new.view.html',
+                        controller: 'AppointmentNewController',
+                        controllerAs: 'appointmentVm'
+
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+                },
+                ncyBreadcrumb: {
+                    label: 'New'
                 }
             })
     }

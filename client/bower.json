@@ -1,0 +1,34 @@
+{
+  "name": "RIS Light",
+  "authors": [
+    "Djadoun Mohamed Abderrezak <dmabderrezak@gmail.com>"
+  ],
+  "description": "RIS Light, a Radiology Information System for Small to medium size Radiology practices",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "http://www.rislight.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "a0-angular-storage": "~0.0.13",
+    "angular-animate": "~1.4.8",
+    "angular-loading-bar": "~0.8.0",
+    "angular-material": "~1.0.2",
+    "angular-breadcrumb": "~0.4.1",
+    "angular-material-data-table": "~0.9.9",
+    "angular-ui-clock": "~0.5.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-trix": "~1.0.2",
+    "material-calendar": "~0.2.14",
+    "textAngular": "~1.5.0",
+    "ui-select": "angular-ui-select#~0.13.2",
+    "angular-sanitize": "~1.4.9",
+    "restangular": "~1.5.1"
+  }
+}

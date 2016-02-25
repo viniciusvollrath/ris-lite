@@ -11,7 +11,7 @@
 # possibilite d imprimer un ticket pour le malade lors de l attente (ticket de caisse)
 ======DONE======# ajouter le derget d urgence d examin 3 degre (normal, legerement fatigue , urgent malade tres fatigue )
 # slectioner le manipulateur qui a effectuer l examin lors de la validation de le execution de le xamin
-# un examin a trois status (en attente, realise, remis)
+======DONE======# un examin a trois status (en attente, realise, remis)
 
 
 ## ajouter l option se souvenir de moi avec le local storage sinon utiliser seulement le session storage
@@ -22,23 +22,36 @@
 
 TODO
 refaire les forme de creation des module suivant:
-//equipment type --done
-//equipment --done
-//exam Type --done
-exam Method(Introduire le principe de compte rendu par defaut et de compte rendu type illimite)
+======DONE======//equipment type --done
+======DONE======//equipment --done
+======DONE======//exam Type --done
+exam Type(Introduire le principe de compte rendu par defaut et de compte rendu type illimite)
 
 Refaire les module d afichage de la liste avec un tableau completement operationel pour les modules suivants:
-//equipment type --done
-//equipment --done
-//exam type --done
-//exam Method --done
+======DONE======//equipment type --done
+======DONE======//equipment --done
+======DONE======//exam type --done
+======DONE======//exam Method --done
 Ajouter l interface d affichage des details d un examin complet et en modal
-Completer l interface d interpretation
+======DONE======Completer l interface d interpretation
 Faire une interface de creation d utilisateur
 Faire une interface de gestion des utilisateur par role et par permission
-Ajouter la notion de prix par vacation (normal et garde)
-ajouter la notion de recherche par nom de patient avant la creation d un nouveau patient
+======DONE======Ajouter la notion de prix par vacation (normal et garde)
+======DONE======ajouter la notion de recherche par nom de patient avant la creation d un nouveau patient
 ajouter l interface de creation de RDV sans date
 
 
 L age doit etre calculer et non statique par rapport a l anne de naissance qui doit etre retrouver par inverse
+
+ajouter l interface de creation de RDV comme la creation d exam
+ajouter l interface d affichae des patients
+ajouter l interface de creation des patients
+ajouter l interface d affichage des medcins partenaire
+ajouter l interface de creation de medecin partelaire
+et ajouter un btn plus modela pour la creation de medecin partenaire depuis l interface de creation d examin
+
+metre a jours angularjs 1.5
+
+
+pour les rdv
+chaque jours aura une entre dans la base de donnee, si l enre existe on continue a la remplire en respecrant les condition
