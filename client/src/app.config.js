@@ -11,9 +11,9 @@
         .config(configure)
         .factory('AuthInterceptor', AuthInterceptor);
 
-    configure.$inject = ['$httpProvider', '$urlRouterProvider', '$mdThemingProvider', 'cfpLoadingBarProvider', '$breadcrumbProvider', 'RestangularProvider'];
+    configure.$inject = ['$httpProvider', '$urlRouterProvider', 'recorderServiceProvider', '$mdThemingProvider', 'cfpLoadingBarProvider', '$breadcrumbProvider', 'RestangularProvider'];
 
-    function configure($httpProvider, $urlRouterProvider, $mdThemingProvider, cfpLoadingBarProvider, $breadcrumbProvider, RestangularProvider) {
+    function configure($httpProvider, $urlRouterProvider, recorderServiceProvider, $mdThemingProvider, cfpLoadingBarProvider, $breadcrumbProvider, RestangularProvider) {
         //injecting the auth interceptor for http request responses
         $httpProvider.interceptors.push([
             '$injector',
@@ -45,6 +45,11 @@
                 'hue-3': '300'
             })
             .accentPalette('red');
+
+        recorderServiceProvider
+            .forceSwf(true)
+            //.setSwfUrl('/lib/recorder.swf')
+            .withMp3Conversion(true);
 
     };
 

@@ -9,10 +9,11 @@
 
         return {
             examTypeList: examTypeList,
-            list: Rest.all("examTypes").getList(),
+            list: list,
             examTypeListDetails: examTypeListDetails,
             count: count,
-            addNewExamType: addNewExamType
+            addNewExamType: addNewExamType,
+            getPathologyModels: getPathologyModels
         };
 
         function examTypeList() {
@@ -21,6 +22,17 @@
             }, function(error) {
 
             });
+        }
+
+        function list() {
+            var examT = Rest.all("examTypes");
+
+            return examT.getList().then(function(examTypes) {
+                return examTypes;
+            }, function(error) {
+
+            });
+
         }
 
         function examTypeListDetails(query) {
@@ -56,6 +68,15 @@
 
             }, function(response) {
                 console.log("Error with status code", response.status);
+            });
+        }
+
+        function getPathologyModels(id) {
+            return examType.get(id).then(function(examType) {
+                console.log(examType);
+                return examType.resultModels;
+            }, function(error) {
+
             });
         }
     }

@@ -15,7 +15,7 @@
         .controller('ExamEditController', ExamEditController)
         .controller('ExamPreviewController', ExamPreviewController);
 
-    function ExamMainController(ExamService) {
+    function ExamMainController(ExamService, $state) {
         var vm = this;
         vm.selected = [];
         vm.query = {
@@ -23,10 +23,26 @@
             limit: 5,
             page: 1
         };
-        ExamService.getDetailedList().then(function(list) {
-            vm.examList = list;
-            console.log(vm.examList);
-        });
+        activate();
+        vm.loadAll = loadAll;
+        vm.viewExamDetails = viewExamDetails;
+
+        function activate() {
+            loadAll();
+        }
+
+        function loadAll() {
+
+            ExamService.getDetailedList().then(function(list) {
+                vm.examList = list;
+                console.log(vm.examList);
+            });
+
+        }
+
+        function viewExamDetails(id) {
+            $state.go('app.exam.details', { examId: id });
+        }
 
         vm.onPaginate = function(page, limit) {
             angular.extend({}, $scope.query, {
@@ -182,9 +198,11 @@
          * Build `types` list of key/value pairs
          */
         function loadAll() {
-            ExamTypeService.list.then(function(types) {
+            ExamTypeService.list().then(function(types) {
                 vm.types = types.plain();
                 //return types;
+
+            }, function(error) {
 
             });
         }
@@ -234,14 +252,18 @@
 
     }
 
-    function ExamInterpretationController(ExamService, $window, $document, $stateParams, $state, $mdToast) {
+    function ExamInterpretationController(ExamService, ExamTypeService, $window, $document, $stateParams, $state, $mdToast) {
         var vm = this;
         vm.examId = $stateParams.examId;
         console.log(vm.examId)
         vm.selectedExam = $stateParams.exam;
+        vm.pathologyModels = [];
+        vm.selectedPathology = '';
         activate();
 
         vm.getExamDetails = getExamDetails;
+        vm.getPathologyModels = getPathologyModels;
+        vm.updateReportModel = updateReportModel;
         vm.saveAndContinue = saveAndContinue;
         vm.saveAndClose = saveAndClose;
         vm.preview = preview;
@@ -252,13 +274,28 @@
         function getExamDetails(id) {
             ExamService.getExamDetails(id).then(function(exam) {
                 vm.selectedExam = exam;
+                getPathologyModels();
                 // vm.selectedExam = vm.selectedExam[0];
                 console.log(vm.selectedExam);
             });
         }
 
+        function getPathologyModels() {
+            ExamTypeService.getPathologyModels(vm.selectedExam.examTypeId)
+                .then(function(pathologies) {
+                    vm.pathologyModels = pathologies;
+                }, function(error) {
+                    console.log(error);
+                });
+        }
+
+        function updateReportModel() {
+            vm.selectedExam.interpretation = vm.selectedPathology;
+        }
+
         function activate() {
             getExamDetails(vm.examId);
+
         }
 
         function saveAndContinue() {
@@ -294,7 +331,7 @@
         function deliver() {
             vm.selectedExam.status = "DELIVERED";
             vm.selectedExam.save();
-            //$state.go('app.exam');
+            $state.go('app.exam');
             $mdToast.show(
                 $mdToast.simple()
                 .textContent('Exam saved and delivered')

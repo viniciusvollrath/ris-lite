@@ -14,6 +14,9 @@
 
     function configure($stateProvider, USER_ROLES, ExamService) {
         // console.info("the exam config is runing");
+        // 
+
+
 
         $stateProvider
             .state('app.exam', {
@@ -67,6 +70,26 @@
                 params: {
                     examId: '',
                     exam: ''
+                }
+
+            })
+            .state('app.exam.details', {
+                url: '/details/:examId',
+                views: {
+                    'main@app': {
+                        templateUrl: 'src/exam/views/exam.details.view.html',
+                        controller: 'ExamDetailsController',
+                        controllerAs: 'examVm'
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+                },
+                ncyBreadcrumb: {
+                    label: 'details'
+                },
+                params: {
+                    examId: ''
                 }
 
             });

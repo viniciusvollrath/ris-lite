@@ -29,8 +29,8 @@
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in examVm.examList">
-                    <td md-cell>{{exam.patient.firstName}} {{exam.patient.lastName}}</td>
+                <tr md-row md-select="exam" ng-repeat="exam in examVm.examList">
+                    <td md-cell ng-click="examVm.viewExamDetails(exam.id)" class="patient-name-exam-table">{{exam.patient.firstName}} {{exam.patient.lastName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
                     <td md-cell>{{exam.status}}</td>
                     <td md-cell>

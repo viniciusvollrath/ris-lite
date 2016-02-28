@@ -21,7 +21,7 @@
     "angular-loading-bar": "~0.8.0",
     "angular-material": "~1.0.2",
     "angular-breadcrumb": "~0.4.1",
-    "angular-material-data-table": "~0.9.9",
+    "angular-material-data-table": "~0.9.11",
     "angular-ui-clock": "~0.5.0",
     "angular-ui-router": "~0.2.15",
     "angular-trix": "~1.0.2",

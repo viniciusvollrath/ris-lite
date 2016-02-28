@@ -160,8 +160,7 @@
                     <td md-cell>{{exam.examType.name}}</td>
                     <td md-cell>{{exam.status}}</td>
                     <td md-cell>
-                        <md-button ui-sref="app.exam.interpretation({examId:exam.id
-})" class="md-warn">Interpreter</md-button>
+                        <md-button href="/print?id={{exam.id}}" target="_blank" class="md-warn">View Results</md-button>
                     </td>
                     <td md-cell ng-if="exam.isPaid">YES</td>
                     <td md-cell ng-if="!exam.isPaid">NO</td>

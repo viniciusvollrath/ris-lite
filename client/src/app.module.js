@@ -16,6 +16,7 @@
         'ui.select',
         'angularTrix',
         'materialCalendar',
+        'angularAudioRecorder',
         'app.layout',
         'app.auth',
         'app.welcome',
