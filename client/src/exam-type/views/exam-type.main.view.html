@@ -2,7 +2,7 @@
 <md-card>
     <md-toolbar class="md-table-toolbar md-default" ng-hide="examTypeVm.filter.show">
         <div class="md-toolbar-tools">
-            <h2 class="md-title">Equipment</h2>
+            <h2 class="md-title">Exam Types</h2>
             <div flex></div>
             <md-button class="md-icon-button" ng-click="examTypeVm.filter.show = true">
                 <md-icon>search</md-icon>
@@ -27,14 +27,19 @@
                 <tr md-row>
                     <th md-column md-order-by="name"><span>Name</span></th>
                     <th md-column md-numeric><span>Type</span></th>
-                    <th md-column md-numeric>Description</th>
+                    <th md-column md-numeric><span>Regular Price</span></th>
+                    <th md-column md-numeric><span>Night Shift Price</span></th>
+                    <th md-column md-numeric><span>Preparation</span></th>
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="equipment" md-select-id="{{equipment.id}}" md-auto-select ng-repeat="equipment in examTypeVm.examTypes">
-                    <td md-cell>{{equipment.name}}</td>
-                    <td md-cell>{{equipment.equipmentType.name}}</td>
-                    <td md-cell>{{equipment.description}}</td>
+                <tr md-row md-select="examType" md-select-id="{{examType.id}}" md-auto-select ng-repeat="examType in examTypeVm.examTypes">
+                    <td md-cell>{{examType.name}}</td>
+                    <td md-cell>{{examType.equipmentType.name}}</td>
+                    <td md-cell>{{examType.dayPrice}}</td>
+                    <td md-cell>{{examType.nightPrice}}</td>
+                    <td md-cell ng-if="examType.remarque!='<p>ras</p>'">{{examType.remarque}}</td>
+                    <td md-cell ng-if="examType.remarque=='<p>ras</p>'">NO</td>
                 </tr>
             </tbody>
         </table>

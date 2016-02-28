@@ -288,13 +288,19 @@
         }
 
         function preview() {
-
+            $window.open('/print?id=' + vm.selectedExam.id, '_blank');
         }
 
         function deliver() {
             vm.selectedExam.status = "DELIVERED";
             vm.selectedExam.save();
-            $state.go('app.exam');
+            //$state.go('app.exam');
+            $mdToast.show(
+                $mdToast.simple()
+                .textContent('Exam saved and delivered')
+                .position('bottom right')
+                .hideDelay(1000)
+            );
 
         }
 

@@ -12,11 +12,12 @@
                 <form name="examsListForm" ng-submit="appointmentVm.addPatientAndExams()">
                     <div layout="row">
                         <div flex="35">
-                            <p class="center-align">
-                                Date:
-                            </p>
-                        </div>
-                        <input type="date" class="datepicker">
+    <p class="center-align">
+        Date:
+    </p>
+</div>
+<input type="date" class="datepicker">
+
                     </div>
                     <div layout="row" class="md-inline-form" ng-repeat="exam in appointmentVm.selectedExams">
                         <md-autocomplete class="auto-complte" flex="75" md-no-cache="true" md-selected-item="exam.selectedExamType" md-selected-item-change="appointmentVm.typeSelected($index)" md-search-text="exam.searchExamType" md-items="item in appointmentVm.querySearch(exam.searchExamType)" md-item-text="item.name" md-min-length="0" ng-focus="appointmentVm.querySearch(exam.searchExamType)" required>

@@ -1,1 +1,50 @@
-this is the main view for patient
+<div class="col s6" ncy-breadcrumb>
+</div>
+<div class="row">
+    <div class="col s2 offset-s8 center-align">
+        <button ui-sref="app.exam.new" class="col s12 green waves-effect waves-light btn btn-large">New Exam</button>
+    </div>
+    <div class="col s2 center-align">
+        <button class="col blue s12 waves-effect waves-light btn btn-large">Ongoing Exams</button>
+    </div>
+</div>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Exams List</span>
+        </div>
+    </md-toolbar>
+    <!-- exact table from live demo -->
+    <md-table-container>
+        <table md-table ng-model="patientVm.selected" md-progress="patientVm.promise">
+            <thead md-head md-order="patientVm.query.order" md-on-reorder="onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
+                    <th md-column md-order-by="nameToLower"><span>Type</span></th>
+                    <th md-column md-numeric>Status</th>
+                    <th md-column>Interpretation</th>
+                    <th md-column>Payed</th>
+                    <th md-column md-numeric>Emergency</th>
+                    <th md-column md-numeric>Price (DA )</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="exam" md-auto-select ng-repeat="exam in patientVm.examList">
+                    <td md-cell>{{exam.patient.firstName}} {{exam.patient.lastName}}</td>
+                    <td md-cell>{{exam.examType.name}}</td>
+                    <td md-cell>{{exam.status}}</td>
+                    <td md-cell>
+                        <md-button ui-sref="app.exam.interpretation({examId:exam.id,exam:exam
+})" class="md-warn" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">Interpreter</md-button>
+                        <md-button href="/print?id={{exam.id}}" target="_blank" class="md-warn" ng-if="exam.status == 'DELIVERED'">View Results</md-button>
+                    </td>
+                    <td md-cell ng-if="exam.isPaid">YES</td>
+                    <td md-cell ng-if="!exam.isPaid">NO</td>
+                    <td md-cell>{{exam.emergencyLevel}}</td>
+                    <td md-cell>{{exam.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="patientVm.query.limit" md-page="patientVm.query.page" md-total="{{exam.equipmentTypeList.length}}" md-on-paginate="patientVm.onPaginate" md-page-select></md-table-pagination>
+</md-card>

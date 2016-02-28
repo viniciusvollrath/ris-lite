@@ -33,8 +33,11 @@
                             <input required type="number" ng-model="examTypeVm.exType.nightPrice">
                         </md-input-container>
                     </div>
-                    Remarque:
-                    <trix-editor angular-trix ng-model="examTypeVm.exType.remarque"></trix-editor>
+                    Remarque(preparation):
+                    <md-input-container class="md-block">
+                        <label> Remarque(preparation)</label>
+                        <textarea ng-model="examTypeVm.exType.remarque" md-maxlength="150" rows="5" md-select-on-focus required=""></textarea>
+                    </md-input-container>
                     Default Results Model:
                     <trix-editor angular-trix ng-model="examTypeVm.exType.defaultResultModel"></trix-editor>
                     Other Result Models:
@@ -45,15 +48,17 @@
                                     <label>Name</label>
                                     <input ng-model="resultModel.name">
                                 </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Default Results Model</label>
-                                    <textarea ng-model="resultModel.resultModel" columns="1" md-maxlength="150" rows="5"></textarea>
-                                </md-input-container>
+                                Results Model:
+                                <trix-editor angular-trix ng-model="resultModel.resultModel"></trix-editor>
                             </md-content>
+                            <div layout="row" layout-align="end">
+                                <md-button ng-click="examTypeVm.removeModel($index)" class="md-raised md-warn">REMOVE MODEL</md-button>
+                            </div>
                         </div>
                     </md-card>
+                    <md-button ng-click="examTypeVm.addNewModel()" class="md-raised md-warn">ADD NEW MODEL</md-button>
                     <div layout="row" layout-align="end">
-                        <md-button type="submit" class="md-raised md-warn">ADD</md-button>
+                        <md-button type="submit" class="md-raised md-warn">CREATE</md-button>
                     </div>
                 </form>
             </div>

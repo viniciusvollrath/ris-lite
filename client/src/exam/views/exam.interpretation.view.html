@@ -3,8 +3,8 @@
 </div>
 <md-card id="toastParent">
     <div layout="column" ng-cloak layout-padding>
-        <div flex="70">
-            <h5>Exam details</h5>
+        <div flex="100">
+            <h5>Patient Details</h5>
             <table>
                 <thead>
                     <tr>
@@ -13,7 +13,6 @@
                         <th data-field="price">Gender</th>
                         <th data-field="price">Age</th>
                         <th data-field="price">Doctor</th>
-                        <th data-field="price">Exam Type</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,7 +22,23 @@
                         <td>{{examVm.selectedExam.patient.gender}}</td>
                         <td>{{examVm.selectedExam.patient.age}}</td>
                         <td>{{examVm.selectedExam.examType.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div flex="100">
+            <h5>Exam Details</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-field="id">Name</th>
+                        <th data-field="price">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
                         <td>{{examVm.selectedExam.examType.name}}</td>
+                        <td>{{examVm.selectedExam.status}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -40,10 +55,10 @@
             </div>
             <div layout="row" layout-align="end">
                 <!-- <md-button ng-click="examVm.saveAndContinue()" class="md-warn md-raised">SAVE & CONTINUE</md-button> -->
-                <md-button ng-click="examVm.saveAndClose()" class="md-warn md-raised">SAVE</md-button>
-                <md-button ng-click="examVm.preview" class="md-warn md-raised">PREVIEW</md-button>
-                <md-button ng-click="examVm.deliver()" class="md-warn md-raised">DELIVER</md-button>
-                <md-button ng-click="examVm.print()" class="md-warn md-raised">PRINT</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.saveAndClose()" class="md-warn md-raised">SAVE</md-button>
+                <md-button ng-click="examVm.preview()" class="md-warn md-raised">PREVIEW</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.deliver()" class="md-warn md-raised">DELIVER</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='DELIVERED'" ng-click="examVm.print()" class="md-warn md-raised">PRINT</md-button>
             </div>
         </form>
     </div>

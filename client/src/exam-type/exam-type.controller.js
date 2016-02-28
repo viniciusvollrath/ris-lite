@@ -94,7 +94,7 @@ function ExamTypeMainController($scope, ExamTypeService) {
 function ExamTypeNewController(ExamTypeService, EquipmentService) {
     var vm = this;
     vm.exType = {};
-    vm.exType.resultModels = [{}];
+    vm.exType.resultModels = [];
     vm.equipmentTypes = undefined;
     EquipmentService.equipmentTypeList.then(function(types) {
         vm.equipmentTypes = types;
@@ -103,9 +103,20 @@ function ExamTypeNewController(ExamTypeService, EquipmentService) {
 
 
     vm.addNewExamType = addNewExamType;
+    vm.addNewModel = addNewModel;
+    vm.removeModel = removeModel;
 
     function addNewExamType() {
         ExamTypeService.addNewExamType(vm.exType);
 
     }
+
+    function addNewModel() {
+        vm.exType.resultModels.push({});
+    }
+
+    function removeModel(id) {
+        vm.exType.resultModels.splice(id, 1);
+    }
+
 }
