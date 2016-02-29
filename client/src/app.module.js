@@ -17,6 +17,7 @@
         'angularTrix',
         'materialCalendar',
         'angularAudioRecorder',
+        'ngFileUpload',
         'app.layout',
         'app.auth',
         'app.welcome',
