@@ -252,13 +252,14 @@
 
     }
 
-    function ExamInterpretationController(ExamService, ExamTypeService, $window, $document, $stateParams, $state, $mdToast, store, recorderService) {
+    function ExamInterpretationController($scope, ExamService, ExamTypeService, $window, $document, $stateParams, $state, $timeout, $mdToast, store, recorderService, BASE_URL) {
         var vm = this;
         vm.examId = $stateParams.examId;
-        console.log(vm.examId)
         vm.selectedExam = $stateParams.exam;
         vm.pathologyModels = [];
         vm.selectedPathology = '';
+        vm.audioFileUrl = '';
+        vm.displayAudioPlayer = false;
         activate();
 
         vm.getExamDetails = getExamDetails;
@@ -275,10 +276,14 @@
         function getExamDetails(id) {
             ExamService.getExamDetails(id).then(function(exam) {
                 vm.selectedExam = exam;
-                store.set('selectedExamForInterpretation', vm.selectedExam);
+                // store.set('selectedExamForInterpretation', vm.selectedExam);
                 getPathologyModels();
-                // vm.selectedExam = vm.selectedExam[0];
-                console.log(vm.selectedExam);
+                if (vm.selectedExam.hasAudio == true) {
+                    vm.audioFileUrl = BASE_URL + "containers/exam-results-audio/download/" + vm.selectedExam.id + ".mp3";
+                    vm.displayAudioPlayer = true;
+                    console.log('display Audio Player');
+                }
+
             });
         }
 
@@ -302,10 +307,20 @@
 
         function saveAudioRecording() {
             console.log("saving audio");
-            var recorder = recorderService.controller('mainAudio');
-            recorder.save();
+            // var recorder = recorderService.controller('mainAudio');
+            // recorder.save();
             vm.selectedExam.hasAudio = true;
-            ExamService.saveAudioInterpretation(vm.selectedExam);
+            ExamService.saveAudioInterpretation(vm.selectedExam).then(function(ex) {
+                vm.selectedExam = ex;
+                if (vm.selectedExam.hasAudio == true) {
+                    vm.audioFileUrl = BASE_URL + "containers/exam-results-audio/download/" + vm.selectedExam.id + ".mp3";
+                    vm.displayAudioPlayer = true;
+                    console.log('display Audio Player');
+                }
+                console.log(ex);
+            }, function(err) {
+
+            });
             //need to handle erros
             $mdToast.show(
                 $mdToast.simple()
@@ -314,7 +329,14 @@
                 .hideDelay(1000)
             );
 
+
+
         }
+
+        $scope.$on('audioSaved', function(event, data) {
+            saveAudioRecording();
+
+        });
 
         function saveAndContinue() {
             console.log('save')

@@ -60,7 +60,7 @@
         a.readAsDataURL(blob);
     };
 
-    var RecorderController = function(element, Upload, store, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK) {
+    var RecorderController = function(element, Upload, store, BASE_URL, $rootScope, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK) {
         //used in NON-Angular Async process
         var scopeApply = function(fn) {
             var phase = $scope.$root.$$phase;
@@ -189,6 +189,8 @@
                         successCallback(mp3Blob);
                     }
                     scopeApply(control.onConversionComplete);
+                    control.save();
+
                 }, function() {
                     status.isConverting = false;
                 });
@@ -301,6 +303,7 @@
 
                 embedPlayer(null);
                 control.onRecordComplete();
+
             };
 
             //To stop recording
@@ -390,14 +393,16 @@
             //a.download = fileName;
             //var click = document.createEvent("Event");
             //click.initEvent("click", true, true);
-            var selectedExam = store.get('selectedExamForInterpretation');
+            var selectedExam = control.id;
             Upload.upload({
-                url: 'http://0.0.0.0:3000/api/containers/exam-results-audio/upload',
+                url: BASE_URL + '/containers/exam-results-audio/upload',
                 data: {
                     file: Upload.rename(control.audioModel, selectedExam.id + '.mp3')
                 },
             }).then(function(response) {
                 console.log(response);
+                $rootScope.$broadcast('audioSaved', control.id);
+
             }, function(error) {
                 console.log(error);
 
@@ -421,7 +426,7 @@
 
     };
 
-    RecorderController.$inject = ['$element', 'Upload', 'store', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus'];
+    RecorderController.$inject = ['$element', 'Upload', 'store', 'BASE_URL', '$rootScope', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus'];
 
     angular.module('angularAudioRecorder.controllers')
         .controller('recorderController', RecorderController);

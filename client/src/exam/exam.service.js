@@ -67,6 +67,7 @@
         function saveAudioInterpretation(exam) {
             return exam.save().then(function(response) {
                 return response;
+                console.log(response)
             }, function(error) {
 
                 return error;
