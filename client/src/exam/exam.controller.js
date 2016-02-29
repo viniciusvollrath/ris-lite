@@ -269,6 +269,7 @@
         vm.recordNewAudio = recordNewAudio;
         vm.saveAndContinue = saveAndContinue;
         vm.saveAndClose = saveAndClose;
+        vm.markAsExecuted = markAsExecuted;
         vm.preview = preview;
         vm.deliver = deliver;
         vm.print = print;
@@ -341,6 +342,11 @@
 
         function recordNewAudio() {
             vm.displayAudioPlayer = false;
+        }
+
+        function markAsExecuted() {
+            vm.selectedExam.status = "EXECUTED";
+            vm.selectedExam.save();
         }
 
         function saveAndContinue() {

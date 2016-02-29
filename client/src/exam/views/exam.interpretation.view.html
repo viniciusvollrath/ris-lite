@@ -98,7 +98,7 @@
                 </md-input-container>
             </div>
             <div layout="row" layout-align="end">
-                <!-- <md-button ng-click="examVm.saveAndContinue()" class="md-warn md-raised">SAVE & CONTINUE</md-button> -->
+                <md-button ng-if="examVm.selectedExam.status!='EXECUTED'" ng-click="examVm.markAsExecuted()" class="md-warn md-raised">MARK AS EXECUTED</md-button>
                 <!--  <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.saveAudioRecording()" class="md-warn md-raised">SAVE AUDIO</md-button> -->
                 <md-button ng-if="examVm.selectedExam.status=='EXECUTED'" ng-click="examVm.saveAndClose()" class="md-warn md-raised">SAVE</md-button>
                 <md-button ng-click="examVm.preview()" class="md-warn md-raised">PREVIEW</md-button>
