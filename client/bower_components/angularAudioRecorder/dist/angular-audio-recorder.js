@@ -395,7 +395,7 @@
             //click.initEvent("click", true, true);
             var selectedExam = control.id;
             Upload.upload({
-                url: BASE_URL + '/containers/exam-results-audio/upload',
+                url: BASE_URL + 'containers/exam-results-audio/upload',
                 data: {
                     file: Upload.rename(control.audioModel, selectedExam + '.mp3')
                 },
