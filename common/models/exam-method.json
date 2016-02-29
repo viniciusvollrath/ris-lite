@@ -1,44 +1,44 @@
 {
-    "name": "examMethod",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "examMethod",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "remarque": {
-            "type": "string",
-            "required": true
-        },
-        "defaultResultModel": {
-            "type": "string",
-            "required": true
-        },
-        "dayPrice": {
-            "type": "number",
-            "required": true
-        },
-        "nightPrice": {
-            "type": "number",
-            "required": false
-        },
-        "resultModels": {
-            "type": [],
-            "required": false
-        }
+    "remarque": {
+      "type": "string",
+      "required": true
     },
-    "validations": [],
-    "relations": {
-        "examType": {
-            "type": "belongsTo",
-            "model": "examType",
-            "foreignKey": ""
-        }
+    "defaultResultModel": {
+      "type": "string",
+      "required": true
     },
-    "acls": [],
-    "methods": {}
+    "dayPrice": {
+      "type": "number",
+      "required": true
+    },
+    "nightPrice": {
+      "type": "number",
+      "required": false
+    },
+    "resultModels": {
+      "type": [],
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "examType": {
+      "type": "belongsTo",
+      "model": "examType",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
 }

@@ -57,7 +57,7 @@
             </div>
             <div flex="50">
                 <h5>Audio Recording</h5>
-                <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="true">
+                <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="true" ng-if="!examVm.selectedExam.hasAudio">
                     <div ng-if="recorder.isAvailable">
                         <div ng-if="recorder.status.isDenied === true" style="color: red;">
                             You need to grant permission for this application to USE your microphone.
@@ -71,12 +71,9 @@
                         <md-button ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()" type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
                             {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
                         </md-button>
-                        <md-button ng-click="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
-                            Save
-                        </md-button>
-                        <h2 ng-if="recorder.status.isRecording">
-                You are recording
-            </h2>
+                        <h4 ng-if="recorder.status.isRecording">
+                                 You are recording
+                        </h4>
                     </div>
                     <div ng-if="!recorder.isAvailable">
                         Your browser does not support this feature natively, please use latest version of <a href="https://www.google.com/chrome/browser" target="_blank">Google Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a>. If you're on Safari or Internet Explorer, you can install <a href="https://get.adobe.com/flashplayer/">Adobe Flash</a> to use this feature.
@@ -96,6 +93,7 @@
             </div>
             <div layout="row" layout-align="end">
                 <!-- <md-button ng-click="examVm.saveAndContinue()" class="md-warn md-raised">SAVE & CONTINUE</md-button> -->
+                <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.saveAudioRecording()" class="md-warn md-raised">SAVE AUDIO</md-button>
                 <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.saveAndClose()" class="md-warn md-raised">SAVE</md-button>
                 <md-button ng-click="examVm.preview()" class="md-warn md-raised">PREVIEW</md-button>
                 <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.deliver()" class="md-warn md-raised">DELIVER</md-button>

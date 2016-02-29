@@ -92,5 +92,9 @@
     "room": {
         "dataSource": "mongoDB",
         "public": true
+    },
+    "container": {
+        "dataSource": "container",
+        "public": true
     }
 }

@@ -15,7 +15,8 @@
             getDetailedList: getDetailedList,
             addNewExam: addNewExam,
             addMultipleExams: addMultipleExams,
-            saveInterpretation: saveInterpretation
+            saveInterpretation: saveInterpretation,
+            saveAudioInterpretation: saveAudioInterpretation
 
         };
 
@@ -60,6 +61,15 @@
             }, function(error) {
 
 
+            });
+        }
+
+        function saveAudioInterpretation(exam) {
+            return exam.save().then(function(response) {
+                return response;
+            }, function(error) {
+
+                return error;
             });
         }
     }

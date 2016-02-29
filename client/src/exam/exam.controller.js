@@ -252,7 +252,7 @@
 
     }
 
-    function ExamInterpretationController(ExamService, ExamTypeService, $window, $document, $stateParams, $state, $mdToast) {
+    function ExamInterpretationController(ExamService, ExamTypeService, $window, $document, $stateParams, $state, $mdToast, store, recorderService) {
         var vm = this;
         vm.examId = $stateParams.examId;
         console.log(vm.examId)
@@ -264,6 +264,7 @@
         vm.getExamDetails = getExamDetails;
         vm.getPathologyModels = getPathologyModels;
         vm.updateReportModel = updateReportModel;
+        vm.saveAudioRecording = saveAudioRecording;
         vm.saveAndContinue = saveAndContinue;
         vm.saveAndClose = saveAndClose;
         vm.preview = preview;
@@ -274,6 +275,7 @@
         function getExamDetails(id) {
             ExamService.getExamDetails(id).then(function(exam) {
                 vm.selectedExam = exam;
+                store.set('selectedExamForInterpretation', vm.selectedExam);
                 getPathologyModels();
                 // vm.selectedExam = vm.selectedExam[0];
                 console.log(vm.selectedExam);
@@ -295,6 +297,22 @@
 
         function activate() {
             getExamDetails(vm.examId);
+
+        }
+
+        function saveAudioRecording() {
+            console.log("saving audio");
+            var recorder = recorderService.controller('mainAudio');
+            recorder.save();
+            vm.selectedExam.hasAudio = true;
+            ExamService.saveAudioInterpretation(vm.selectedExam);
+            //need to handle erros
+            $mdToast.show(
+                $mdToast.simple()
+                .textContent('Audio Recording Saved')
+                .position('bottom right')
+                .hideDelay(1000)
+            );
 
         }
 

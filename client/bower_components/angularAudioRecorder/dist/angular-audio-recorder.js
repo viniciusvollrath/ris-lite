@@ -60,7 +60,7 @@
         a.readAsDataURL(blob);
     };
 
-    var RecorderController = function(element, Upload, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK) {
+    var RecorderController = function(element, Upload, store, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK) {
         //used in NON-Angular Async process
         var scopeApply = function(fn) {
             var phase = $scope.$root.$$phase;
@@ -390,15 +390,16 @@
             //a.download = fileName;
             //var click = document.createEvent("Event");
             //click.initEvent("click", true, true);
+            var selectedExam = store.get('selectedExamForInterpretation');
             Upload.upload({
-                url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+                url: 'http://0.0.0.0:3000/api/containers/exam-results-audio/upload',
                 data: {
-                    file: blobUrl
+                    file: Upload.rename(control.audioModel, selectedExam.id + '.mp3')
                 },
             }).then(function(response) {
                 console.log(response);
-            }, function(response) {
-                console.log(response);
+            }, function(error) {
+                console.log(error);
 
             });
             // a.dispatchEvent(click);
@@ -420,7 +421,7 @@
 
     };
 
-    RecorderController.$inject = ['$element', 'Upload', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus'];
+    RecorderController.$inject = ['$element', 'Upload', 'store', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus'];
 
     angular.module('angularAudioRecorder.controllers')
         .controller('recorderController', RecorderController);
