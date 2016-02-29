@@ -5,16 +5,16 @@
         .factory('Rest', Rest)
         .factory('ProdRestangular', ProdRestangular);
 
-    function Rest(Restangular) {
+    function Rest(Restangular, BASE_URL) {
         return Restangular.withConfig(function(RestangularConfigurer) {
-            RestangularConfigurer.setBaseUrl('http://0.0.0.0:3000/api');
+            RestangularConfigurer.setBaseUrl(BASE_URL);
         });
     }
 
-    function ProdRestangular(Restangular) {
+    function ProdRestangular(Restangular, BASE_URL) {
         return Restangular.withConfig(function(RestangularConfigurer) {
             //var token = window.localStorage.getItem("yourTokenKey");
-            RestangularConfigurer.setBaseUrl('http://0.0.0.0:3000/api');
+            RestangularConfigurer.setBaseUrl(BASE_URL);
             RestangularConfigurer.setDefaultHeaders({
                 "X-Access-Token": token,
             });

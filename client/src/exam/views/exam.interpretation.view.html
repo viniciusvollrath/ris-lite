@@ -55,9 +55,9 @@
                     </md-select>
                 </md-input-container>
             </div>
-            <div flex="35">
+            <div flex="35" ng-if="examVm.selectedExam.status=='EXECUTED'">
                 <h5>Audio Recording</h5>
-                <ng-audio-recorder id="{{examVm.selectedExam.id}}" audio-model="recorded" show-player="true" ng-if="!examVm.selectedExam.hasAudio">
+                <ng-audio-recorder id="{{examVm.selectedExam.id}}" audio-model="recorded" show-player="true" ng-if="!examVm.displayAudioPlayer">
                     <div ng-if="recorder.isAvailable">
                         <div ng-if="recorder.status.isDenied === true" style="color: red;">
                             You need to grant permission for this application to USE your microphone.
@@ -79,9 +79,12 @@
                         Your browser does not support this feature natively, please use latest version of <a href="https://www.google.com/chrome/browser" target="_blank">Google Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a>. If you're on Safari or Internet Explorer, you can install <a href="https://get.adobe.com/flashplayer/">Adobe Flash</a> to use this feature.
                     </div>
                 </ng-audio-recorder>
-                <audio controls ng-if="examVm.displayAudioPlayer">
-                    <source src="{{examVm.audioFileUrl}}" type="audio/mpeg"> Your browser does not support the audio element.
-                </audio>
+                <div layout="row" ng-if="examVm.displayAudioPlayer">
+                    <audio controls class="audio">
+                        <source src="{{examVm.audioFileUrl}}" type="audio/mpeg"> Your browser does not support the audio element.
+                    </audio>
+                    <md-button ng-click="examVm.recordNewAudio()" class="md-warn md-raised">Erase</md-button>
+                </div>
             </div>
         </div>
         <form name="examsListForm">

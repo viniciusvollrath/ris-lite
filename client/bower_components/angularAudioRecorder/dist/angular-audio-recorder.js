@@ -397,7 +397,7 @@
             Upload.upload({
                 url: BASE_URL + '/containers/exam-results-audio/upload',
                 data: {
-                    file: Upload.rename(control.audioModel, selectedExam.id + '.mp3')
+                    file: Upload.rename(control.audioModel, selectedExam + '.mp3')
                 },
             }).then(function(response) {
                 console.log(response);

@@ -266,6 +266,7 @@
         vm.getPathologyModels = getPathologyModels;
         vm.updateReportModel = updateReportModel;
         vm.saveAudioRecording = saveAudioRecording;
+        vm.recordNewAudio = recordNewAudio;
         vm.saveAndContinue = saveAndContinue;
         vm.saveAndClose = saveAndClose;
         vm.preview = preview;
@@ -337,6 +338,10 @@
             saveAudioRecording();
 
         });
+
+        function recordNewAudio() {
+            vm.displayAudioPlayer = false;
+        }
 
         function saveAndContinue() {
             console.log('save')
