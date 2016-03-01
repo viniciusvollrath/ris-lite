@@ -19,7 +19,7 @@
                 'main@app': {
                     templateUrl: 'src/patient/views/patient.main.view.html',
                     controller: 'PatientMainController',
-                    controllerAs: 'patient'
+                    controllerAs: 'patientVm'
 
                 }
             },
