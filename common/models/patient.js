@@ -39,7 +39,7 @@ module.exports = function(Patient) {
                         console.log(eType);
                         ex.interpretation = eType.defaultResultModel;
                         ex.conclusion = " ";
-                        ex.isInterpreted = false;
+                        ex.hasAudio = false;
                         ex.isPaid = true;
                         ex.status = "NEW";
                         console.log('ex')

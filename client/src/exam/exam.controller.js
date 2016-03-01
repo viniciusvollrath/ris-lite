@@ -93,7 +93,6 @@
         vm.setPrice = setPrice;
         vm.setTotal = setTotal;
         vm.typeSelected = typeSelected;
-        vm.createExams = createExams;
         vm.addPatientAndExams = addPatientAndExams;
 
 
@@ -220,13 +219,6 @@
 
                 }
             };
-        }
-
-        function createExams() {
-            console.log(vm.patient);
-            console.log(vm.selectedExams);
-            //$state.go('app.dashboard.main.quotation.patient');
-
         }
 
         function addPatientAndExams() {
