@@ -3,5 +3,5 @@
 
     angular
         .module('app')
-        .constant('BASE_URL', "http://0.0.0.0:3000/api/");
+        .constant('BASE_URL', "/api/");
 })();

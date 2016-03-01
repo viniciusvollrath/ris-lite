@@ -13,23 +13,40 @@
     configure.$inject = ['$stateProvider', 'USER_ROLES'];
 
     function configure($stateProvider, USER_ROLES) {
-        $stateProvider.state('app.patient', {
-            url: '/patient',
-            views: {
-                'main@app': {
-                    templateUrl: 'src/patient/views/patient.main.view.html',
-                    controller: 'PatientMainController',
-                    controllerAs: 'patientVm'
+        $stateProvider
+            .state('app.patient', {
+                url: '/patient',
+                views: {
+                    'main@app': {
+                        templateUrl: 'src/patient/views/patient.main.view.html',
+                        controller: 'PatientMainController',
+                        controllerAs: 'patientVm'
 
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+                },
+                ncyBreadcrumb: {
+                    label: 'Patient'
                 }
-            },
-            data: {
-                authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
-            },
-            ncyBreadcrumb: {
-                label: 'Patient'
-            }
-        });
+            }).state('app.patient.new', {
+                url: '/new',
+                views: {
+                    'main@app': {
+                        templateUrl: 'src/patient/views/patient.new.view.html',
+                        controller: 'PatientNewController',
+                        controllerAs: 'patientVm'
+
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+                },
+                ncyBreadcrumb: {
+                    label: 'New'
+                }
+            });
     }
 
 })();

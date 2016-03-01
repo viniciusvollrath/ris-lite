@@ -1,0 +1,67 @@
+<div ncy-breadcrumb class="col s12 ">
+</div>
+<md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>New Patient Information</span>
+        </div>
+    </md-toolbar>
+    <div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
+                <form name="userForm" ng-submit="patientVm.addNewPatient()">
+                    <div layout="row">
+                        <md-autocomplete flex required md-selected-item="patientVm.selectedPatient" md-input-minlength="0" md-input-maxlength="18" md-no-cache="patientVm.noCache" md-search-text-change="patientVm.searchTextChange(patientVm.patient.firstName)" md-search-text="patientVm.patient.firstName" md-selected-item-change="patientVm.selectedPatientChange(patient)" md-items="patient in patientVm.patients" md-item-text="patient.firstName" md-floating-label="First Name">
+                            <md-item-template>
+                                <span md-highlight-text="patientVm.patient.firstName" md-highlight-flags="^i">{{patient.firstName}} {{patient.lastName}} (age: {{patient.age}})</span>
+                            </md-item-template>
+                            <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                                <div ng-message="required">Is required</div>
+                            </div>
+                        </md-autocomplete>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input required name="description" ng-model="patientVm.patient.lastName" ng-disabled="patientVm.patientSelected">
+                            <div ng-messages="patientVm.patient.lastName.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Age</label>
+                            <input type="number" required name="description" ng-model="patientVm.patient.age" ng-disabled="patientVm.patientSelected">
+                            <div ng-messages="patientVm.patient.age.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Gender</label>
+                            <md-select ng-model="patientVm.patient.gender" ng-disabled="patientVm.patientSelected">
+                                <md-option value="MALE">Male</md-option>
+                                <md-option value="FEMALE">Female</md-option>
+                                <div ng-messages="patientVm.patient.gender.$error">
+                                    <div ng-message="required">This is required.</div>
+                                </div>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="30">
+                            <label>Phone Number</label>
+                            <input name="description" ng-model="patientVm.patient.phoneNumber" ng-disabled="patientVm.patientSelected">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex>
+                            <label>Address</label>
+                            <input required name="description " ng-model="patientVm.patient.address" ng-disabled="patientVm.patientSelected">
+                            <div ng-messages="patientVm.patient.address.$error">
+                                <div ng-message="required ">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row" layout-align="end">
+                        <md-button type="submit" class="md-raised md-warn" ng-hide="patientVm.patientSelected">ADD</md-button>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</md-card>
