@@ -1,17 +1,25 @@
 <div class="col s6" ncy-breadcrumb>
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="col s2 offset-s8 center-align">
         <button ui-sref="app.exam.new" class="col s12 green waves-effect waves-light btn btn-large">New Exam</button>
     </div>
     <div class="col s2 center-align">
         <button class="col blue s12 waves-effect waves-light btn btn-large">Ongoing Exams</button>
     </div>
-</div>
+</div> -->
 <md-card>
     <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
-            <span>Exams List</span>
+            <span flex="grow">Exams List</span>
+            <div layout="row" layout-align="end" flex="30">
+                <div>
+                    <md-button ui-sref="app.exam.new" class="green white-text">New Exam</md-button>
+                </div>
+                <div flex-offset="3">
+                    <md-button class="blue white-text">Ongoing Exams</md-button>
+                </div>
+            </div>
         </div>
     </md-toolbar>
     <!-- exact table from live demo -->
@@ -20,10 +28,11 @@
             <thead md-head md-order="examVm.query.order" md-on-reorder="onReorder">
                 <tr md-row>
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
-                    <th md-column md-order-by="nameToLower"><span>Type</span></th>
-                    <th md-column md-numeric>Status</th>
+                    <th md-column><span>Type</span></th>
+                    <th md-column>Date</th>
+                    <th md-column>Status</th>
                     <th md-column>Interpretation</th>
-                    <th md-column>Payed</th>
+                    <!-- <th md-column>Payed</th> -->
                     <th md-column md-numeric>Emergency</th>
                     <th md-column md-numeric>Price (DA )</th>
                 </tr>
@@ -32,14 +41,15 @@
                 <tr md-row md-select="exam" ng-repeat="exam in examVm.examList">
                     <td md-cell ng-click="examVm.viewExamDetails(exam.id)" class="patient-name-exam-table">{{exam.patient.firstName}} {{exam.patient.lastName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
+                    <td md-cell>{{exam.creationDate}}</td>
                     <td md-cell>{{exam.status}}</td>
                     <td md-cell>
                         <md-button ui-sref="app.exam.interpretation({examId:exam.id,exam:exam
 })" class="md-warn" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">Interpreter</md-button>
                         <md-button href="/print?id={{exam.id}}" target="_blank" class="md-warn" ng-if="exam.status == 'DELIVERED'">View Results</md-button>
                     </td>
-                    <td md-cell ng-if="exam.isPaid">YES</td>
-                    <td md-cell ng-if="!exam.isPaid">NO</td>
+                    <!-- <td md-cell ng-if="exam.isPaid">YES</td> -->
+                    <!-- <td md-cell ng-if="!exam.isPaid">NO</td> -->
                     <td md-cell>{{exam.emergencyLevel}}</td>
                     <td md-cell>{{exam.price}}</td>
                 </tr>

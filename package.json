@@ -11,7 +11,7 @@
     "body-parser": "^1.14.2",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
-    "html-pdf": "^2.0.0",
+    "html-pdf": "^2.0.1",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.2.0",
