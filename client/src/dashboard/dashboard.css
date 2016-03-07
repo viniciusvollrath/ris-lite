@@ -20,17 +20,25 @@
     margin-right: 10px;
 }
 
+.dash-card-monitoring-large {
+    min-height: 20vh;
+    color: #FFFFFF;
+}
+
+.exam-card-monitoring {
+    min-height: 17vh;
+}
+
 .monitoring-header {
     text-align: center;
-    color: #000000;
     font-family: 'Montserrat', cursive;
     font-weight: 400;
-    font-size: 5vh;
+    font-size: 2.5vw;
 }
 
 .monitoring-number {
     text-align: center;
-    font-size: 7vh;
+    font-size: 4vw;
     font-family: 'Montserrat', cursive;
     font-weight: 400;
 }
@@ -43,28 +51,32 @@
 }
 
 .awaiting {
-    color: #F44336;
+    background-color: #F44336;
+    color: #FFFFFF;
 }
 
 .ongoing {
-    color: #9C27B0;
+    background-color: #9C27B0;
+    color: #FFFFFF;
 }
 
 .exam {
     color: #2196F3;
 }
 
-.exam-header {
-    color: #616161;
-    font-size: 5vh;
+.appointment {
+    background-color: #42A5F5;
+    color: #FFFFFF;
 }
 
 .done {
-    color: #4CAF50;
+    background-color: #4CAF50;
+    color: #FFFFFF;
 }
 
-.appointment {
-    color: #42A5F5;
+.exam-header {
+    color: #616161;
+    font-size: 5vh;
 }
 
 .total-exam-number {

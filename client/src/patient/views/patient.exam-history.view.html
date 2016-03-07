@@ -1,0 +1,21 @@
+<div class="col s6" ncy-breadcrumb>
+</div>
+<md-card>
+    <md-list>
+        <h4>Exams History</h4>
+        <md-list-item class="md-5-line md-long-text" ng-repeat="exam in patientVm.examsList">
+            <div class="">
+                <h5>Exam : {{exam.examType.equipmentType.name}} - {{exam.examType.name}}</h5
+>
+                <h5>Date : {{exam.creationDate}}</h5>
+                <h5>Results:</h5>
+                <p ng-bind-html="exam.interpretation">
+                </p>
+                <h5>Conclusion:</h5>
+                <p ng-bind-html="exam.conclusion">
+                </p>
+            </div>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-list>
+</md-card>

@@ -9,7 +9,9 @@
      */
     angular.module('app.patient')
         .controller('PatientMainController', PatientMainController)
-        .controller('PatientNewController', PatientNewController);
+        .controller('PatientNewController', PatientNewController)
+        .controller('PatientExamHistoryController', PatientExamHistoryController)
+        .controller('PatientDetailsController', PatientDetailsController);
 
     function PatientMainController(PatientService) {
         var vm = this;
@@ -61,6 +63,32 @@
 
             })
         }
+
+    }
+
+    function PatientExamHistoryController(PatientService, $stateParams) {
+        var vm = this;
+        vm.patientId = $stateParams.patientId;
+        vm.examsList = [];
+        activate();
+        vm.getExamHistory = getExamHistory;
+
+        function getExamHistory() {
+            PatientService.getPatientHistory(vm.patientId)
+                .then(function(examsList) {
+                    vm.examsList = examsList;
+                    console.log(examsList);
+                }, function(error) {
+                    console.log(error);
+                })
+        }
+
+        function activate() {
+            getExamHistory();
+        }
+    }
+
+    function PatientDetailsController() {
 
     }
 })();

@@ -46,6 +46,25 @@
                 ncyBreadcrumb: {
                     label: 'New'
                 }
+            }).state('app.patient.exam-history', {
+                url: '/history/:patientId',
+                views: {
+                    'main@app': {
+                        templateUrl: 'src/patient/views/patient.exam-history.view.html',
+                        controller: 'PatientExamHistoryController',
+                        controllerAs: 'patientVm'
+
+                    }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+                },
+                ncyBreadcrumb: {
+                    label: 'Exams History'
+                },
+                params: {
+                    patientId: ''
+                }
             });
     }
 

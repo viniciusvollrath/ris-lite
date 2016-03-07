@@ -13,7 +13,8 @@
             patientList: patientList,
             findPatient: findPatient,
             addNewPatient: addNewPatient,
-            addPatientAndExams: addPatientAndExams
+            addPatientAndExams: addPatientAndExams,
+            getPatientHistory: getPatientHistory
 
         };
 
@@ -58,6 +59,16 @@
                 console.log(error);
                 return error;
             });
+        }
+
+        function getPatientHistory(id) {
+            var patient = Rest.one("patients", id).all("exams");
+            return patient.customGET('?filter[include][examType]=equipmentType')
+                .then(function(response) {
+                    return response.plain();
+                }, function(error) {
+                    return error;
+                })
         }
     }
 })();
