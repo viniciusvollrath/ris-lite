@@ -44,7 +44,7 @@
             </table>
         </div>
         <div layout="row">
-            <div flex="65">
+            <div flex="65" ng-if="examVm.selectedExam.status=='EXECUTED'">
                 <h5>Pathology related Models</h5>
                 <md-input-container class="md-block">
                     <label>Pathology Models</label>
@@ -88,21 +88,23 @@
             </div>
         </div>
         <form name="examsListForm">
-            <div flex>
+            <div flex ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION'">
                 <h5>Exam Results</h5>
                 <trix-editor angular-trix ng-model="examVm.selectedExam.interpretation"></trix-editor>
             </div>
-            <div flex>
+            <div flex ng-if="examVm.selectedExam.status=='EXECUTED'">
                 <h5>Exam Conclusion</h5>
                 <trix-editor angular-trix ng-model="examVm.selectedExam.conclusion"></trix-editor>
                 </md-input-container>
             </div>
             <div layout="row" layout-align="end">
-                <md-button ng-if="examVm.selectedExam.status!='EXECUTED'" ng-click="examVm.markAsExecuted()" class="md-warn md-raised">MARK AS EXECUTED</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.markAsExecuted()" class="md-warn md-raised">MARK AS EXECUTED</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='EXECUTED'" ng-click="examVm.startInterpretation()" class="md-warn md-raised">START INTERPRETATION</md-button>
                 <!--  <md-button ng-if="examVm.selectedExam.status=='NEW'" ng-click="examVm.saveAudioRecording()" class="md-warn md-raised">SAVE AUDIO</md-button> -->
-                <md-button ng-if="examVm.selectedExam.status=='EXECUTED'" ng-click="examVm.saveAndClose()" class="md-warn md-raised">SAVE</md-button>
-                <md-button ng-click="examVm.preview()" class="md-warn md-raised">PREVIEW</md-button>
-                <md-button ng-if="examVm.selectedExam.status=='EXECUTED'" ng-click="examVm.deliver()" class="md-warn md-raised">DELIVER</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION'" ng-click="examVm.saveAndClose()" class="md-warn md-raised">SAVE</md-button>
+                <md-button ng-if="examVm.selectedExam.status!='NEW'" ng-click="examVm.preview()" class="md-warn md-raised">PREVIEW</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION'" ng-click="examVm.markAsInterpreted()" class="md-warn md-raised">MARK AS INTERPRETED</md-button>
+                <md-button ng-if="examVm.selectedExam.status=='INTERPRETED'" ng-click="examVm.deliver()" class="md-warn md-raised">DELIVER</md-button>
                 <md-button ng-if="examVm.selectedExam.status=='DELIVERED'" ng-click="examVm.print()" class="md-warn md-raised">PRINT</md-button>
             </div>
         </form>

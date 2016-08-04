@@ -262,6 +262,8 @@
         vm.saveAndContinue = saveAndContinue;
         vm.saveAndClose = saveAndClose;
         vm.markAsExecuted = markAsExecuted;
+        vm.markAsInterpreted = markAsInterpreted;
+        vm.startInterpretation = startInterpretation;
         vm.preview = preview;
         vm.deliver = deliver;
         vm.print = print;
@@ -338,6 +340,16 @@
 
         function markAsExecuted() {
             vm.selectedExam.status = "EXECUTED";
+            vm.selectedExam.save();
+        }
+
+        function markAsInterpreted() {
+            vm.selectedExam.status = "INTERPRETED";
+            vm.selectedExam.save();
+        }
+
+        function startInterpretation() {
+            vm.selectedExam.status = "UNDER INTERPRETATION";
             vm.selectedExam.save();
         }
 
