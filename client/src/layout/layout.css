@@ -1,5 +1,5 @@
 .dashboard-layout-nav {
-    min-height: 10vh;
+    /*min-height: 10vh;*/
     z-index: 1 !important;
     position: absolute;
 }

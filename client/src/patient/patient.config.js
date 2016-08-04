@@ -65,7 +65,23 @@
                 params: {
                     patientId: ''
                 }
-            });
+            }).state('app.patient.details', {
+                            url: '/details',
+                            views: {
+                                'main@app': {
+                                    templateUrl: 'src/patient/views/patient.details.view.html',
+                                    controller: 'PatientDetailsController',
+                                    controllerAs: 'patientVm'
+            
+                                }
+                            },
+                            data: {
+                                authorizedRoles: [USER_ROLES.admin, USER_ROLES.doctor]
+                            },
+                            ncyBreadcrumb: {
+                                label: 'Details'
+                            }
+                        });
     }
 
 })();

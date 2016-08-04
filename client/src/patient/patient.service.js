@@ -19,8 +19,8 @@
         };
 
         function findPatient(text) {
-            return patient.customGET('?filter[where][firstName][like]=' + text).then(function(response) {
-
+            return patient.customGET('?filter[where][or][0][firstName][like]=' + text + '&filter[where][or][1][lastName][like]=' + text).then(function(response) {
+                                        
                 return response;
 
             }, function(error) {

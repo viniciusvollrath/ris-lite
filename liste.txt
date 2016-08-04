@@ -1,22 +1,22 @@
-======DONE======# commancer par le type d examin et afficher le prix immediatement apres selection du type d examin
+======DONE======# commancer par le type d examin et afficher le prix immediatement apres selection du type d'examin
 
-======DONE======# si le client accepte le prix et decide de passer l examin saisire les info malade 
+======DONE======# si le client accepte le prix et decide de passer l'examin saisire les info malade 
 
-======DONE======# ajouter la case medcin traitant dans le formulaire (non obligatoire) 
+======DONE======# ajouter la case medecin traitant dans le formulaire (non obligatoire) 
 #avec autocomplete
 ======DONE======# ajouter une alerte pour signaler les examin qui nessecite une preparation particulaire (a jeune, examin a faire avece produit de contraste ...etc)
-# status financier de l examin : paye non paye 
+# status financier de l'examin : paye non paye 
 ======DONE======#  un malade peut demander plusure examin 
-======DONE======## lors de la selection d examin l utilisateur peut selectioner plsuure examin et le prix total sera afficher si le madale decide de passer l enssemble des examin lors de la validation du formulaire tout les examin seron cree separement (daaahhhh)
-# possibilite d imprimer un ticket pour le malade lors de l attente (ticket de caisse)
-======DONE======# ajouter le derget d urgence d examin 3 degre (normal, legerement fatigue , urgent malade tres fatigue )
-# slectioner le manipulateur qui a effectuer l examin lors de la validation de le execution de le xamin
+======DONE======## lors de la selection d examin l'utilisateur peut selectioner plsuure examin et le prix total sera afficher si le madale decide de passer l'enssemble des examin lors de la validation du formulaire tout les examin seron cree separement (daaahhhh)
+# possibilite d'imprimer un ticket pour le malade lors de l'attente (ticket de caisse)
+======DONE======# ajouter le derget d'urgence d'examin 3 degre (normal, legerement fatigue, urgent malade tres fatigue)
+# slectioner le manipulateur qui a effectuer l'examin lors de la validation de le execution de le xamin
 ======DONE======# un examin a trois status (en attente, realise, remis)
 
 
-## ajouter l option se souvenir de moi avec le local storage sinon utiliser seulement le session storage
+## ajouter l'option se souvenir de moi avec le local storage sinon utiliser seulement le "session storage"
 
-## ajouter un status a chaqu equipmenet pour active deactive l equipement selon son etat
+## ajouter un status a chaqu equipmenet pour active deactive l'equipement selon son etat
 
 **********************************
 
@@ -25,7 +25,7 @@ refaire les forme de creation des module suivant:
 ======DONE======//equipment type --done
 ======DONE======//equipment --done
 ======DONE======//exam Type --done
-exam Type(Introduire le principe de compte rendu par defaut et de compte rendu type illimite)
+======DONE======//exam Type(Introduire le principe de compte rendu par defaut et de compte rendu type illimite)
 
 Refaire les module d afichage de la liste avec un tableau completement operationel pour les modules suivants:
 ======DONE======//equipment type --done
@@ -44,7 +44,7 @@ ajouter l interface de creation de RDV sans date
 L age doit etre calculer et non statique par rapport a l anne de naissance qui doit etre retrouver par inverse
 
 ajouter l interface de creation de RDV comme la creation d exam
-ajouter l interface d affichae des patients
+ajouter l interface d affichage des patients
 ajouter l interface de creation des patients
 ajouter l interface d affichage des medcins partenaire
 ajouter l interface de creation de medecin partelaire

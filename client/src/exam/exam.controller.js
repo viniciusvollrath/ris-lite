@@ -368,7 +368,7 @@
         }
 
         function preview() {
-            $window.open('/print?id=' + vm.selectedExam.id, '_blank');
+            $window.open('/print-results?id=' + vm.selectedExam.id, '_blank');
         }
 
         function deliver() {
@@ -385,7 +385,7 @@
         }
 
         function print() {
-            $window.open('/print?id=' + vm.selectedExam.id, '_blank');
+            $window.open('/print-results?id=' + vm.selectedExam.id, '_blank');
 
         }
 

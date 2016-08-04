@@ -35,6 +35,7 @@
                     <!-- <th md-column>Payed</th> -->
                     <th md-column md-numeric>Emergency</th>
                     <th md-column md-numeric>Price (DA )</th>
+                    <th md-column md-numeric>Invoice</th>
                 </tr>
             </thead>
             <tbody md-body>
@@ -46,12 +47,15 @@
                     <td md-cell>
                         <md-button ui-sref="app.exam.interpretation({examId:exam.id,exam:exam
 })" class="md-warn" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">Interpreter</md-button>
-                        <md-button href="/print?id={{exam.id}}" target="_blank" class="md-warn" ng-if="exam.status == 'DELIVERED'">View Results</md-button>
+                        <md-button href="/print-results?id={{exam.id}}" target="_blank" class="md-warn" ng-if="exam.status == 'DELIVERED'">View Results</md-button>
                     </td>
                     <!-- <td md-cell ng-if="exam.isPaid">YES</td> -->
                     <!-- <td md-cell ng-if="!exam.isPaid">NO</td> -->
                     <td md-cell>{{exam.emergencyLevel}}</td>
                     <td md-cell>{{exam.price}}</td>
+                    <td md-cell>
+                        <md-button href="/print-invoice?id={{exam.id}}" target="_blank" class="md-warn">View Invoice</md-button>
+                    </td>
                 </tr>
             </tbody>
         </table>

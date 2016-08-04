@@ -187,9 +187,11 @@
          * Build `types` list of key/value pairs
          */
         function loadAll() {
-            ExamTypeService.list.then(function(types) {
+            ExamTypeService.list().then(function(types) {
                 vm.types = types.plain();
                 //return types;
+
+            }, function(error) {
 
             });
         }

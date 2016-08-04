@@ -13,7 +13,7 @@
         .controller('PatientExamHistoryController', PatientExamHistoryController)
         .controller('PatientDetailsController', PatientDetailsController);
 
-    function PatientMainController(PatientService) {
+    function PatientMainController(PatientService, $state) {
         var vm = this;
         vm.patientList = [];
         vm.selectedPatient = {};
@@ -25,6 +25,7 @@
         activate();
 
         vm.getPatientList = getPatientList;
+        vm.viewPatientDetails = viewPatientDetails;
 
         function activate() {
             getPatientList();
@@ -36,6 +37,10 @@
                 vm.patientList = list;
                 console.log(vm.patientList);
             });
+        }
+
+        function viewPatientDetails(id){
+            $state.go('app.patient.details', { patientId: id });
         }
 
 
