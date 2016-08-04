@@ -73,6 +73,7 @@
                     <th md-column md-numeric>Payed</th>
                     <th md-column md-numeric>Emergency</th>
                     <th md-column md-numeric>Price (DA )</th>
+                    <th md-column md-numeric>Action</th>
                 </tr>
             </thead>
             <tbody md-body>
@@ -84,6 +85,10 @@
                     <td md-cell ng-if="!exam.isPaid">NO</td>
                     <td md-cell>{{exam.emergencyLevel}}</td>
                     <td md-cell>{{exam.price}}</td>
+                    <td md-cell>
+                        <md-button ui-sref="app.exam.interpretation({examId:exam.id
+})" class="md-warn">Details</md-button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -104,10 +109,10 @@
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
                     <th md-column md-order-by="nameToLower"><span>Type</span></th>
                     <th md-column md-numeric>Status</th>
-                    <th md-column md-numeric>Interpretation</th>
                     <th md-column md-numeric>Payed</th>
                     <th md-column md-numeric>Emergency</th>
                     <th md-column md-numeric>Price (DA )</th>
+                    <th md-column md-numeric>Action</th>
                 </tr>
             </thead>
             <tbody md-body>
@@ -115,14 +120,14 @@
                     <td md-cell>{{exam.patient.firstName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
                     <td md-cell>{{exam.status}}</td>
-                    <td md-cell>
-                        <md-button ui-sref="app.exam.interpretation({examId:exam.id
-})" class="md-warn">Interpreter</md-button>
-                    </td>
                     <td md-cell ng-if="exam.isPaid">YES</td>
                     <td md-cell ng-if="!exam.isPaid">NO</td>
                     <td md-cell>{{exam.emergencyLevel}}</td>
                     <td md-cell>{{exam.price}}</td>
+                    <td md-cell>
+                        <md-button ui-sref="app.exam.interpretation({examId:exam.id
+})" class="md-warn">Interpreter</md-button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -145,10 +150,10 @@
                     <th md-column md-order-by="nameToLower"><span>Patient Name</span></th>
                     <th md-column md-order-by="nameToLower"><span>Type</span></th>
                     <th md-column md-numeric>Status</th>
-                    <th md-column md-numeric>Interpretation</th>
                     <th md-column md-numeric>Payed</th>
                     <th md-column md-numeric>Emergency</th>
                     <th md-column md-numeric>Price (DA )</th>
+                    <th md-column md-numeric>Action</th>
                 </tr>
             </thead>
             <tbody md-body>
@@ -156,13 +161,13 @@
                     <td md-cell>{{exam.patient.firstName}}</td>
                     <td md-cell>{{exam.examType.name}}</td>
                     <td md-cell>{{exam.status}}</td>
-                    <td md-cell>
-                        <md-button href="/print?id={{exam.id}}" target="_blank" class="md-warn">View Results</md-button>
-                    </td>
                     <td md-cell ng-if="exam.isPaid">YES</td>
                     <td md-cell ng-if="!exam.isPaid">NO</td>
                     <td md-cell>{{exam.emergencyLevel}}</td>
                     <td md-cell>{{exam.price}}</td>
+                    <td md-cell>
+                        <md-button href="/print?id={{exam.id}}" target="_blank" class="md-warn">View Results</md-button>
+                    </td>
                 </tr>
             </tbody>
         </table>
