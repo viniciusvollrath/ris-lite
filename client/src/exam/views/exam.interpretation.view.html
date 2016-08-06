@@ -44,7 +44,7 @@
             </table>
         </div>
         <div layout="row">
-            <div flex="65" ng-if="examVm.selectedExam.status=='EXECUTED'">
+            <div flex="65" ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION'">
                 <h5>Pathology related Models</h5>
                 <md-input-container class="md-block">
                     <label>Pathology Models</label>
@@ -55,7 +55,7 @@
                     </md-select>
                 </md-input-container>
             </div>
-            <div flex="35" ng-if="examVm.selectedExam.status=='EXECUTED'">
+            <div flex="35" ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION'">
                 <h5>Audio Recording</h5>
                 <ng-audio-recorder id="{{examVm.selectedExam.id}}" audio-model="recorded" show-player="true" ng-if="!examVm.displayAudioPlayer">
                     <div ng-if="recorder.isAvailable">
@@ -88,11 +88,11 @@
             </div>
         </div>
         <form name="examsListForm">
-            <div flex ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION'">
+            <div flex ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION' || examVm.selectedExam.status=='INTERPRETED'">
                 <h5>Exam Results</h5>
                 <trix-editor angular-trix ng-model="examVm.selectedExam.interpretation"></trix-editor>
             </div>
-            <div flex ng-if="examVm.selectedExam.status=='EXECUTED'">
+            <div flex ng-if="examVm.selectedExam.status=='UNDER INTERPRETATION' || examVm.selectedExam.status=='INTERPRETED'">
                 <h5>Exam Conclusion</h5>
                 <trix-editor angular-trix ng-model="examVm.selectedExam.conclusion"></trix-editor>
                 </md-input-container>

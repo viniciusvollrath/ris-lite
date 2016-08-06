@@ -1,21 +1,37 @@
 <div class="col s6" ncy-breadcrumb>
 </div>
 <md-card>
-    <md-list>
-        <h4>Exams History</h4>
-        <md-list-item class="md-5-line md-long-text" ng-repeat="exam in patientVm.examsList">
-            <div class="">
-                <h5>Exam : {{exam.examType.equipmentType.name}} - {{exam.examType.name}}</h5
->
-                <h5>Date : {{exam.creationDate}}</h5>
-                <h5>Results:</h5>
-                <p ng-bind-html="exam.interpretation">
-                </p>
-                <h5>Conclusion:</h5>
-                <p ng-bind-html="exam.conclusion">
-                </p>
-            </div>
-            <md-divider></md-divider>
-        </md-list-item>
-    </md-list>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span flex="grow">{{patientVm.patient.firstName}} History</span>
+        </div>
+    </md-toolbar>
+    <md-table-container>
+        <table md-table ng-model="patientVm.selectedPatient" md-progress="patientVm.promise">
+            <thead md-head md-order="patientVm.query.order" md-on-reorder="onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Exam Type</span></th>
+                    <th md-column>Exam</th>
+                    <th md-column>Execution Date</th>
+                    <th md-column md-numeric>Motif</th>
+                    <th md-column>Medecin Traitant</th>
+                    <th md-column>Results</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="patient" ng-repeat="exam in patientVm.examsList">
+                    <td md-cell>{{exam.examType.equipmentType.name}}</td>
+                    <td md-cell>{{exam.examType.name}}</td>
+                    <td md-cell>{{exam.creationDate}}</td>
+                    <td md-cell>{{exam.creationDate}}</td>
+                    <td md-cell>{{exam.creationDate}}</td>
+                    <td md-cell>
+                        <md-button ui-sref="app.patient.exam-history({patientId:patient.id})" class="md-warn" layout-align="end">View</md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <md-table-pagination md-limit="patientVm.query.limit" md-page="patientVm.query.page" md-total="{{exam.equipmentTypeList.length}}" md-on-paginate="patientVm.onPaginate" md-page-select></md-table-pagination>
 </md-card>
+

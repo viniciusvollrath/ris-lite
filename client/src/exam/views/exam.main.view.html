@@ -46,7 +46,7 @@
                     <td md-cell>{{exam.status}}</td>
                     <td md-cell>
                         <md-button ui-sref="app.exam.interpretation({examId:exam.id,exam:exam
-})" class="md-warn" ng-if="exam.status == 'NEW' || exam.status == 'EXECUTED'">Interpreter</md-button>
+})" class="md-warn" ng-if="exam.status != 'DELIVERED'">Interpreter</md-button>
                         <md-button href="/print-results?id={{exam.id}}" target="_blank" class="md-warn" ng-if="exam.status == 'DELIVERED'">View Results</md-button>
                     </td>
                     <!-- <td md-cell ng-if="exam.isPaid">YES</td> -->
